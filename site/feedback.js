@@ -1,19 +1,14 @@
 'use strict';
 (() => {
-  // Populate using the published Google Form and its prefilled-link field IDs.
-  // Keep empty until the form is available and receiving responses.
   const config = {
-    formUrl: '',
-    protocolField: '',
-    stepField: ''
+    formUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSe6lu943g1k1xKO_SJXPGN2CdGrINBR22f7uQnFWp-0CC75fw/viewform',
+    reportField: 'entry.1734951772'
   };
   let url;
   try { url = new URL(config.formUrl); } catch { return; }
   if (url.protocol !== 'https:' || url.hostname !== 'docs.google.com' ||
       !/^\/forms\/d\/(?:e\/)?[^/]+\/viewform$/.test(url.pathname) ||
-      !/^entry\.\d+$/.test(config.protocolField) ||
-      !/^entry\.\d+$/.test(config.stepField) ||
-      config.protocolField === config.stepField) return;
+      !/^entry\.\d+$/.test(config.reportField)) return;
 
   const style = document.createElement('style');
   style.textContent = `
@@ -44,8 +39,17 @@
     const protocol = root.dataset.feedbackProtocol || 'Página inicial / nenhum protocolo';
     const step = root.dataset.feedbackStep || 'Início';
     target.searchParams.set('usp', 'pp_url');
-    target.searchParams.set(config.protocolField, protocol);
-    target.searchParams.set(config.stepField, step);
+    const report = [
+      'Descreva aqui o erro ou sua sugestão:',
+      '',
+      '',
+      'Não inclua dados identificáveis de pacientes.',
+      '',
+      'Contexto preenchido pelo Fluxo UPA:',
+      'Protocolo: ' + protocol,
+      'Etapa: ' + step
+    ].join('\n');
+    target.searchParams.set(config.reportField, report);
     link.href = target.href;
   }
   const root = document.getElementById('consultation');
