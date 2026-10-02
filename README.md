@@ -1,43 +1,57 @@
 # Fluxo UPA · Curitiba
 
-Aplicação estática de consulta rápida aos documentos de atendimento adulto e infantil publicados pela Secretaria Municipal da Saúde de Curitiba.
+Consulta guiada em português aos protocolos adultos e pediátricos publicados pela SMS Curitiba. A aplicação apresenta perguntas, respostas, etapas intermediárias e condutas em texto nativo, sem abrir PDFs durante a consulta.
 
-## Funcionalidades
+**Versão para revisão clínica: não validada para uso assistencial.** A transcrição e os caminhos precisam ser revisados por responsável clínico. Testes de software não validam indicações, doses, contraindicações ou atualidade de uma diretriz.
 
-- 73 documentos: 54 do catálogo adulto e 19 do infantil.
-- Pesquisa por título, sigla e termos de navegação, sem diferenciar acentos.
-- Filtros por público e área, atalhos de emergência e favoritos locais.
-- Leitor do PDF oficial e acesso direto à fonte, com link individual por protocolo.
-- Interface responsiva, navegação por teclado e estados vazios explícitos.
-- Sem cadastro, servidor, analytics ou coleta de dados de pacientes.
+## Funcionamento
 
-## Fontes
+- Público → quadro clínico → situação → perguntas do fluxo → conduta em tela.
+- 73 documentos de origem, com referência textual, critérios e tabelas.
+- Fluxos com mais de uma página permitem selecionar o componente aplicável.
+- Etapas intermediárias preservam condutas antes da próxima pergunta.
+- Histórico de respostas, voltar e reiniciar; busca direta por título, sigla ou queixa.
+- Componentes paralelos são identificados como complementares; a consulta de um não exclui os demais.
+- Documentos sem fluxograma navegável são apresentados como orientação textual.
+- Sem cadastro, analytics ou armazenamento de dados de pacientes. O estado existe somente na memória da página.
+- Interface responsiva e navegação por teclado.
+
+## Fontes e limites
 
 - https://saude.curitiba.pr.gov.br/conteudo/atendimento-adulto/1470
 - https://saude.curitiba.pr.gov.br/conteudo/atendimento-infantil/1472
 
-Links conferidos em 01/10/2026. Os 73 documentos retornaram PDFs válidos. Versões e datas exibidas são as informadas nas páginas de catálogo da SMS: podem diferir do cabeçalho interno do PDF. Confira sempre o documento original. A data de conferência não representa revisão clínica ou atualização das diretrizes.
+As 54 fontes adultas e 19 infantis foram obtidas dos catálogos oficiais e conferidas como PDFs válidos em 01/10/2026. A data não representa revisão clínica. Versões e datas do catálogo podem divergir dos cabeçalhos dos PDFs. Projeto independente, sem vínculo institucional com a Prefeitura.
 
-O aplicativo não reescreve condutas, não calcula doses, não faz triagem nem fornece diagnósticos. Categorias, termos relacionados e atalhos são auxiliares de navegação. Os protocolos são servidos pelo domínio oficial e requerem internet. Não há armazenamento offline de PDFs.
+`site/protocols.js` contém perguntas, ações, referências por página e transições explícitas. A geometria dos PDFs é extraída no preparo do conteúdo, nunca em tempo de execução. `scripts/build-protocols.py` registra ajustes específicos de navegação e pontos de inconsistência encontrados. `conversion-report.json` confere a estrutura; não é certificação clínica.
 
-Este é um índice independente, sem vínculo institucional com a Prefeitura. Os documentos pertencem aos respectivos autores/órgãos. O catálogo infantil consultado não possui um PDF específico de PCR; a aplicação não substitui esse resultado por um fluxo adulto.
+**Pendências conhecidas:** critérios, ramos e transcrições exigem conferência completa. Foram sinalizadas inconsistências em unidades/doses de nitroglicerina, adrenalina, amiodarona, ceftriaxona e na redação sobre compressões pediátricas; valores suspeitos detectados foram ocultados, sem inferir uma dose substituta. Essa lista não é uma auditoria farmacológica exaustiva. Referências usadas para identificar divergências (não para substituir os protocolos municipais):
 
-## Executar localmente
+- AHA, Pediatric Cardiac Arrest Algorithm, 2025: https://cpr.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Algorithms/Algorithm-PALS-CA-250123.pdf
+- Bula de ceftriaxona, DailyMed: https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4c5c2d3f-5038-41a1-a2fe-4dcd048dbac1
 
-Sem dependências de frontend ou etapa de compilação:
+O motor não faz diagnóstico automático nem calcula doses. Encaminhamentos para fluxos indisponíveis permanecem descritos em texto; não há substituição automática entre populações. O documento de PCR do catálogo adulto contém também página pediátrica, explicitamente identificada na seleção de parte.
+
+## Executar e publicar
+
+Sem compilação ou dependências de frontend:
 
 ```sh
 python3 -m http.server 8080 --directory site
 ```
 
-Acesse http://localhost:8080.
+O workflow `.github/workflows/pages.yml` publica `site` após push na branch `main`. GitHub Pages deve estar configurado para GitHub Actions.
 
-## GitHub Pages
+## Regenerar conteúdo para revisão
 
-O workflow `.github/workflows/pages.yml` publica a pasta `site` a cada push na branch `main`, e também pode ser executado manualmente. Na configuração do repositório, em **Settings → Pages → Build and deployment → Source**, selecione **GitHub Actions** caso Pages ainda não esteja habilitado.
+Requer Python e PyMuPDF. Os downloads temporários ficam em `../tmp/pdfs` e as extrações em `../tmp/graphs`, relativos ao repositório.
 
-## Manutenção do catálogo
+```sh
+python scripts/collect.py
+python scripts/enrich.py
+python scripts/extract-flow-geometry.py
+python scripts/build-protocols.py
+node scripts/test-protocols.cjs
+```
 
-O arquivo `site/catalog.js` contém título original, URL oficial, público, página de origem, metadados, categoria e termos auxiliares de pesquisa de cada documento. Para atualizar, confira as páginas de origem, valide que cada link retorna um PDF e revise os metadados antes de enviar alterações. Não altere condutas nem converta o índice em ferramenta de decisão sem validação clínica própria.
-
-Os scripts de coleta e enriquecimento documentam a extração original. A coleta lê os snapshots de links `adulto-source.json` e `infantil-source.json` e requer PyMuPDF para verificar PDFs. Eles não rodam em produção e não fazem atualização automática.
+Os PDFs podem mudar nas URLs oficiais. Compare versões e diferenças antes de regenerar/publicar; IDs geométricos são específicos da versão obtida. A coleta não é executada automaticamente em produção. Preserve a identificação de versão para revisão até aprovação clínica de todas as decisões e condutas.

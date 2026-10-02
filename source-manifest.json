@@ -1,0 +1,443 @@
+{
+  "retrieved": "2026-10-01",
+  "sources": [
+    {
+      "id": "adulto-acidente-por-animais-peconhentos",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/ACIDENTE%20POR%20ANIMAIS%20PE%C3%87ONHENTOS%201.pdf",
+      "pages": 8,
+      "sha256": "041e1ccb0b562a8d34507ec038c1d0e2b6d0e604b459538b27a670e2ad613dea"
+    },
+    {
+      "id": "adulto-arritmias",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/ARRITMIAS.pdf",
+      "pages": 6,
+      "sha256": "93f01060d5b99ef4fddebc5f8c8749152bd642cca3615e8821ff8fdad4e51dcd"
+    },
+    {
+      "id": "adulto-assistencia-ao-trabalho-de-parto-na-upa",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/ASSISTENCIA%20AO%20TRABALHO%20DE%20PARTO%20NA%20UPA%201.pdf",
+      "pages": 1,
+      "sha256": "99a2764252362a3d53b070a5d62d77c10e35c1c6859a49a5622ffb6ce8035361"
+    },
+    {
+      "id": "adulto-atendimento-de-urgencia-ao-paciente-oncologico-ou-com-suspeita-oncologica",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/ATENDIMENTO%20DE%20URG%C3%8ANCIA%20AO%20PACIENTE%20ONCOL%C3%93GICO%20OU%20COM%20SUSPEITA%20ONCOL%C3%93GICA%201.pdf",
+      "pages": 1,
+      "sha256": "ea0e405a935301a88284cdfbe443cd43e15ad2b9462f2309d879a9158222d2ec"
+    },
+    {
+      "id": "adulto-avaliacao-do-paciente-com-hiv-e-tuberculose-na-upa",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/AVALIA%C3%87%C3%83O%20DO%20PACIENTE%20COM%20HIV%20E%20TUBERCULOSE%20NA%20UPA.pdf",
+      "pages": 2,
+      "sha256": "5403e6ca30044ad01945dc0c85dd2da8cf4655940b317310e400a96c13916e3b"
+    },
+    {
+      "id": "adulto-avaliacao-do-paciente-com-hiv-na-upa",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/AVALIA%C3%87%C3%83O%20DO%20PACIENTE%20COM%20HIV%20NA%20UPA.pdf",
+      "pages": 1,
+      "sha256": "3e586c8c5426f852fc033938e35fa6a6f4ae897ddaccff6b5e27c8b8b520cb93"
+    },
+    {
+      "id": "adulto-avaliacao-do-paciente-com-tuberculose-na-upa",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/AVALIA%C3%87%C3%83O%20DO%20PACIENTE%20COM%20TUBERCULOSE%20NA%20UPA.pdf",
+      "pages": 2,
+      "sha256": "beb26823c07e4859badef7c91409ba572411a44dd0f89fc3138cb28050fdcfc7"
+    },
+    {
+      "id": "adulto-cefaleia",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/CEFALEIA.pdf",
+      "pages": 1,
+      "sha256": "a18afe93033d58c85ad425a8f31eb840230482b7348346373148ae6662b3460d"
+    },
+    {
+      "id": "adulto-choque",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/CHOQUE.pdf",
+      "pages": 2,
+      "sha256": "44bf70b9504f3862c2317b21fb3ae2382a8fcd809b228237210207e941d26af8"
+    },
+    {
+      "id": "adulto-colica-renal",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/C%C3%93LICA%20RENAL.pdf",
+      "pages": 1,
+      "sha256": "2722b4750366e844fed6d47d1daa9c7325a7625b80b82d130c677b380f25bdc1"
+    },
+    {
+      "id": "adulto-crises-convulsivas",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/CRISES%20CONVULSIVAS.pdf",
+      "pages": 1,
+      "sha256": "2827372ddc4b9e30a0ab98ea9d573389795646bdd37a6ae0de1ce5518b9885af"
+    },
+    {
+      "id": "adulto-crise-hipertensiva",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/CRISE%20HIPERTENSIVA.pdf",
+      "pages": 1,
+      "sha256": "77cdfa658523ac667064e0f955bf924f584bae7524a24b2bbbac7daee470546b"
+    },
+    {
+      "id": "adulto-deficit-focal-agudo",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DEFICIT%20FOCAL%20AGUDO.pdf",
+      "pages": 2,
+      "sha256": "88f8e7ea44d4b4df2eb51a5e3a61cac5a52cdb2128274c2e1647928f19a2d6c8"
+    },
+    {
+      "id": "adulto-delirium",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DELIRIUM.pdf",
+      "pages": 3,
+      "sha256": "25a5820d9e04619bd35828669c4de748903d9eb3b467330ecccdedfa255e6c1e"
+    },
+    {
+      "id": "adulto-descompensacao-aguda-da-insuficiencia-cardiaca",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DESCOMPENSA%C3%87%C3%83O%20AGUDA%20DA%20INSUFICI%C3%8ANCIA%20CARD%C3%8DACA.pdf",
+      "pages": 2,
+      "sha256": "eaf22afd3695ad728671ea225902335d48a01179519f71b0f406951edebf1cf8"
+    },
+    {
+      "id": "adulto-desospitalizacao-acionamento-do-saude-em-casa",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DESOSPITALIZA%C3%87%C3%83O-%20ACIONAMENTO%20DO%20SA%C3%9ADE%20EM%20CASA.pdf",
+      "pages": 4,
+      "sha256": "55106c4fb18d6af1bed37d121941c22afd91d0cf6b35d4837c9345fe38ba6215"
+    },
+    {
+      "id": "adulto-diarreia-aguda",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DIARREIA%20AGUDA.pdf",
+      "pages": 1,
+      "sha256": "a789f482626a1f1ada90c6e15eb0453be2cc19df3a1fd94ca9e9841c3d0d0a11"
+    },
+    {
+      "id": "adulto-doencas-anorretais",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOEN%C3%87AS%20ANORRETAIS.pdf",
+      "pages": 1,
+      "sha256": "4e60ad1b729caf8e712e12afe1f9e69512f02eff802ab8907fc1a310ac8873ad"
+    },
+    {
+      "id": "adulto-dor-abdominal-em-gestantes",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20ABDOMINAL%20EM%20GESTANTES.pdf",
+      "pages": 1,
+      "sha256": "c0b8d3d343096ce16c59b75247884d6c22142f2f08145b970cab444f8d7a5b3a"
+    },
+    {
+      "id": "adulto-dor-abdominal-no-adulto",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20ABDOMINAL%20NO%20ADULTO.pdf",
+      "pages": 2,
+      "sha256": "e8114841cdaafa958dedc157cb7b6e1e5929139c64baa40502f9223002f5a8c3"
+    },
+    {
+      "id": "adulto-dor-pelvica-na-mulher",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20PELVICA%20NA%20MULHER.pdf",
+      "pages": 1,
+      "sha256": "12d4ae2b2adc931c85f3c5dc4edd16836ba53bf95d7fe4344c7e93d32ed5b189"
+    },
+    {
+      "id": "adulto-dor-toracica-ventilatorio-dependente",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20TORACICA%20VENTILAT%C3%93RIO-DEPENDENTE.pdf",
+      "pages": 1,
+      "sha256": "6dc74f64f515848b8a2fafe8f63cba2b601cbeb3e3315200d87773ebb12cb6e8"
+    },
+    {
+      "id": "adulto-dor-toracica",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20TORACICA.pdf",
+      "pages": 1,
+      "sha256": "dab5871154c2f39a17802caefb8d7d9e007c308b512675c8473c3aa4fc63eb57"
+    },
+    {
+      "id": "adulto-emergencias-hiperglicemicas",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/EMERG%C3%8ANCIAS%20HIPERGLIC%C3%8AMICAS.pdf",
+      "pages": 2,
+      "sha256": "86f57fe3b4c4b8203d3daa2e8f2bb4f05418a331b178bbfcb5655070bdb58c31"
+    },
+    {
+      "id": "adulto-emergencias-psiquiatricas",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/EMERGENCIAS%20PSIQUIATRICAS.pdf",
+      "pages": 2,
+      "sha256": "ddd7876966206fb1c0c454401587be0b1f6e9e81d7b252d087285c6ae60fdad6"
+    },
+    {
+      "id": "adulto-emergencias-psiquiatricas-em-gestantes",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/EMERGENCIAS%20PSIQUIATRICAS%20EM%20GESTANTES.pdf",
+      "pages": 2,
+      "sha256": "540700982dd121e79dcfdced913ea2cd55490664d6b2d31e29373e10e70effc0"
+    },
+    {
+      "id": "adulto-emergencias-respiratorias",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/EMERGENCIAS%20RESPIRATORIAS.pdf",
+      "pages": 1,
+      "sha256": "83963d8a2709897465006312ff1a9bcbfddf4a57718218bbff76f32a42514bad"
+    },
+    {
+      "id": "adulto-evento-vascular-periferico-agudo",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/EVENTO%20VASCULAR%20PERIF%C3%89RICO%20AGUDO.pdf",
+      "pages": 1,
+      "sha256": "8e8022acf132c99cceae587afa58c1301b1fd18bf0d8dd4a7fabfe862a8fb4c3"
+    },
+    {
+      "id": "adulto-hematuria-macroscopica",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/HEMAT%C3%9ARIA%20MACROSC%C3%93PICA.pdf",
+      "pages": 1,
+      "sha256": "fa39d02dd014a816654830d6ab611e43d564343d974b0331e0a3fe5cc3f6a860"
+    },
+    {
+      "id": "adulto-hemorragia-digestiva",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/HEMORRAGIA%20DIGESTIVA.pdf",
+      "pages": 1,
+      "sha256": "c0aa339a0f37f6328395fa25087b46cf98ae987dc5bf04f7e8a0d154caaaca7d"
+    },
+    {
+      "id": "adulto-ictericia-no-adulto",
+      "url": "https://saude.curitiba.pr.gov.br/images/ICTER%C3%8DCIA%20NO%20ADULTO.pdf",
+      "pages": 3,
+      "sha256": "674e3095e2424f3e27c1ec6d02f7d5574da14a76e468c149711b9a5ad509d156"
+    },
+    {
+      "id": "adulto-infeccao-do-trato-urinario-em-gestantes",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/INFEC%C3%87%C3%83O%20DO%20TRATO%20URIN%C3%81RIO%20EM%20GESTANTES.pdf",
+      "pages": 2,
+      "sha256": "8e936c9e1209172ed89ff7d18b83722d083d82c527aea6943373634bc73e06f7"
+    },
+    {
+      "id": "adulto-infeccao-do-trato-urinario",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/INFEC%C3%87%C3%83O%20DO%20TRATO%20URIN%C3%81RIO.pdf",
+      "pages": 2,
+      "sha256": "1ad1bcdd4e6cff63fd73ea7b79f6156d6f2131268c42a71122e75deabb7ac6a6"
+    },
+    {
+      "id": "adulto-intoxicacoes-exogenas",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/INTOXICA%C3%87%C3%95ES%20EXOGENAS.pdf",
+      "pages": 4,
+      "sha256": "f627b9ab21e42ce3e740a2c10e622ec5b686214f407e0a2f4dda84ce95024a14"
+    },
+    {
+      "id": "adulto-leptospirose",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/LEPTOSPIROSE%20DUE.pdf",
+      "pages": 1,
+      "sha256": "c7d812146a56978ad369728a45793edbac7bf988fa689c0c5955895953c530f7"
+    },
+    {
+      "id": "adulto-lombalgia",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/LOMBALGIA_DUE.pdf",
+      "pages": 1,
+      "sha256": "73f1391d8070a1af50a9751c444c513d84a4bcdcc679618eaee053be78b37b49"
+    },
+    {
+      "id": "adulto-nauseas-e-vomitos",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/NAUSEAS%20E%20VOMITOS.pdf",
+      "pages": 1,
+      "sha256": "9f3613ae14138c605d34e246494a1106d966179bc9d8b2679ee5a98bbc788815"
+    },
+    {
+      "id": "adulto-obesidade-morbida",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/OBESIDADE%20MORBIDA.pdf",
+      "pages": 1,
+      "sha256": "47bed03fa66103f8f83dcab05ed6efe50ce5115ead8816ed1cb421c17e1c031f"
+    },
+    {
+      "id": "adulto-parada-cardio-respiratoria-pcr",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/PARADA%20CARDIO-RESPIRAT%C3%93RIA%20PCR.pdf",
+      "pages": 3,
+      "sha256": "e3cbc9f42ec32d951fb4275d4f4e2cf327ffe6fe31fdd6495b62d2f06cfead0c"
+    },
+    {
+      "id": "adulto-pneumonia-no-adulto",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/PNEUMONIA%20NO%20ADULTO.pdf",
+      "pages": 2,
+      "sha256": "0e6c5b48789c9fbe1dc8e18609f29b36b607be704f1e3737c9f7ce8059943571"
+    },
+    {
+      "id": "adulto-profilaxia-pos-exposicao-sexual-ao-hiv-consentida",
+      "url": "https://mid.curitiba.pr.gov.br/2026/00462899.pdf",
+      "pages": 2,
+      "sha256": "32c3165c3e27eda0bbcfe6e4cb02203c409778779f4c1122f5f8a644bcf393d0"
+    },
+    {
+      "id": "adulto-rebaixamento-do-nivel-de-consciencia",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/REBAIXAMENTO%20DO%20N%C3%8DVEL%20DE%20CONSCI%C3%8ANCIA.pdf",
+      "pages": 1,
+      "sha256": "cd1831ed428bb1b6ca4e08e261ef41f63880d80cdf76a22c96e0aa895db2fa42"
+    },
+    {
+      "id": "adulto-raio-x-horarios-de-atendimento-do-servico-de-raio-x-nas-upas",
+      "url": "https://saude.curitiba.pr.gov.br/images/Hor%C3%A1rio%20de%20Funcionamento%20Raio-X%20nas%20UPAS%20-%2025.05.2023.pdf",
+      "pages": 1,
+      "sha256": "41b00d3d57546ffc3fcf3cbe0c9b18683454830f863c3bbb53a8aa9a9ef65503"
+    },
+    {
+      "id": "adulto-sangramento-genital-feminino",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/SANGRAMENTO%20GENITAL%20FEMININO.pdf",
+      "pages": 1,
+      "sha256": "6566acab4616d1f0ffbf063e2fca3d49398fe90ed8852bcec09c3c4d65e8eb9b"
+    },
+    {
+      "id": "adulto-sepse-em-adultos",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/SEPSE%20EM%20ADULTOS.pdf",
+      "pages": 2,
+      "sha256": "fc7fbac061f9202bf1a379fa0516c375c674a88dd6c86504274a127338ef982f"
+    },
+    {
+      "id": "adulto-sincope",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/S%C3%8DNCOPE.pdf",
+      "pages": 1,
+      "sha256": "a2f0c7828172df8217d6a0bdf8114fc811d0053cdee25f638b987f1a82064c95"
+    },
+    {
+      "id": "adulto-sindrome-hipertensiva-na-gestacao",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/SINDROME%20HIPERTENSIVA%20NA%20GESTA%C3%87%C3%83O.pdf",
+      "pages": 2,
+      "sha256": "725e93844f19d5849b0300313f72bdbe4090ecfd2ca2f1542ced7aaad72fa8e7"
+    },
+    {
+      "id": "adulto-sindromes-coronarianas",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/SINDROMES%20CORONARIANAS.pdf",
+      "pages": 3,
+      "sha256": "045079ea93755ad5784a04f4bf119a20b6087c20169f061d99f885b99004b6d1"
+    },
+    {
+      "id": "adulto-tontura",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/TONTURA.pdf",
+      "pages": 1,
+      "sha256": "0fa885c5def87cbd6ecb01e21847d2203798bfdaf78f8ca72bec6c47ec0badf1"
+    },
+    {
+      "id": "adulto-traumatismo-cranio-encefalico",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/TRAUMATISMO%20CR%C3%82NIO-ENCF%C3%81LICO.pdf",
+      "pages": 2,
+      "sha256": "6794bd3e113dc0f54319a64b6f81cde91fd78623c50f8fb44ad7f0d1ce20bf35"
+    },
+    {
+      "id": "adulto-traumatismo-ortopedico",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/TRAUMA%20ORTOPEDICO.pdf",
+      "pages": 12,
+      "sha256": "59022e1386fe1934eac51d496bdfb512d87ed6f7f4e3d0c42a239cdb7a9c4613"
+    },
+    {
+      "id": "adulto-tromboembolismo-pulmonar",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/TROMBOEMBOLISMO%20PULMONAR.pdf",
+      "pages": 1,
+      "sha256": "34f74894bd8b325bb29a153bbfce6172f351f143b8ed733115889a71d84be346"
+    },
+    {
+      "id": "adulto-urgencias-dialiticas",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/URG%C3%8ANCIAS%20DIAL%C3%8DTICAS.pdf",
+      "pages": 3,
+      "sha256": "7b8b9b8bdeaf595b503da76e6fe7668042a1dcb014729bdc1109df7a82b27059"
+    },
+    {
+      "id": "adulto-urgencias-odontologicas",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/URGENCIAS%20ODONTOLOGICAS.pdf",
+      "pages": 1,
+      "sha256": "c2e0a48f989099e547bb0a0b9f0861fb093680b7de0e506a10d28010c0c2516c"
+    },
+    {
+      "id": "infantil-aspiracao-de-corpo-estranho",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/ASPIRA%C3%87%C3%83O%20DE%20CORPO%20ESTRANHO.pdf",
+      "pages": 1,
+      "sha256": "cffe373a674927a6b98a7641d488981da92b5aad68a18d672d030d729b037553"
+    },
+    {
+      "id": "infantil-choque-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/CHOQUE%20EM%20PEDIATRIA.pdf",
+      "pages": 2,
+      "sha256": "9fd4876072620619416d0cd6787606100b6cac0480bae7d542eb8a2c93075c4b"
+    },
+    {
+      "id": "infantil-crises-convulsivas-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/CRISES%20CONVULSIVAS%20EM%20PEDIATRIA.pdf",
+      "pages": 1,
+      "sha256": "f5ff90a9a8833224052821d99ee54bf0d7b03ad902e16b1e438e133ea3a9a9ba"
+    },
+    {
+      "id": "infantil-dermatoses-na-upa",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DERMATOSES.pdf",
+      "pages": 3,
+      "sha256": "f2d8ebe599556cb5af2f052d24e8a42e882a82da75a3df04c1ef9c712289001c"
+    },
+    {
+      "id": "infantil-diarreia-aguda-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DIARREIA%20AGUDA%20EM%20PEDIATRIA.pdf",
+      "pages": 1,
+      "sha256": "98efc4c793321c0242dfc8ef0890a353f2aa949eea15eb889b4a6c4de855d31a"
+    },
+    {
+      "id": "infantil-doencas-exantematicas",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOEN%C3%87AS%20EXANTEM%C3%81TICAS.pdf",
+      "pages": 3,
+      "sha256": "f5b378c2c5b2db0950ed3c88711aa487aee417a5cf5ba4cef7b66750f4293589"
+    },
+    {
+      "id": "infantil-dor-abdominal-em-pediatria-due",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20ABDOMINAL%20%20PEDI_DUE.pdf",
+      "pages": 1,
+      "sha256": "c5be22d5681d5c5ea37cb7087996960a4294d35a843ded595badc1a8940d76ea"
+    },
+    {
+      "id": "infantil-dor-de-garganta",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20DE%20GARGANTA.pdf",
+      "pages": 1,
+      "sha256": "dd551d661b39d39129bbda16a751eb744a00afcf6c174633d7f4d69becd0cfc6"
+    },
+    {
+      "id": "infantil-dor-de-ouvido",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20DE%20OUVIDO.pdf",
+      "pages": 2,
+      "sha256": "c762c215fc7057cd0f28d187a2182ec625264afa7f2ee72d4a784624dff084d7"
+    },
+    {
+      "id": "infantil-emergencias-respiratorias-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/EMERGENCIAS%20RESPIRATORIAS%20EM%20PEDIATRIA.pdf",
+      "pages": 1,
+      "sha256": "58da777d8b231afc63ad73ed8c79e2332a09389e4d0d52efbad79efc6d68eaa1"
+    },
+    {
+      "id": "infantil-escroto-agudo",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/ESCROTO%20AGUDO.pdf",
+      "pages": 2,
+      "sha256": "e946bf635308eca09e936503bdf8f869ab188652f53ab7e8d539eb3d1b93d813"
+    },
+    {
+      "id": "infantil-estridor",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/ESTRIDOR.pdf",
+      "pages": 2,
+      "sha256": "aae79ed5717e857d00212e51e277617cd66b08b4b3c66c0afc7ab7cd8652d5ef"
+    },
+    {
+      "id": "infantil-farmacodermias",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/FARMACODERMIAS.pdf",
+      "pages": 2,
+      "sha256": "c6353c6c9613ef7539ec9add930b1942e894b17d3a93afadc0f8ce7113db1d35"
+    },
+    {
+      "id": "infantil-febre-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/FEBRE%20EM%20PEDIATRIA.pdf",
+      "pages": 1,
+      "sha256": "356339c7159dcb1f75bf9dcb725fbbbcc7f322c7e2ae552cef6ecd2543942a49"
+    },
+    {
+      "id": "infantil-infeccao-do-trato-urinario-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/INFEC%C3%87%C3%83O%20DO%20TRATO%20URIN%C3%81RIO%20EM%20PEDIATRIA.pdf",
+      "pages": 1,
+      "sha256": "0ab589fff02191b8ea19eab310b1ff9025ff04df8977a83570f4722bbbc8194e"
+    },
+    {
+      "id": "infantil-pneumonia-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/PNEUMONIA%20EM%20PEDIATRIA.pdf",
+      "pages": 3,
+      "sha256": "830a16cf551f591bfac1f978e497b16f742c11e0b45265b90e616aed7e31ea8e"
+    },
+    {
+      "id": "infantil-sepse-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/SEPSE%20EM%20PEDIATRIA.pdf",
+      "pages": 2,
+      "sha256": "a0f3569c3020695432f9205a66dc4f60fa1dcffb69bcd3673b3acfddf6a383aa"
+    },
+    {
+      "id": "infantil-sibilancia-em-pediatria",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/SIBIL%C3%82NCIA%20EM%20PEDIATRIA.pdf",
+      "pages": 2,
+      "sha256": "11e52e249680edf238479526e14cc2526a3ffc843c1f10dcc40a405e3ddf5ae4"
+    },
+    {
+      "id": "infantil-sindrome-inflamatoria-multissistemica-pediatrica",
+      "url": "https://saude.curitiba.pr.gov.br/images/DUE/SINDROME%20INFLAMAT%C3%93RIA%20MULTISSIST%C3%8AMICA%20PEDI%C3%81TRICA.pdf",
+      "pages": 2,
+      "sha256": "7fcd9eafd6fb04e3e72e5680158ac758fb225357ce8b8cb9c69454654f57103e"
+    }
+  ]
+}

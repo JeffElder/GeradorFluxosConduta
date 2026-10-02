@@ -2,6 +2,7 @@ import json,re,unicodedata,urllib.request,urllib.parse,concurrent.futures,hashli
 from pathlib import Path
 import fitz
 ROOT=Path(__file__).resolve().parents[1]
+(ROOT.parent/'tmp/pdfs').mkdir(parents=True,exist_ok=True)
 def normal(s):return ''.join(c for c in unicodedata.normalize('NFD',s.lower()) if unicodedata.category(c)!='Mn')
 def get(item):
  g,row=item

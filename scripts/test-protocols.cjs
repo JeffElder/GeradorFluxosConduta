@@ -1,0 +1,21 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
+const root=path.join(__dirname,'..'),ctx={window:{}};vm.createContext(ctx);
+for(const f of ['catalog.js','protocols.js'])vm.runInContext(fs.readFileSync(path.join(root,'site',f),'utf8'),ctx);
+const {CATALOG:catalog,PROTOCOLS:protocols}=ctx.window;
+assert.equal(catalog.length,73);assert.equal(Object.keys(protocols).length,73);
+let transitions=0,questions=0;
+for(const c of catalog){const p=protocols[c.id];assert(p);assert.equal(p.status,'transcribed-not-clinically-validated');for(const e of p.entries)assert(p.nodes[e.to]);for(const n of Object.values(p.nodes)){assert(n.text.trim());assert(p.pages.some(page=>page.page===n.page));if(n.question){questions++;assert(n.choices.length>=2||n.incomplete);}for(const choice of n.choices){assert(p.nodes[choice.to]);assert(choice.label.trim());transitions++;}}}
+const node=(id,k)=>protocols[id].nodes[k];
+const dest=(id,k,label)=>node(id,k).choices.find(c=>c.label===label)?.to;
+assert.equal(dest('adulto-dor-toracica','p1n5','Sim'),'p1n7');
+assert.equal(dest('adulto-dor-toracica','p1n5','Não'),'p1n9');
+assert.equal(dest('infantil-febre-em-pediatria','p1n11','Sim'),'p1n13');
+assert.equal(dest('infantil-febre-em-pediatria','p1n11','Não'),'p1n15');
+assert.equal(dest('adulto-parada-cardio-respiratoria-pcr','p1n17','Sim'),'p1shock17');
+assert.equal(node('adulto-parada-cardio-respiratoria-pcr','p1shock17').choices[0].to,'p1n23');
+assert.equal(dest('adulto-parada-cardio-respiratoria-pcr','p1roscheck','Sim'),'p3n4');
+assert.equal(node('infantil-infeccao-do-trato-urinario-em-pediatria','p1n20').choices[0].to,'p1n33');
+for(const [id,unsafe] of [['adulto-parada-cardio-respiratoria-pcr',/5MG\/G EM BOLUS|≥ METADE DO DIÂMETRO TORACICO/i],['infantil-infeccao-do-trato-urinario-em-pediatria',/100MG\/Kg 12\/12H/i]])assert(!unsafe.test(JSON.stringify(protocols[id])));
+assert(!/<iframe|<embed|<object/i.test(fs.readFileSync(path.join(root,'site/index.html'),'utf8')));
+console.log(`PASS: ${catalog.length} documentos, ${questions} perguntas, ${transitions} transições; ramos críticos e supressões verificadas. Não constitui validação clínica.`);
