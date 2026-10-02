@@ -1,31 +1,21 @@
-# Relatos de erro — ativação pendente
+# Relatos de erro — Fluxo UPA
 
-O botão foi preparado, mas permanece oculto enquanto não houver um formulário válido.
+O botão fixo "Reportar erro" aparece em todas as etapas. Abre o Google Forms do proprietário em nova aba, preservando a consulta.
 
-## Formulário na conta do proprietário
+Formulário: https://docs.google.com/forms/d/e/1FAIpQLSe6lu943g1k1xKO_SJXPGN2CdGrINBR22f7uQnFWp-0CC75fw/viewform
 
-Título: Reportar erro — Fluxo UPA
+O formulário tem um único campo de parágrafo obrigatório, "Reporte um erro ou envie sugestão" (entry.1734951772). O link preenche esse campo com espaço para o relato e o contexto do protocolo/etapa. O respondente pode revisar o texto antes de enviar.
 
-Descrição: Conte o que aconteceu para ajudar a melhorar a aplicação. Não inclua nomes, documentos, fotos ou outros dados identificáveis de pacientes.
+A configuração está em site/feedback.js. Se o formulário ou o campo for substituído, atualize formUrl ou reportField. Sem configuração válida, o botão fica oculto.
 
-Campos:
-1. Protocolo — resposta curta (preenchido pelo site).
-2. Etapa — resposta curta (preenchido pelo site).
-3. Tipo de problema — múltipla escolha: Conteúdo / Funcionamento / Sugestão.
-4. Descreva o problema — parágrafo, obrigatório.
-5. Seu e-mail — resposta curta, opcional.
+## Receber avisos por e-mail
 
-Permitir acesso público sem exigir login, sem limitar a uma resposta e sem coletar e-mail verificado. Manter o resumo das respostas privado. Não adicionar upload de arquivos.
+Na conta proprietária do formulário: Respostas → Mais (⋮) → Receber notificações por e-mail para novas respostas.
+Essa configuração não pode ser verificada pelo link público. O proprietário precisa ativá-la na interface de edição.
+As respostas também ficam na guia Respostas. É possível vinculá-las a uma planilha privada.
 
-Publicar e gerar um link pré-preenchido com valores de exemplo em Protocolo e Etapa. Copiar a URL completa: os parâmetros entry.NUMERO identificam esses campos.
-Em site/feedback.js, preencher formUrl com a URL pública terminada em /viewform, protocolField e stepField com seus respectivos entry.NUMERO.
+## Privacidade e validação
 
-No Forms, ativar Respostas → Mais → Receber notificações por e-mail para novas respostas. Opcionalmente vincular a uma planilha privada.
+O botão não envia respostas da consulta ou termos de pesquisa. Inclui somente protocolo e identificador da etapa no link quando o usuário abre o formulário. A mensagem orienta a não incluir dados identificáveis de pacientes.
 
-## Antes de publicar
-
-Verificar no computador e celular que o botão aparece em todas as etapas, que o formulário abre em nova aba preservando a consulta e que os dois campos correspondem ao protocolo/etapa atuais. Verificar também na página inicial e após voltar/reiniciar.
-
-Não são enviados histórico de respostas, termos de pesquisa, dados de pacientes ou IP pelo código do botão. Apenas os identificadores do protocolo e da tela são incluídos no link, após o usuário clicar. O formulário permite revisar esses campos.
-
-Nenhum formulário foi criado e nenhum recebimento por e-mail foi validado ainda: o acesso à página de login Google retornou HTTP 502.
+O acesso público sem login obrigatório e o preenchimento do campo foram verificados no navegador. Nenhuma resposta de teste foi enviada.
