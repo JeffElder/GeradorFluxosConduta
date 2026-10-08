@@ -10,6 +10,8 @@ norm=lambda s:''.join(c for c in unicodedata.normalize('NFD',s.lower()) if unico
 clean=lambda s:re.sub(r'\s+',' ',s).strip()
 # Explicit corrections to geometrical extraction, checked against source arrows.
 ADD={
+ # The ECG box touches the ischemia panel; geometry misses this continuation.
+ 'adulto-sindromes-coronarianas':[(1,6,5,'Próxima etapa')],
  'infantil-dor-abdominal-em-pediatria-due':[(1,21,23,'Reavaliar após manejo')],
  'infantil-infeccao-do-trato-urinario-em-pediatria':[(1,20,33,'Reavaliar após manejo')],
  'adulto-diarreia-aguda':[(1,11,5,'Reavaliar após manejo')],
@@ -82,6 +84,13 @@ for f in sorted((WORK/'tmp/graphs').glob('*.json')):
  # Explicit source-specific routing where the PDF uses icons or tables, not boxed text.
  def node(k,text,question=False,choices=None,page=1):nodes[k]={'id':k,'page':page,'text':text,'question':question,'choices':choices or []}
  def choice(label,to):return {'label':label,'to':to}
+ if id=='adulto-sindromes-coronarianas':
+  # Page 1: perform the second troponin/ECG, then select its clinical outcome.
+  # Keep this decision separate so the UI does not call its branches complementary.
+  nodes['p1n25']['text']=re.sub(r'^SIM\s+','',nodes['p1n25']['text'])
+  node('reassessment','Após a segunda troponina e o novo ECG, qual resultado corresponde à reavaliação?',True,
+       [choice(nodes[k]['text'],k) for k in ['p1n27','p1n28','p1n29']])
+  nodes['p1n25']['choices']=[choice('Reavaliar após os exames','reassessment')]
  if id=='adulto-emergencias-hiperglicemicas':
   nodes['p1n8']['choices'].insert(0,choice('Sim','metabolic'))
   node('metabolic','Qual conjunto de critérios está presente?',True,[choice(nodes['p1n12']['text'],'p1n12'),choice(nodes['p1n11']['text'],'p1n11')])
