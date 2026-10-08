@@ -10,8 +10,8 @@ norm=lambda s:''.join(c for c in unicodedata.normalize('NFD',s.lower()) if unico
 clean=lambda s:re.sub(r'\s+',' ',s).strip()
 # Explicit corrections to geometrical extraction, checked against source arrows.
 ADD={
- # The ECG box touches the ischemia panel; geometry misses this continuation.
- 'adulto-sindromes-coronarianas':[(1,6,5,'Próxima etapa')],
+ # The ischemia panel is supporting context, not a mandatory action screen.
+ 'adulto-sindromes-coronarianas':[(1,6,12,'Avaliar o ECG')],
  'infantil-dor-abdominal-em-pediatria-due':[(1,21,23,'Reavaliar após manejo')],
  'infantil-infeccao-do-trato-urinario-em-pediatria':[(1,20,33,'Reavaliar após manejo')],
  'adulto-diarreia-aguda':[(1,11,5,'Reavaliar após manejo')],
@@ -85,6 +85,35 @@ for f in sorted((WORK/'tmp/graphs').glob('*.json')):
  def node(k,text,question=False,choices=None,page=1):nodes[k]={'id':k,'page':page,'text':text,'question':question,'choices':choices or []}
  def choice(label,to):return {'label':label,'to':to}
  if id=='adulto-sindromes-coronarianas':
+  # Start at the first clinical question. The pain/ECG panels are references.
+  entries=[{'to':'p1n7','page':1,'label':'Suspeita de síndrome coronariana'}]
+  pageinfo[0]['notes']=[]
+  for k in ['p1n1','p1n5']:nodes[k]['choices']=[]
+  nodes['p1n7']['contextNodes']=['p1n1']
+  nodes['p1n6']['contextNodes']=['p1n5']
+  # Expand the source's numbered routes into explicit yes/no clinical criteria.
+  nodes['p1n12']['text']='O ECG apresenta supradesnivelamento do segmento ST?'
+  nodes['p1n12']['contextNodes']=['p1n5']
+  nodes['p1n12']['choices']=[choice('Sim','p1n15'),choice('Não','new-bundle-block')]
+  node('new-bundle-block','A dor é tipo A e há bloqueio de ramo esquerdo (BRE) ou direito (BRD) novo ou supostamente novo?',True,
+       [choice('Sim','p1n15'),choice('Não','very-high-risk')])
+  nodes['new-bundle-block']['contextNodes']=['p1n1']
+  node('very-high-risk','Há dor tipo A ou B associada a algum fator de muito alto risco abaixo?',True,
+       [choice('Sim','p1n15'),choice('Não','p1n17')])
+  nodes['very-high-risk']['criteria']=nodes['p1n14']['text'].split('FATORES DE MUITO ALTO RISCO:',1)[1].strip().replace('','•')
+  nodes['very-high-risk']['contextNodes']=['p1n1']
+  nodes['p1n19']['text']='A dor tem menos de 6 horas de duração?'
+  nodes['p1n19']['choices']=[choice('Sim','p1n25'),choice('Não','ischemic-ecg')]
+  node('ischemic-ecg','O ECG apresenta infradesnivelamento de ST ou inversão de onda T?',True,
+       [choice('Sim','p1n25'),choice('Não','elevated-troponin')])
+  nodes['ischemic-ecg']['contextNodes']=['p1n5']
+  node('elevated-troponin','A primeira troponina ultrassensível está elevada?',True,
+       [choice('Sim','p1n25'),choice('Não','heart-risk')])
+  nodes['elevated-troponin']['contextNodes']=['p2n29']
+  node('heart-risk','O HEART score é maior ou igual a 4?',True,
+       [choice('Sim','p1n25'),choice('Não','p1n21')])
+  nodes['p1n9']['text']=nodes['p1n9']['text'].replace(' (ROTA 4)','')
+  nodes['p1n21']['text']=re.sub(r'^ROTA 3\s*','Critérios para considerar alta: ',nodes['p1n21']['text'])
   # Page 1: perform the second troponin/ECG, then select its clinical outcome.
   # Keep this decision separate so the UI does not call its branches complementary.
   nodes['p1n25']['text']=re.sub(r'^SIM\s+','',nodes['p1n25']['text'])

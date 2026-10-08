@@ -29,29 +29,46 @@ function coronaryPath(labels){
  }
  return {current,visited};
 }
-const suspicion=[null];
-const routeOne=[...suspicion,'Sim',null,null];
-assert.equal(coronaryPath(routeOne).current,'p1n12','ECG must continue to route assessment');
-assert.equal(coronaryPath([...suspicion,'Não']).current,'p1n9');
-assert.equal(coronaryPath([...routeOne,'Sim']).current,'p1n15');
-const routeTwo=[...routeOne,'Não',null];
-assert.equal(coronaryPath([...routeTwo,'Não']).current,'p1n21');
-const reassessment=coronaryPath([...routeTwo,'Sim',null]);
+assert.equal(coronary.entries[0].to,'p1n7','Start with the suspicion question, not a reference panel');
+assert.equal(coronary.nodes.p1n7.text,'SUSPEITA DE SÍNDROME CORONARIANA?');
+assert(coronary.nodes.p1n7.question);
+const ecg=['Sim',null];
+assert.equal(coronaryPath(ecg).current,'p1n12','ECG must continue to ST assessment');
+assert.equal(coronaryPath(['Não']).current,'p1n9');
+// Each urgent criterion independently reaches SAMU, before initial troponin.
+for(const answers of [['Sim'],['Não','Sim'],['Não','Não','Sim']]){
+ const path=coronaryPath([...ecg,...answers]);
+ assert.equal(path.current,'p1n15');assert(!path.visited.includes('p1n17'));
+}
+const initialTests=[...ecg,'Não','Não','Não'];
+assert.equal(coronaryPath(initialTests).current,'p1n17');
+const serialAssessment=[...initialTests,null];
+// Duration, ischemic ECG, elevated troponin and HEART >= 4 are independent triggers.
+for(const answers of [['Sim'],['Não','Sim'],['Não','Não','Sim'],['Não','Não','Não','Sim']]){
+ assert.equal(coronaryPath([...serialAssessment,...answers]).current,'p1n25');
+}
+assert.equal(coronaryPath([...serialAssessment,'Não','Não','Não','Não']).current,'p1n21');
+const reassessment=coronaryPath([...serialAssessment,'Sim',null]);
 assert(coronary.nodes[reassessment.current].question,'Reassessment outcomes are alternatives, not complementary actions');
 assert(reassessment.visited.includes('p1n25'),'Repeat troponin and ECG before reassessment');
 for(const [label,terminal] of [[coronary.nodes.p1n27.text,'p1n32'],['HEART SCORE 4 A 6','p1n37'],['HEART SCORE ≤ 3','p1n34']]){
- assert.equal(coronaryPath([...routeTwo,'Sim',null,label,null]).current,terminal);
+ assert.equal(coronaryPath([...serialAssessment,'Sim',null,label,null]).current,terminal);
 }
 assert(!/^SIM\b/.test(coronary.nodes.p1n25.text),'An arrow label must not be part of the examination instruction');
 const reachable=new Set(),terminals=[];
 function visitCoronary(id){
  if(reachable.has(id))return;reachable.add(id);
  const n=coronary.nodes[id];assert(!n.incomplete,`Incomplete coronary decision: ${id}`);
+ assert(!/\bROTA\s*\d/i.test(n.text),`Numbered route exposed in guided flow: ${id}`);
+ for(const ref of n.contextNodes||[])assert(coronary.nodes[ref],`Missing clinical context: ${ref}`);
  if(!n.choices.length)terminals.push(id);
  for(const c of n.choices)visitCoronary(c.to);
 }
 visitCoronary(coronary.entries[0].to);
 assert.deepEqual(terminals.sort(),['p1n9','p1n15','p1n21','p1n32','p1n34','p1n37'].sort(),'No false terminal at ECG or an intermediate examination');
+assert(coronary.nodes['very-high-risk'].criteria.includes('INSTABILIDADE HEMODINÂMICA'));
+assert(coronary.nodes['very-high-risk'].criteria.includes('DOENÇA ARTERIAL CARDIOVASCULAR ATEROSCLERÓTICA PRÉVIA'));
 for(const [id,unsafe] of [['adulto-parada-cardio-respiratoria-pcr',/5MG\/G EM BOLUS|≥ METADE DO DIÂMETRO TORACICO/i],['infantil-infeccao-do-trato-urinario-em-pediatria',/100MG\/Kg 12\/12H/i]])assert(!unsafe.test(JSON.stringify(protocols[id])));
 assert(!/<iframe|<embed|<object/i.test(fs.readFileSync(path.join(root,'site/index.html'),'utf8')));
+require('./test-coronary-ui.cjs');
 console.log(`PASS: ${catalog.length} documentos, ${questions} perguntas, ${transitions} transições; ramos críticos e supressões verificadas. Não constitui validação clínica.`);
