@@ -6,7 +6,7 @@
   function entry(file,hash,description,author,license) {
     const safeName = encodeURIComponent(file.replace(/ /g,'_'));
     return {
-      src:'https://upload.wikimedia.org/wikipedia/commons/thumb/'+hash[0]+'/'+hash+'/'+safeName+'/420px-'+safeName,
+      src:'https://upload.wikimedia.org/wikipedia/commons/'+hash[0]+'/'+hash+'/'+safeName,
       source:'https://commons.wikimedia.org/wiki/File:'+encodeURIComponent(file.replace(/ /g,'_')),
       alt:'Fotografia ilustrativa: '+description,
       name:description,
