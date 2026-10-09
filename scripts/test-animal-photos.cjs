@@ -40,4 +40,5 @@ const html=fs.readFileSync(path.join(site,'index.html'),'utf8');
 assert(html.includes('animal-photos.css?v=1'));
 assert(html.indexOf('animal-flow.js')<html.indexOf('animal-photos.js'));
 assert(html.indexOf('animal-photos.js')<html.indexOf('app.js?v=6'));
+assert(html.includes('animal-photos.js?v=2'));
 console.log('PASS: 12 fotos ilustrativas com créditos, 8 cartões, galeria de subgrupos e navegação preservada.');
