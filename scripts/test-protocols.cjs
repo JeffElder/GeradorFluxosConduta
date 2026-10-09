@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.join(__dirname,'..'),ctx={window:{}};vm.createContext(ctx);
-for(const f of ['catalog.js','protocols.js'])vm.runInContext(fs.readFileSync(path.join(root,'site',f),'utf8'),ctx);
+for(const f of ['catalog.js','protocols.js','animal-flow.js'])vm.runInContext(fs.readFileSync(path.join(root,'site',f),'utf8'),ctx);
 const {CATALOG:catalog,PROTOCOLS:protocols}=ctx.window;
 assert.equal(catalog.length,73);assert.equal(Object.keys(protocols).length,73);
 let transitions=0,questions=0;
@@ -71,4 +71,5 @@ assert(coronary.nodes['very-high-risk'].criteria.includes('DOENÇA ARTERIAL CARD
 for(const [id,unsafe] of [['adulto-parada-cardio-respiratoria-pcr',/5MG\/G EM BOLUS|≥ METADE DO DIÂMETRO TORACICO/i],['infantil-infeccao-do-trato-urinario-em-pediatria',/100MG\/Kg 12\/12H/i]])assert(!unsafe.test(JSON.stringify(protocols[id])));
 assert(!/<iframe|<embed|<object/i.test(fs.readFileSync(path.join(root,'site/index.html'),'utf8')));
 require('./test-coronary-ui.cjs');
+require('./test-animal-flow.cjs');
 console.log(`PASS: ${catalog.length} documentos, ${questions} perguntas, ${transitions} transições; ramos críticos e supressões verificadas. Não constitui validação clínica.`);
