@@ -24,6 +24,35 @@ function historyURL(id){try{window.history.replaceState(null,'',location.pathnam
 function popLabel(p){return p==='infantil'?'Infantil':'Adulto';}
 function formatted(text){const bits=String(text).replace(/\s+([•])\s*/g,'\n$1 ').split(/\n/).filter(Boolean);let out='',list=false;for(let bit of bits){const bullet=/^[•]/.test(bit);if(bullet&&!list){out+='<ul>';list=true;}if(!bullet&&list){out+='</ul>';list=false;}out+=bullet?'<li>'+esc(bit.replace(/^[•]\s*/,''))+'</li>':'<p>'+esc(bit)+'</p>';}return out+(list?'</ul>':'');}
 function option(label,sub,action,value,extra=''){return `<button class="answer-option ${extra}" data-action="${action}" data-value="${esc(value)}"><span class="answer-mark" aria-hidden="true"></span><span><strong>${esc(label)}</strong>${sub?'<small>'+esc(sub)+'</small>':''}</span></button>`;}
+const ANIMAL_ID='adulto-acidente-por-animais-peconhentos';
+function animalPhotos(){return state.protocol===ANIMAL_ID?(window.ANIMAL_PHOTOS||null):null;}
+function animalPhoto(keys,className=''){
+ const media=animalPhotos();
+ if(!media||!keys||!keys.length)return '';
+ const photos=keys.map(k=>media.files[k]).filter(Boolean);
+ if(!photos.length)return '';
+ return '<div class="animal-photo-gallery '+esc(className)+'">'+photos.map(p=>
+  '<figure class="animal-figure"><img loading="lazy" decoding="async" src="'+esc(p.src)+'" alt="'+esc(p.alt)+'">'+
+  '<figcaption><span>'+esc(p.name)+'</span><a href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer">Foto: '+esc(p.author)+' · '+esc(p.license)+'</a></figcaption></figure>'
+ ).join('')+'</div>';
+}
+function photoOption(label,sub,action,value,keys){
+ if(!animalPhotos()||!keys||!keys.length)return option(label,sub,action,value);
+ const media=animalPhotos(),photos=keys.map(k=>media.files[k]).filter(Boolean);
+ if(!photos.length)return option(label,sub,action,value);
+ return '<article class="animal-selection-card"><button class="answer-option animal-select-button" data-action="'+esc(action)+'" data-value="'+esc(value)+'">'+
+  '<div class="animal-choice-thumbs">'+photos.map(p=>'<img loading="lazy" decoding="async" src="'+esc(p.src)+'" alt="'+esc(p.alt)+'">').join('')+'</div>'+
+  '<span class="animal-select-label"><strong>'+esc(label)+'</strong>'+(sub?'<small>'+esc(sub)+'</small>':'')+'</span></button>'+
+  '<p class="animal-choice-credits">'+photos.map(p=>'<a href="'+esc(p.source)+'" target="_blank" rel="noopener noreferrer">'+esc(p.author)+' · '+esc(p.license)+'</a>').join(' · ')+'</p></article>';
+}
+function animalPagePhoto(n){
+ const media=animalPhotos();
+ if(!media||!n)return '';
+ const photo=animalPhoto(media.byPage[n.page],'animal-page-photos');
+ const source=catalog.find(p=>p.id===ANIMAL_ID)?.url;
+ const extra=n.page===1&&source?'<a href="'+esc(source)+'#page=1" target="_blank" rel="noopener noreferrer">Consultar as fotografias das lesões clínicas no PDF original · página 1</a>':'';
+ return photo?'<div class="animal-context-photos"><p class="animal-photo-caption">Fotografias ilustrativas · a aparência não confirma a espécie nem a gravidade.</p>'+photo+(extra?'<p class="animal-clinical-link">'+extra+'</p>':'')+'</div>':'';
+}
 function heading(kicker,title,desc=''){return `<div class="question-heading"><p class="eyebrow">${esc(kicker)}</p><h1>${esc(title)}</h1>${desc?'<p class="intro">'+esc(desc)+'</p>':''}</div>`;}
 function badge(){const c=catalog.find(p=>p.id===state.protocol);return c?`<div class="protocol-identity"><span class="badge ${c.population}">${popLabel(c.population)}</span><strong>${esc(c.title)}</strong><small>Catálogo SMS: ${c.version?'v. '+esc(c.version)+' · ':''}${esc(c.date||'data não informada')}</small></div>`:'';}
 function tableHTML(table){return `<div class="native-table-wrap"><table class="native-table">${table.rows.map((r,i)=>'<tr>'+r.map(c=>i===0?'<th scope="col">'+esc(c)+'</th>':'<td>'+esc(c)+'</td>').join('')+'</tr>').join('')}</table></div>`;}
@@ -44,14 +73,14 @@ if(!catalog.length||!Object.keys(protocols).length){root.innerHTML=heading('CARR
  else if(state.screen==='topic'){const candidates=catalog.filter(p=>p.population===state.population&&p.category===state.category);root.innerHTML=heading('ETAPA 2 · SITUAÇÃO','Qual situação corresponde ao caso?','A escolha define qual fluxo da SMS será consultado.')+`<div class="answer-grid">${candidates.map(c=>option(c.title,protocols[c.id].entries.length?'Iniciar as etapas deste protocolo':'Consultar orientações em texto','protocol',c.id)).join('')}</div>`;}
  else if(state.screen==='library'){root.innerHTML=heading('ACESSO DIRETO','Qual protocolo procura?','Pesquise para iniciar uma consulta ou leia os documentos em texto.')+`<label class="sr-only" for="search">Buscar por protocolo, sigla ou queixa</label><div class="searchbox"><input type="search" id="search" placeholder="Ex.: sepse, AVC, dor abdominal…" autocomplete="off"></div><div class="library-pops"><button data-action="library-pop" data-value="todos" aria-pressed="true">Todos</button><button data-action="library-pop" data-value="adulto" aria-pressed="false">Adulto</button><button data-action="library-pop" data-value="infantil" aria-pressed="false">Infantil</button></div><p id="search-count" role="status"></p><div class="answer-grid" id="search-results"></div>`;renderSearch();}
  else {const p=protocols[state.protocol];let html=badge();if(p.warning)html+=`<div class="source-warning"><strong>Trecho que exige conferência</strong><p>${esc(p.warning)}</p></div>`;
-  if(state.screen==='select-flow'){html+=heading('ETAPA 3 · PARTE DO PROTOCOLO','Qual parte corresponde à avaliação?','Este documento reúne mais de um fluxo. Selecione o trecho aplicável.')+`<div class="answer-grid">${p.entries.map(e=>option(e.label,'Fonte: página '+e.page,'entry',e.to)).join('')}</div>`+referenceHTML(p);}
+  if(state.screen==='select-flow'){html+=heading('ETAPA 3 · PARTE DO PROTOCOLO','Qual parte corresponde à avaliação?','Este documento reúne mais de um fluxo. Selecione o trecho aplicável.')+`<div class="answer-grid">${p.entries.map(e=>state.protocol===ANIMAL_ID?photoOption(e.label,'Fonte: página '+e.page,'entry',e.to,animalPhotos()?.byEntry[e.to]):option(e.label,'Fonte: página '+e.page,'entry',e.to)).join('')}</div>`+referenceHTML(p);}
   else if(state.screen==='reference'){html+=heading('PROTOCOLO EM TEXTO','Orientações do documento','Este trecho é apresentado como referência em texto. As condutas dependem dos critérios descritos.')+referenceHTML(p,true);}
   else {const n=p.nodes[state.node];if(!n){root.innerHTML=heading('ETAPA INDISPONÍVEL','Não foi possível identificar esta etapa.','Volte para conferir a seleção.');return;}
    const terminal=n.choices.length===0&&!n.incomplete;let body='';
    if(n.incomplete){body=heading('DECISÃO A CONFERIR',n.text,'A ligação desta decisão não foi reconstruída com segurança. Consulte os critérios em texto abaixo; a aplicação não presume uma resposta.')+referenceHTML(p,true);}
    else if(terminal){body=heading('CONDUTA DO CAMINHO','Orientação conforme o fluxo selecionado')+`<div class="result-card clinical-text">${formatted(n.text)}<small>Fonte: página ${n.page}</small></div>`+linkedProtocols(n.text);if(state.actions.length)body+=`<details class="prior-actions"><summary>Etapas anteriores deste caminho (${state.actions.length})</summary>${state.actions.map(k=>p.nodes[k]).filter(Boolean).map(a=>'<div class="clinical-text">'+formatted(a.text)+'<small>Fonte: página '+a.page+'</small></div>').join('')}</details>`;body+='<button class="primary-button" data-action="restart">Iniciar nova consulta</button>';}
-   else {const title=n.question?n.text:n.choices.length>1?'Qual achado ou componente deseja consultar?':'Etapa prevista no protocolo';body=heading(n.question?'AVALIAÇÃO · RESPONDA À PERGUNTA':'CONDUTA · ETAPA INTERMEDIÁRIA',title);if(n.question&&n.criteria)body+='<div class="step-card clinical-text question-criteria">'+formatted(n.criteria)+'<small>Fonte: página '+n.page+'</small></div>';if(!n.question)body+='<div class="step-card clinical-text">'+formatted(n.text)+'<small>Fonte: página '+n.page+'</small></div>';if(!n.question&&n.choices.length>1)body+='<p class="branch-hint">Os componentes podem ser complementares. A escolha organiza a consulta; não exclui as demais medidas indicadas no documento.</p>';body+=`<div class="answer-grid clinical-answers">${n.choices.map((c,i)=>option(c.label,'','answer',String(i))).join('')}</div>`;body+=linkedProtocols(n.text);}
-   html+=`<div class="clinical-layout"><div class="clinical-main">${body}</div>${notesHTML(p,n)}</div>`;if(!n.incomplete)html+=referenceHTML(p);
+   else {const title=n.question?n.text:n.choices.length>1?'Qual achado ou componente deseja consultar?':'Etapa prevista no protocolo';body=heading(n.question?'AVALIAÇÃO · RESPONDA À PERGUNTA':'CONDUTA · ETAPA INTERMEDIÁRIA',title);if(n.question&&n.criteria)body+='<div class="step-card clinical-text question-criteria">'+formatted(n.criteria)+'<small>Fonte: página '+n.page+'</small></div>';if(!n.question)body+='<div class="step-card clinical-text">'+formatted(n.text)+'<small>Fonte: página '+n.page+'</small></div>';if(!n.question&&n.choices.length>1)body+='<p class="branch-hint">Os componentes podem ser complementares. A escolha organiza a consulta; não exclui as demais medidas indicadas no documento.</p>';body+=`<div class="answer-grid clinical-answers">${n.choices.map((c,i)=>state.protocol===ANIMAL_ID&&state.node==='af-outros'?photoOption(c.label,'','answer',String(i),i===2?['abelha','vespa','formiga']:animalPhotos()?.byChoice['af-outros']?.slice(i,i+1)):option(c.label,'','answer',String(i))).join('')}</div>`;body+=linkedProtocols(n.text);}
+   html+=`<div class="clinical-layout"><div class="clinical-main">${animalPagePhoto(n)}${body}</div>${notesHTML(p,n)}</div>`;if(!n.incomplete)html+=referenceHTML(p);
   }root.innerHTML=html;
  }
  if(focus){root.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
