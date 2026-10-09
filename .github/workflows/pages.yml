@@ -22,6 +22,10 @@ jobs:
         run: |
           node --check site/app.js
           node --check site/catalog.js
+          node --check site/animal-flow.js
+          node --check site/animal-photos.js
+          node scripts/test-animal-flow.cjs
+          node scripts/test-animal-photos.cjs
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
