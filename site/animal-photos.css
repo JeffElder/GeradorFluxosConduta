@@ -1,0 +1,28 @@
+/* Fotografias de identificação: somente no fluxo de animais peçonhentos. */
+.animal-selection-card{background:#fff;border:1px solid #cddde3;border-radius:11px;overflow:hidden;min-width:0}
+.animal-selection-card:focus-within{outline:2px solid #1d9b83;outline-offset:2px}
+.animal-selection-card .answer-option{border:0;border-radius:0;width:100%;height:100%;padding:13px;text-align:left;gap:15px;display:flex;align-items:center;flex-direction:row;min-height:123px}
+.animal-choice-thumbs{width:150px;height:96px;flex-shrink:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(25px,1fr));gap:3px;overflow:hidden;border-radius:9px;background:#e9f1f1}
+.animal-choice-thumbs img{width:100%;height:96px;object-fit:cover;min-width:0;display:block}
+.animal-select-label{flex:1;min-width:0;align-self:center}
+.animal-select-label strong{display:block;font-size:16px;line-height:1.35}
+.animal-select-label small{display:block;margin-top:8px;font-size:12px;color:#536570}
+.animal-choice-credits{font-size:10px;color:#586a70;line-height:1.45;padding:0 13px 10px;margin:-1px 0 0;overflow-wrap:anywhere}
+.animal-choice-credits a,.animal-figure a,.animal-clinical-link a{color:#005f74;text-decoration:underline;text-underline-offset:2px}
+.animal-photo-caption{margin:0 0 12px;font-size:12px;color:#506371}
+.animal-context-photos{margin-bottom:18px;border:1px solid #d5e2e7;border-radius:12px;padding:15px;background:#f8fbfc}
+.animal-photo-gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:12px}
+.animal-figure{margin:0;min-width:0}
+.animal-figure img{display:block;width:100%;height:142px;object-fit:cover;border-radius:8px;background:#e8eff0}
+.animal-figure figcaption{font-size:11px;line-height:1.35;color:#384b55;padding-top:6px}
+.animal-figure figcaption>span,.animal-figure figcaption>a{display:block}
+.animal-figure figcaption>a{font-size:10px;margin-top:3px}
+.animal-clinical-link{font-size:12px;margin:12px 0 0}
+@media(max-width:760px){
+ .animal-selection-card .answer-option{min-height:110px;gap:10px;padding:10px}
+ .animal-choice-thumbs{width:112px;height:84px}
+ .animal-choice-thumbs img{height:84px}
+ .animal-choice-credits{padding:0 10px 10px}
+ .animal-photo-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .animal-figure img{height:118px}
+}
