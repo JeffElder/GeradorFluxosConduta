@@ -20,6 +20,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Verificar JavaScript
         run: |
+          node --check site/arrhythmia-flow.js
+          node --check site/arrhythmia-ecg.js
+          node scripts/test-arrhythmia.cjs
           node --check site/app.js
           node --check site/catalog.js
           node --check site/animal-flow.js

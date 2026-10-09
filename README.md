@@ -55,3 +55,24 @@ node scripts/test-protocols.cjs
 ```
 
 Os PDFs podem mudar nas URLs oficiais. Compare versões e diferenças antes de regenerar/publicar; IDs geométricos são específicos da versão obtida. A coleta não é executada automaticamente em produção. Preserve a identificação de versão para revisão até aprovação clínica de todas as decisões e condutas.
+
+## Arritmias: revisão de navegação e ECGs (09/10/2026)
+
+`site/arrhythmia-flow.js` aplica as correções após o arquivo gerado: duas entradas (bradiarritmias e taquiarritmias), bifurcação por duração do QRS, opções de duração indeterminada e continuidade para o quadro de cardioversão da página 3. As condições explícitas de TV mono/polimórfica e torsades estável/instável são opções de navegação. Os quadros de manutenção de amiodarona e tratamento após falha de adenosina continuam como conclusões, pois o PDF não desenha saída desses quadros. Critérios e causas reversíveis permanecem acessíveis na etapa pertinente.
+
+Os 11 painéis em `site/assets/ecg/arritmias/` são recortes renderizados do PDF municipal, com legendas, setas e créditos preservados; não são traçados desenhados ou gerados por IA. São servidos junto com o site, sem depender de um servidor externo de imagens. O manifesto registra URL, versão, SHA-256, página, retângulo e dimensões. Para reproduzir com a mesma edição:
+
+```sh
+python scripts/extract-arrhythmia-ecg.py ../tmp/pdfs/arritmias.pdf
+node scripts/test-arrhythmia.cjs
+```
+
+A extração recusa PDFs com hash diferente para evitar deslocar silenciosamente os recortes. A referência integral inclui os mesmos painéis, e o fluxo permite ampliação em diálogo acessível. As referências internas do PDF a “p.5” para cardioversão/causas reversíveis não correspondem às páginas efetivas; a navegação usa o conteúdo da página 3.
+
+Alertas do próprio PDF ficam expandidos nas etapas de instabilidade, adenosina, metoprolol, sedação e choque. Notas de revisão clínica ficam identificadas separadamente e vinculadas à fonte externa:
+
+- O PDF agrupa a dose de dopamina/epinefrina e usa dose inicial de atropina distinta da AHA 2025. A dose agrupada foi suprimida do texto navegável e da transcrição de referência; não foi inferida uma dose substituta. A nota do manejo ressalta também a redação ambígua sobre Mobitz II. Referência: https://cpr.heart.org/-/media/CPR-Files/CPR-Guidelines-Files/2025-Algorithms/Algorithm-ACLS-Bradycardia-250514.pdf
+- O ramo de FA com aberrância/pré-excitação mantém a navegação documental, mas um alerta persistente acompanha os passos seguintes. Os quadros de amiodarona/metoprolol/digitálico ficam recolhidos e identificados como texto documental contraindicado em FA pré-excitada. O exemplo de WPW é explicitamente identificado como ECG **sem arritmia**, conforme a legenda original. Referência: https://pmc.ncbi.nlm.nih.gov/articles/PMC11104284/
+- Os valores de energia são identificados como os da edição municipal de 2024; não há conversão automática entre escalonamento monofásico e energia bifásica. Referência de revisão: https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support
+
+Os testes cobrem as setas, 57 etapas alcançáveis, 16 conclusões, imagens locais, alertas, histórico, zoom e as regressões dos demais fluxos. Isso verifica o software e a correspondência documental; não constitui validação clínica.

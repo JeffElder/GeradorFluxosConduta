@@ -1,7 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),assert=require('node:assert/strict');
 const root=path.join(__dirname,'..'),ctx={window:{}};vm.createContext(ctx);
-for(const f of ['catalog.js','protocols.js','animal-flow.js'])vm.runInContext(fs.readFileSync(path.join(root,'site',f),'utf8'),ctx);
+for(const f of ['catalog.js','protocols.js','animal-flow.js','arrhythmia-ecg.js','arrhythmia-flow.js'])vm.runInContext(fs.readFileSync(path.join(root,'site',f),'utf8'),ctx);
 const {CATALOG:catalog,PROTOCOLS:protocols}=ctx.window;
 assert.equal(catalog.length,73);assert.equal(Object.keys(protocols).length,73);
 let transitions=0,questions=0;

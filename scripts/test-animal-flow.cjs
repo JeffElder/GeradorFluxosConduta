@@ -39,5 +39,5 @@ assert.equal(dest('af-outros-anafilaxia','Sim'),'af-outros-com-anafilaxia');
 assert.equal(dest('af-outros-anafilaxia','Não'),'af-outros-sem-anafilaxia');
 const html=fs.readFileSync(path.join(__dirname,'../site/index.html'),'utf8');
 assert(html.indexOf('protocols.js?v=4')<html.indexOf('animal-flow.js?v=1'));
-assert(html.indexOf('animal-flow.js?v=1')<html.indexOf('app.js?v=6'));
+assert(html.indexOf('animal-flow.js?v=1')<html.indexOf('./app.js?'));
 console.log('PASS: animal-flow.js — 8 grupos, '+visited.size+' etapas alcançáveis, '+leaves.size+' condutas, ramificações preservadas. Teste de software, não validação clínica.');
