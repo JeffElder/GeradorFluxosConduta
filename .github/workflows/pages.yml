@@ -32,6 +32,8 @@ jobs:
           node --check site/obstetric-flow.js
           node scripts/test-reconstructed-flows.cjs
           node scripts/test-review-batch-01.cjs
+          node --check site/review-batch-02.js
+          node scripts/test-review-batch-02.cjs
           node --check site/catalog.js
           node --check site/animal-flow.js
           node --check site/animal-photos.js

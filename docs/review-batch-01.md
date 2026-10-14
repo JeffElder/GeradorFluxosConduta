@@ -40,4 +40,8 @@ Os testes não substituem a conferência visual nem validam clinicamente doses/c
 
 ## Publicação
 
-Aguardando commit e execução do GitHub Actions. A confirmação e os hashes servidos serão registrados após a conclusão. Não iniciar lote 02 antes disso.
+Commit: `359c6f37e3baf4e5fa5e0de01b60cdc219df2e86`. Actions/Pages: [38601544426](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38601544426), completed/success confirmado em 14/10/2026. Os três arquivos servidos em https://jeffelder.github.io/GeradorFluxosConduta/ foram baixados e comparados byte a byte com a versão local: todos iguais.
+
+- animal-flow.js: SHA-256 `6ba154866a27f10cae8c0c7f9d5044a42385bcbc51088f2bc677302aee1e4b6a`.
+- arrhythmia-flow.js: SHA-256 `c8dd08420fa8be0682ae55ca31d9760957f00b31f7ffd8f1f864e4580eb02cc2`.
+- obstetric-flow.js: SHA-256 `af9cd00f6b7766d808ea9295905a23774a0dd6fb5f6e7ad9b644b0d221c2b399`.

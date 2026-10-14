@@ -28,22 +28,22 @@
       "id": "adulto-atendimento-de-urgencia-ao-paciente-oncologico-ou-com-suspeita-oncologica",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/ATENDIMENTO%20DE%20URG%C3%8ANCIA%20AO%20PACIENTE%20ONCOL%C3%93GICO%20OU%20COM%20SUSPEITA%20ONCOL%C3%93GICA%201.pdf",
       "sha256": "ea0e405a935301a88284cdfbe443cd43e15ad2b9462f2309d879a9158222d2ec",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-concluida",
+      "batch": 2
     },
     {
       "id": "adulto-avaliacao-do-paciente-com-hiv-e-tuberculose-na-upa",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/AVALIA%C3%87%C3%83O%20DO%20PACIENTE%20COM%20HIV%20E%20TUBERCULOSE%20NA%20UPA.pdf",
       "sha256": "5403e6ca30044ad01945dc0c85dd2da8cf4655940b317310e400a96c13916e3b",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 2
     },
     {
       "id": "adulto-avaliacao-do-paciente-com-hiv-na-upa",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/AVALIA%C3%87%C3%83O%20DO%20PACIENTE%20COM%20HIV%20NA%20UPA.pdf",
       "sha256": "3e586c8c5426f852fc033938e35fa6a6f4ae897ddaccff6b5e27c8b8b520cb93",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 2
     },
     {
       "id": "adulto-avaliacao-do-paciente-com-tuberculose-na-upa",
@@ -513,6 +513,15 @@
       "sha256": "7fcd9eafd6fb04e3e72e5680158ac758fb225357ce8b8cb9c69454654f57103e",
       "status": "pendente-conferencia-individual",
       "batch": null
+    }
+  ],
+  "batches": [
+    {
+      "id": 1,
+      "commit": "359c6f37e3baf4e5fa5e0de01b60cdc219df2e86",
+      "deploy": 38601544426,
+      "conclusion": "success",
+      "publishedFilesMatch": true
     }
   ]
 }
