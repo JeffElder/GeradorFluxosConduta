@@ -93,6 +93,34 @@ function ecgGallery(p, keys, open=true){
  if(!files.length)return '';
  return '<details class="ecg-gallery" '+(open?'open':'')+'><summary>Comparar com os ECGs do PDF ('+files.length+')</summary><p class="ecg-caption">Painéis originais, com legendas e setas preservadas. Toque em um traçado para ampliar.</p><div class="ecg-grid">'+files.map(([key,f])=>'<figure class="ecg-figure"><button class="ecg-expand" data-action="ecg" data-value="'+esc(key)+'" aria-label="Ampliar '+esc(f.title)+'"><img loading="lazy" decoding="async" src="'+esc(f.src)+'" alt="'+esc(f.alt)+'" width="'+f.width+'" height="'+f.height+'"></button><figcaption><strong>'+esc(f.title)+'</strong><a href="'+esc(media.url)+'#page='+f.page+'" target="_blank" rel="noopener noreferrer">PDF original · página '+f.page+'</a></figcaption></figure>').join('')+'</div></details>';
 }
+
+const IRIS_FIELDS=[
+ ['Sexo masculino',1],['Idade de 45 anos ou mais',1],['Ausência de religiosidade',1],
+ ['Isolamento social / vive só, sem apoio',2],['Perda recente marcante',2],
+ ['Doença física incapacitante ou terminal',2],['Abuso de álcool ou substâncias',2],
+ ['Doença psiquiátrica grave descompensada',2],['História de internamento psiquiátrico',2],
+ ['História familiar de suicídio',2],['Comportamentos suicidas prévios (2 ou mais; ou 1 grave)',3],
+ ['Plano suicida organizado, consistente, letal e exequível',20]
+];
+let irisAnswers=Array(IRIS_FIELDS.length).fill('');
+function irisScore(){
+ if(irisAnswers.some(x=>x===''))return null;
+ return irisAnswers[11]==='1'?20:irisAnswers.reduce((v,x,i)=>v+(x==='1'?IRIS_FIELDS[i][1]:0),0);
+}
+function irisCalculator(){
+ const score=irisScore(),risk=score===null?'Preencha todos os itens':score<5?'Risco reduzido':score<10?'Risco intermediário':'Risco elevado';
+ return '<section class="iris-calculator" aria-label="Calculadora do índice de risco de suicídio">'+
+ '<h2>Calculadora IRIS · página 2 do PDF</h2><p>Marque Sim ou Não para cada critério, conforme a tabela original. Plano suicida confirmado atribui diretamente 20 pontos ao total, independentemente dos outros itens.</p>'+
+ IRIS_FIELDS.map(([title,points],i)=>'<label class="iris-field"><span>'+esc(title)+' <small>('+points+' ponto'+(points===1?'':'s')+')</small></span><select data-iris="'+i+'" aria-label="'+esc(title)+'"><option value="">Selecione</option><option value="0"'+(irisAnswers[i]==='0'?' selected':'')+'>Não</option><option value="1"'+(irisAnswers[i]==='1'?' selected':'')+'>Sim</option></select></label>').join('')+
+ '<output class="iris-result" id="iris-result" aria-live="polite">'+(score===null?'Pontuação: —': 'Pontuação: '+score)+' · '+risk+'</output>'+
+ '<p class="iris-note">A escala é um instrumento auxiliar; escore reduzido não exclui risco iminente. Avaliação clínica, segurança e encaminhamento não devem depender apenas deste número.</p></section>';
+}
+function updateIRISChoices(){
+ const score=irisScore();const root=document.querySelector('#consultation');if(!root||state.node!=='ob-iris')return;
+ const output=root.querySelector('#iris-result');if(output)output.textContent=score===null?'Pontuação: — · Preencha todos os itens':'Pontuação: '+score+' · '+(score<5?'Risco reduzido':score<10?'Risco intermediário':'Risco elevado');
+ const buttons=root.querySelectorAll('[data-action="answer"]');
+ buttons.forEach((b,i)=>{b.disabled=score===null||(i!==(score<5?0:score<10?1:2));b.title=b.disabled?'Complete a pontuação para selecionar a classificação correspondente':'Prosseguir com a classificação calculada';});
+}
 function clinicalWarnings(p,n){
  const warnings=[...(n.warnings||[]),...(p.persistentWarnings||[]).filter(w=>state.actions.includes(w.from)&&n.id!==w.from).map(w=>w.warning)];
  return warnings.map(w=>'<aside class="clinical-warning" role="note"><strong>'+esc(w.title)+'</strong><div class="clinical-text">'+formatted(w.text)+'</div><small>'+(w.url?'Nota de revisão · <a href="'+esc(w.url)+'" target="_blank" rel="noopener noreferrer">Conferir referência</a>':'Fonte: PDF municipal · página '+w.page)+'</small></aside>').join('');
@@ -144,17 +172,18 @@ if(!catalog.length||!Object.keys(protocols).length){root.innerHTML=heading('CARR
    const terminal=n.choices.length===0&&!n.incomplete;let body='';const stepWarnings=clinicalWarnings(p,n),stepImages=ecgGallery(p,n.media);
    if(n.incomplete){body=heading('DECISÃO A CONFERIR',n.text,'A ligação desta decisão não foi reconstruída com segurança. Consulte os critérios em texto abaixo; a aplicação não presume uma resposta.')+referenceHTML(p,true);}
    else if(terminal){body=heading('CONDUTA DO CAMINHO','Orientação conforme o fluxo selecionado')+`<div class="result-card clinical-text">${stepText(p,n)}<small>Fonte: página ${n.page}</small></div>`+stepImages+linkedProtocols(n.text);if(state.actions.length)body+=`<details class="prior-actions"><summary>Etapas anteriores deste caminho (${state.actions.length})</summary>${state.actions.map(k=>p.nodes[k]).filter(Boolean).map(a=>'<div class="clinical-text">'+stepText(p,a)+'<small>Fonte: página '+a.page+'</small></div>').join('')}</details>`;body+='<button class="primary-button" data-action="restart">Iniciar nova consulta</button>';}
-   else {const title=n.question?n.text:n.choices.length>1?'Qual achado ou componente deseja consultar?':'Etapa prevista no protocolo';body=heading(n.question?'AVALIAÇÃO · RESPONDA À PERGUNTA':'CONDUTA · ETAPA INTERMEDIÁRIA',title);if(n.question&&n.criteria)body+='<div class="step-card clinical-text question-criteria">'+formatted(n.criteria)+'<small>Fonte: página '+n.page+'</small></div>';if(!n.question)body+='<div class="step-card clinical-text">'+stepText(p,n)+'<small>Fonte: página '+n.page+'</small></div>';body+=stepImages;if(!n.question&&n.choices.length>1)body+='<p class="branch-hint">Os componentes podem ser complementares. A escolha organiza a consulta; não exclui as demais medidas indicadas no documento.</p>';body+=`<div class="answer-grid clinical-answers">${n.choices.map((c,i)=>state.protocol===ANIMAL_ID&&state.node==='af-outros'?photoOption(c.label,'','answer',String(i),i===2?['abelha','vespa','formiga']:animalPhotos()?.byChoice['af-outros']?.slice(i,i+1)):option(c.label,'','answer',String(i))).join('')}</div>`;body+=linkedProtocols(n.text);}
+   else {const title=n.question?n.text:n.choices.length>1?'Qual achado ou componente deseja consultar?':'Etapa prevista no protocolo';body=heading(n.question?'AVALIAÇÃO · RESPONDA À PERGUNTA':'CONDUTA · ETAPA INTERMEDIÁRIA',title);if(n.question&&n.criteria)body+='<div class="step-card clinical-text question-criteria">'+formatted(n.criteria)+'<small>Fonte: página '+n.page+'</small></div>';if(!n.question)body+='<div class="step-card clinical-text">'+stepText(p,n)+'<small>Fonte: página '+n.page+'</small></div>';body+=stepImages;if(state.protocol==='adulto-emergencias-psiquiatricas-em-gestantes'&&state.node==='ob-iris')body+=irisCalculator();if(!n.question&&n.choices.length>1)body+='<p class="branch-hint">Os componentes podem ser complementares. A escolha organiza a consulta; não exclui as demais medidas indicadas no documento.</p>';body+=`<div class="answer-grid clinical-answers">${n.choices.map((c,i)=>state.protocol===ANIMAL_ID&&state.node==='af-outros'?photoOption(c.label,'','answer',String(i),i===2?['abelha','vespa','formiga']:animalPhotos()?.byChoice['af-outros']?.slice(i,i+1)):option(c.label,'','answer',String(i))).join('')}</div>`;body+=linkedProtocols(n.text);}
    html+=`<div class="clinical-layout"><div class="clinical-main">${stepWarnings}${animalPagePhoto(n)}${body}</div>${notesHTML(p,n)}</div>`;if(!n.incomplete)html+=referenceHTML(p);
   }root.innerHTML=html;
  }
+ if(state.protocol==='adulto-emergencias-psiquiatricas-em-gestantes'&&state.node==='ob-iris')updateIRISChoices();
  if(focus){root.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
 }
 let libraryPop='todos';
 function homeIntro(){return `<section class="test-banner" aria-labelledby="test-banner-title"><div class="test-banner-badge">TESTE ABERTO · ACESSO GRATUITO</div><h2 id="test-banner-title">Versão de teste aberta e gratuita</h2><p>Explore a aplicação gratuitamente. Estamos em fase de testes: os fluxos e as condutas ainda precisam de revisão clínica antes do uso assistencial.</p></section><section class="home-search" aria-labelledby="home-search-title"><h2 id="home-search-title"><label for="home-search">Encontre um protocolo</label></h2><p id="home-search-help">Pesquise por nome, sigla ou queixa para começar diretamente pelo protocolo.</p><div class="searchbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input type="search" id="home-search" placeholder="Ex.: sepse, AVC, dor abdominal…" autocomplete="off" aria-describedby="home-search-help" aria-controls="home-search-results" value="${esc(state.homeQuery||'')}"></div><p id="home-search-count" role="status" aria-live="polite"></p><div class="answer-grid" id="home-search-results" hidden></div></section><p class="home-divider">Ou inicie uma consulta guiada</p>`;}
 function renderSearch(home=false){const input=home?'#home-search':'#search',count=home?'#home-search-count':'#search-count',results=home?'#home-search-results':'#search-results';const q=norm($(input)?.value||'');if(home&&!q){$(count).textContent='';$(results).innerHTML='';$(results).hidden=true;return;}const matches=catalog.filter(c=>(home||libraryPop==='todos'||c.population===libraryPop)&&q.split(' ').every(w=>norm(c.title+' '+c.aliases).includes(w)));$(count).textContent=matches.length+' protocolos e documentos';$(results).hidden=false;$(results).innerHTML=matches.length?matches.map(c=>option(c.title,popLabel(c.population)+' · '+c.category,'protocol',c.id)).join(''):'<div class="empty"><h3>Nenhum protocolo encontrado</h3><p>Tente outro termo ou outro público. Não há substituição automática por um protocolo de outra população.</p></div>';}
 
-function answer(i){const p=protocols[state.protocol],n=p.nodes[state.node],c=n?.choices[i];if(!c)return;const actions=!n.question?[...state.actions,state.node]:state.actions;move({node:c.to,screen:'step',actions},{question:n.question?n.text:'Etapa do protocolo',answer:c.label==='Próxima etapa'?n.text.slice(0,100):c.label});}
+function answer(i){if(state.protocol==='adulto-emergencias-psiquiatricas-em-gestantes'&&state.node==='ob-iris'){const score=irisScore();if(score===null||i!==(score<5?0:score<10?1:2))return;}const p=protocols[state.protocol],n=p.nodes[state.node],c=n?.choices[i];if(!c)return;const actions=!n.question?[...state.actions,state.node]:state.actions;move({node:c.to,screen:'step',actions},{question:n.question?n.text:'Etapa do protocolo',answer:c.label==='Próxima etapa'?n.text.slice(0,100):c.label});}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(!b)return;const a=b.dataset.action,v=b.dataset.value;
  if(a==='stage')visitStage(v);
  else if(a==='ecg')openECG(v);
@@ -170,6 +199,7 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');
  else if(a==='library-pop'){libraryPop=v;document.querySelectorAll('[data-action="library-pop"]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.value===v)));renderSearch();}
  else if(a==='about')$('#sources-dialog').showModal();
 });
+document.addEventListener('change',e=>{if(e.target.matches('[data-iris]')){irisAnswers[Number(e.target.dataset.iris)]=e.target.value;updateIRISChoices();}});
 document.addEventListener('input',e=>{if(e.target.id==='search')renderSearch();else if(e.target.id==='home-search'){state.homeQuery=e.target.value;renderSearch(true);}});
 $('#close-sources').addEventListener('click',()=>$('#sources-dialog').close());
 const initial=location.hash.slice(1);render();if(initial&&protocols[initial])openProtocol(initial);
