@@ -60,7 +60,11 @@
     q('start','GESTAÇÃO CONHECIDA OU POSSÍVEL A IDENTIFICAÇÃO PELA CLÍNICA + EXAME FÍSICO (FUNDO UTERINO PALPÁVEL) COM QUADRO DE URGÊNCIA/ EMERGÊNCIA PSIQUIÁTRICA?',[
       ['Sim','management'],['Não','not-confirmed']
     ]),
-    end('not-confirmed','Gestação não identificada nesta avaliação NÃO exclui gravidez. O PDF orienta questionar sobre possibilidade gestacional, uso de anticoncepção e data da última menstruação (DUM) em toda mulher em idade fértil com urgência/emergência psiquiátrica. Prosseguir avaliação clínica e investigação conforme suspeita; não atribuir automaticamente o diagnóstico de não gestante.'),
+    a('not-confirmed','GESTAÇÃO NÃO IDENTIFICADA NA AVALIAÇÃO INICIAL NÃO EXCLUI GRAVIDEZ. Questionar possibilidade gestacional, uso de anticoncepção e data da última menstruação (DUM); examinar e investigar conforme suspeita, sem atrasar estabilização psiquiátrica.','pregnancy-check'),
+    q('pregnancy-check','APÓS A AVALIAÇÃO COMPLEMENTAR, HÁ GESTAÇÃO CONFIRMADA OU AINDA SUSPEITA?',[
+      ['Sim, confirmada ou ainda possível','management'],['Não, gestação afastada pela avaliação clínica','general-psych'],['Ainda indeterminado','management']
+    ]),
+    end('general-psych','Gestação afastada após avaliação: considerar o fluxo geral de emergências psiquiátricas da UPA. Não classificar automaticamente apenas pela resposta negativa à pergunta inicial.'),
     a('management','MANEJO CLÍNICO — decúbito lateral esquerdo se possível; acesso venoso; verificar BCF a cada 20 minutos se mais de 12 semanas. Avaliar risco de auto/heteroagressão, contenção pelo menor tempo necessário e tratamento da agitação conforme condições e precauções do PDF. Conferir as doses e contraindicações medicamentosas na fonte antes de prescrever.','secondary'),
     a('secondary','AFASTAR CAUSAS SECUNDÁRIAS COM PROPEDÊUTICA COMPLEMENTAR — verificar existência de pré-natal; selecionar exames previstos pelo PDF para gestantes com ou sem exames prévios. Acrescentar exames indicados em abstinência alcoólica; avaliar necessidade de ecografia obstétrica antes de CAPS/UEP.','bond'),
     q('bond','QUAL É A SITUAÇÃO DE VINCULAÇÃO DA GESTANTE?',[
