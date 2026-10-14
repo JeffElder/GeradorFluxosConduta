@@ -1,0 +1,23 @@
+'use strict';
+(() => {
+ const p=window.PROTOCOLS?.['adulto-sepse-em-adultos'];if(!p)return;
+ const nodes=p.nodes,C=(label,to)=>({label,to});
+ function put(id,text,choices=[],question=false,page=1){nodes[id]={id,text,choices:choices.map(([l,to])=>C(l,to)),question,page,incomplete:false,contextNodes:[]}}
+ const Q=(id,t,c,page=1)=>put(id,t,c,true,page), A=(id,t,to,page=1)=>put(id,t,[['Continuar',to]],false,page),T=(id,t,page=1)=>put(id,t,[],false,page);
+ Q('sp-qsofa','PACIENTE COM SUSPEITA DE INFECÇÃO E DOIS CRITÉRIOS DE SIRS OU DISFUNÇÃO ORGÂNICA: qSOFA ≥ 2? SIRS: FC >90 bpm, FR >20 irpm, temperatura >37,8°C ou <35°C, leucócitos >12.000/mm³ ou <4.000/mm³ ou desvio à esquerda. qSOFA: PAS <100 mmHg; FR ≥22 irpm; alteração mental (Glasgow <15).',[['Sim','sp-severe'],['Não','sp-focus']]);
+ A('sp-severe','SEPSE GRAVE — monitorar sinais vitais e ECG; obter dois acessos venosos calibrosos; oferecer oxigênio visando SpO₂ >92% (DPOC: 88–92%); coletar hemograma, PCR, glicose, função renal e hepática, bilirrubinas, gasometria arterial, lactato, TAP/TTPa, eletrólitos, parcial de urina e urocultura, radiografia de tórax se possível e ECG. Instalar sonda vesical; realizar ressuscitação volêmica com SF 0,9% ou Ringer lactato 30 mL/kg IV nas primeiras 3 horas, vigiando congestão pulmonar. Após coleta, iniciar antimicrobiano empírico na primeira hora segundo foco infeccioso e prescrição. Reavaliar em três horas.','sp-pressure');
+ Q('sp-pressure','APÓS TRÊS HORAS, PERSISTE PAS < 90 mmHg?', [['Sim','sp-shock'],['Não','sp-focus']]);
+ A('sp-shock','CHOQUE SÉPTICO — avaliar acesso venoso central e drogas vasoativas. O documento municipal de 2024 descreve norepinefrina 0,1 a 2 mcg/kg/min IV com titulação; se persistir hipotensão, hidrocortisona 200 mg IV em 24 h; se ainda houver hipotensão, considerar adrenalina; se perfusão tecidual continuar inadequada, avaliar mais volume ou dobutamina. Aplicação requer equipe habilitada, monitorização, doses e critérios institucionais atualizados. Na refratariedade, acionar CLM pelo protocolo de sepse.','sp-focus');
+ A('sp-focus','BUSCAR FOCO INFECCIOSO pela anamnese e exame físico: diarreia (intestinal); alterações neurológicas (meningite/encefalite); tosse, dispneia ou crepitações (pulmonar); icterícia (hepático/leptospirose); cateter (dispositivo/endocardite); disúria/Giordano (urinário); dor pélvica/corrimento (ginecológico); peritonismo (abdominal); lesões de pele (partes moles). Se ainda não coletados, colher hemograma, PCR, glicose, ureia/creatinina, função hepática, bilirrubinas, gasometria arterial, lactato, TAP/TTPa, eletrólitos, urina/urocultura, radiografia de tórax e ECG.','sp-antibiotic');
+ Q('sp-antibiotic','QUAL É O FOCO SUSPEITO PARA SELECIONAR A ANTIBIOTICOTERAPIA EMPÍRICA?',[
+ ['Pulmonar','sp-pulm'],['Urinário','sp-urine'],['Abdominal','sp-abdom'],['Pele e partes moles','sp-skin'],['Sistema nervoso central','sp-cns'],['Sem foco definido','sp-undefined']
+ ],2);
+ const finish=' Registrar na CLM, reavaliar continuamente e ajustar antimicrobianos. Meta de glicemia <180 mg/dL; reavaliar perfusão e lactato e calcular SOFA quando cabível. Os esquemas de 2024 exigem prescrição individualizada e conferência de diretriz institucional vigente.';
+ T('sp-pulm','FOCO PULMONAR: o protocolo municipal lista ceftriaxona 2 g IV uma vez por dia + azitromicina 500 mg VO/dia; em DPOC, ceftriaxona 2 g IV/dia + levofloxacino 500 mg VO/dia, ou ciprofloxacino IV quando impossibilidade de VO.'+finish,2);
+ T('sp-urine','FOCO URINÁRIO: ceftriaxona 2 g IV uma vez por dia OU ciprofloxacino 400 mg IV a cada 12 horas, conforme avaliação e sensibilidade local.'+finish,2);
+ T('sp-abdom','FOCO ABDOMINAL: ceftriaxona 2 g IV uma vez por dia + metronidazol 500 mg IV de 8/8 h + gentamicina 5–7 mg/kg/dia IV a cada 24 h, conforme avaliação e ajuste renal.'+finish,2);
+ T('sp-skin','PELE E PARTES MOLES: cefazolina 2 g IV a cada 8 horas; se houver necrose, associar ciprofloxacino 400 mg IV a cada 12 horas. Avaliar necessidade de controle cirúrgico de foco.'+finish,2);
+ T('sp-cns','SISTEMA NERVOSO CENTRAL: ceftriaxona 2 g IV uma vez por dia é a opção mostrada no quadro municipal, mas a suspeita de meningite/encefalite exige avaliação urgente da cobertura apropriada e diretriz atual antes da prescrição.'+finish,2);
+ T('sp-undefined','SEM FOCO DEFINIDO: ceftriaxona 2 g IV uma vez por dia + metronidazol 500 mg IV a cada 8 horas conforme o quadro municipal; investigar ativamente o foco e ajustar após resultados.'+finish,2);
+ p.entries=[{to:'sp-qsofa',page:1,label:'Suspeita de sepse'}];
+})();
