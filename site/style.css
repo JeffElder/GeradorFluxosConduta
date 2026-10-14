@@ -38,3 +38,9 @@
 .iris-calculator .iris-note{color:#6b4920}
 .clinical-answers .answer-option:disabled{opacity:.45;cursor:not-allowed;background:#eef2f3}
 @media(max-width:520px){.iris-field{align-items:flex-start;flex-direction:column}.iris-field select{width:100%}}
+
+.flow-issue{border:1px solid #c58c45;border-left:4px solid #c58c45;background:#fff8ed;color:#503c25;border-radius:8px;padding:18px;margin:18px 0}
+.flow-issue>strong{display:block;font-size:16px}.flow-issue>p{font-size:14px;line-height:1.6}
+.flow-issue details{border-top:1px solid #dfc8a8;padding-top:12px;margin:14px 0;max-height:340px;overflow:auto}
+.flow-issue summary{cursor:pointer;font-weight:600}
+.flow-issue .secondary-button{margin-top:12px}
