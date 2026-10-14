@@ -17,3 +17,14 @@
 .test-banner p{position:relative;z-index:1;max-width:760px;margin:0;font-size:15px;line-height:1.65;color:#e0f5f1}
 .home-search{margin-bottom:27px}.home-search h2{margin:0 0 7px;font-size:20px;color:var(--ink)}.home-search>p{margin:0 0 15px;font-size:14px;color:var(--muted)}.home-search #home-search-count{margin:12px 0;font-size:13px}.home-search #home-search-count:empty{display:none}.home-search [hidden]{display:none}.home-divider{display:flex;align-items:center;gap:15px;margin:26px 0;color:var(--muted);font-size:13px}.home-divider::after{content:"";height:1px;background:var(--line);flex:1}
 @media(max-width:760px){.test-banner{padding:23px 20px;margin-bottom:24px;border-radius:12px}.test-banner h2{font-size:25px}.test-banner p{font-size:14px}.test-banner-badge{font-size:10px;letter-spacing:.7px}.home-search h2{font-size:19px}.home-search>p{font-size:13px;line-height:1.55}.home-divider{font-size:12px;margin:23px 0}}
+
+/* Etapas alcançadas são navegáveis; etapas futuras permanecem indisponíveis. */
+.journey>button{display:flex;align-items:center;gap:12px;width:100%;padding:12px;color:#aec6d1;border:1px solid transparent;border-radius:8px;font-size:15px;background:transparent;text-align:left;font-family:inherit;cursor:pointer;transition:background .15s,border-color .15s,color .15s}
+.journey>button span{font-size:12px;font-family:monospace;border:1px solid #466471;border-radius:6px;padding:4px 6px}
+.journey>button.visited{color:#ebfff9;border-color:#396f70;background:#1b414b}
+.journey>button.visited:hover{background:#306873;border-color:#6ce3cd}
+.journey>button.visited::after{content:'↗';color:#6ce3cd;margin-left:auto;font-weight:700}
+.journey>button.active{color:#fff;background:#27515f;border-color:#6ce3cd;cursor:default}
+.journey>button.active span{color:#6ce3cd;border-color:#6ce3cd}
+.journey>button:disabled{opacity:.48;cursor:not-allowed}
+.journey>button:focus-visible{outline:2px solid #6ce3cd;outline-offset:2px}
