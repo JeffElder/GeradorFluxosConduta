@@ -18,8 +18,41 @@ const areas=[
 ];
 let state={screen:'population',population:null,category:null,protocol:null,node:null,trail:[],actions:[]},history=[];
 const copy=v=>JSON.parse(JSON.stringify(v));
-function move(patch,answer){history.push(copy(state));state={...state,...patch};if(answer)state.trail=[...state.trail,answer];render(true);}
-function restart(){state={screen:'population',population:null,category:null,protocol:null,node:null,trail:[],actions:[]};history=[];historyURL('');render(true);}
+const stageFor=s=>s.screen==='population'?'population':['category','topic','library'].includes(s.screen)?'category':s.screen==='reference'||s.screen==='result'||(s.screen==='step'&&protocols[s.protocol]?.nodes[s.node]?.choices.length===0)?'result':'step';
+const stageOrder=['population','category','step','result'];
+let checkpoints={population:copy(state)},navigationStage='population';
+function rememberStage(){
+ const stage=stageFor(state);
+ checkpoints[stage]=copy(state);
+ navigationStage=stage;
+}
+function move(patch,answer){
+ const previousStage=navigationStage;
+ if(stageOrder.includes(previousStage)){
+  const index=stageOrder.indexOf(previousStage);
+  for(const later of stageOrder.slice(index+1))delete checkpoints[later];
+ }
+ history.push(copy(state));
+ state={...state,...patch};
+ if(answer)state.trail=[...state.trail,answer];
+ rememberStage();
+ historyURL(state.protocol||'');
+ render(true);
+}
+function visitStage(stage){
+ if(!Object.prototype.hasOwnProperty.call(checkpoints,stage))return;
+ if(stage===navigationStage)return;
+ history.push(copy(state));
+ state=copy(checkpoints[stage]);
+ navigationStage=stage;
+ historyURL(state.protocol||'');
+ render(true);
+}
+function restart(){
+ state={screen:'population',population:null,category:null,protocol:null,node:null,trail:[],actions:[]};
+ history=[];checkpoints={population:copy(state)};navigationStage='population';
+ historyURL('');render(true);
+}
 function historyURL(id){try{window.history.replaceState(null,'',location.pathname+location.search+(id?'#'+id:''));}catch{}}
 function popLabel(p){return p==='infantil'?'Infantil':'Adulto';}
 function formatted(text){const bits=String(text).replace(/\s+([•])\s*/g,'\n$1 ').split(/\n/).filter(Boolean);let out='',list=false;for(let bit of bits){const bullet=/^[•]/.test(bit);if(bullet&&!list){out+='<ul>';list=true;}if(!bullet&&list){out+='</ul>';list=false;}out+=bullet?'<li>'+esc(bit.replace(/^[•]\s*/,''))+'</li>':'<p>'+esc(bit)+'</p>';}return out+(list?'</ul>':'');}
@@ -91,7 +124,14 @@ function render(focus=false){
  root.dataset.feedbackStep=[state.screen,state.node?'Etapa: '+state.node:'',state.category||''].filter(Boolean).join(' · ');
 if(!catalog.length||!Object.keys(protocols).length){root.innerHTML=heading('CARREGAMENTO','Não foi possível carregar os protocolos.','Recarregue a página. Nenhuma conduta será exibida sem o conteúdo completo.');return;}
  $('#back').hidden=history.length===0;$('#restart-top').hidden=history.length===0;$('#breadcrumb').textContent=[state.population?popLabel(state.population):'Nova consulta',state.category].filter(Boolean).join(' / ');
- const stage=state.screen==='population'?'population':['category','topic','library'].includes(state.screen)?'category':(['reference','result'].includes(state.screen)||(state.screen==='step'&&protocols[state.protocol]?.nodes[state.node]?.choices.length===0))?'result':'step';document.querySelectorAll('[data-stage]').forEach(x=>x.classList.toggle('active',x.dataset.stage===stage));
+ const stage=state.screen==='population'?'population':['category','topic','library'].includes(state.screen)?'category':(['reference','result'].includes(state.screen)||(state.screen==='step'&&protocols[state.protocol]?.nodes[state.node]?.choices.length===0))?'result':'step';document.querySelectorAll('[data-stage]').forEach(x=>{
+  const key=x.dataset.stage,available=Object.prototype.hasOwnProperty.call(checkpoints,key);
+  x.disabled=!available;
+  x.classList.toggle('active',key===stage);
+  x.classList.toggle('visited',available&&key!==stage);
+  x.setAttribute('aria-current',key===stage?'step':'false');
+  x.title=available?(key===stage?'Etapa atual':'Voltar à etapa já visitada'):'Etapa ainda não alcançada';
+ });
  $('#side-history').innerHTML=state.trail.length?state.trail.map(t=>'<li><small>'+esc(t.question)+'</small><span>'+esc(t.answer)+'</span></li>').join(''):'<li>Escolha o público para começar.</li>';
  if(state.screen==='population'){root.innerHTML=homeIntro()+heading('ETAPA 1 · PÚBLICO','Qual é o público do atendimento?','Escolha para iniciar as perguntas do protocolo.')+`<div class="answer-grid population-answers">${option('Adulto','Inclui gestação e urgências ginecológicas','population','adulto')}${option('Infantil','Protocolos de atendimento pediátrico','population','infantil')}</div><div class="start-footnote"><span>73 documentos de origem</span><span>Condutas na própria tela</span><span>Sem dados de pacientes</span></div>`;renderSearch(true);}
  else if(state.screen==='category'){const allowed=new Set(catalog.filter(p=>p.population===state.population).map(p=>p.category));root.innerHTML=heading('ETAPA 2 · QUADRO CLÍNICO','Qual quadro precisa ser avaliado?','Selecione a queixa ou situação principal.')+`<div class="answer-grid">${areas.filter(a=>allowed.has(a[0])).map(a=>option(a[1],a[2],'category',a[0])).join('')}</div>`;}
@@ -116,14 +156,15 @@ function renderSearch(home=false){const input=home?'#home-search':'#search',coun
 
 function answer(i){const p=protocols[state.protocol],n=p.nodes[state.node],c=n?.choices[i];if(!c)return;const actions=!n.question?[...state.actions,state.node]:state.actions;move({node:c.to,screen:'step',actions},{question:n.question?n.text:'Etapa do protocolo',answer:c.label==='Próxima etapa'?n.text.slice(0,100):c.label});}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(!b)return;const a=b.dataset.action,v=b.dataset.value;
- if(a==='ecg')openECG(v);
+ if(a==='stage')visitStage(v);
+ else if(a==='ecg')openECG(v);
  else if(a==='close-ecg')$('#ecg-dialog').close();
  else if(a==='population')move({population:v,screen:'category'},{question:'Público',answer:popLabel(v)});
  else if(a==='category')move({category:v,screen:'topic'},{question:'Quadro clínico',answer:areas.find(x=>x[0]===v)?.[1]||v});
  else if(a==='protocol')openProtocol(v);
  else if(a==='entry')move({node:v,screen:'step'},{question:'Parte do protocolo',answer:protocols[state.protocol].entries.find(x=>x.to===v)?.label||v});
  else if(a==='answer')answer(Number(v));
- else if(a==='back'&&history.length){state=history.pop();historyURL(state.protocol||'');render(true);}
+ else if(a==='back'&&history.length){state=history.pop();rememberStage();historyURL(state.protocol||'');render(true);}
  else if(a==='restart')restart();
  else if(a==='library'){libraryPop='todos';move({screen:'library'});}
  else if(a==='library-pop'){libraryPop=v;document.querySelectorAll('[data-action="library-pop"]').forEach(x=>x.setAttribute('aria-pressed',String(x.dataset.value===v)));renderSearch();}
