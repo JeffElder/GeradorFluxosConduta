@@ -28,3 +28,13 @@
 .journey>button.active span{color:#6ce3cd;border-color:#6ce3cd}
 .journey>button:disabled{opacity:.48;cursor:not-allowed}
 .journey>button:focus-visible{outline:2px solid #6ce3cd;outline-offset:2px}
+
+.iris-calculator{background:#fff;border:1px solid #b7d6d1;border-radius:10px;padding:20px;margin:18px 0 24px}
+.iris-calculator h2{font-size:19px;margin:0 0 10px}
+.iris-calculator>p{font-size:13px;line-height:1.6}
+.iris-field{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0;border-bottom:1px solid #e1e8eb;font-size:14px}
+.iris-field span{flex:1}.iris-field small{color:#647784}.iris-field select{padding:9px;min-width:112px;border:1px solid #9eb9c4;border-radius:6px;background:white}
+.iris-result{display:block;margin-top:16px;padding:15px;background:#e7f6f2;border-radius:7px;font-size:18px;font-weight:700}
+.iris-calculator .iris-note{color:#6b4920}
+.clinical-answers .answer-option:disabled{opacity:.45;cursor:not-allowed;background:#eef2f3}
+@media(max-width:520px){.iris-field{align-items:flex-start;flex-direction:column}.iris-field select{width:100%}}
