@@ -49,22 +49,22 @@
       "id": "adulto-avaliacao-do-paciente-com-tuberculose-na-upa",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/AVALIA%C3%87%C3%83O%20DO%20PACIENTE%20COM%20TUBERCULOSE%20NA%20UPA.pdf",
       "sha256": "beb26823c07e4859badef7c91409ba572411a44dd0f89fc3138cb28050fdcfc7",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 3
     },
     {
       "id": "adulto-cefaleia",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/CEFALEIA.pdf",
       "sha256": "a18afe93033d58c85ad425a8f31eb840230482b7348346373148ae6662b3460d",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 3
     },
     {
       "id": "adulto-choque",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/CHOQUE.pdf",
       "sha256": "44bf70b9504f3862c2317b21fb3ae2382a8fcd809b228237210207e941d26af8",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 3
     },
     {
       "id": "adulto-colica-renal",
@@ -520,6 +520,13 @@
       "id": 1,
       "commit": "359c6f37e3baf4e5fa5e0de01b60cdc219df2e86",
       "deploy": 38601544426,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 2,
+      "commit": "5df1ad59ca4637b36cc87fc459a96e0a63b7c3e7",
+      "deploy": 38602345075,
       "conclusion": "success",
       "publishedFilesMatch": true
     }

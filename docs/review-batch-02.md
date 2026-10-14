@@ -27,4 +27,4 @@ HIV/TB: tabela rasterizada da página 2 foi lida visualmente e transcrita, inclu
 
 `node scripts/test-review-batch-02.cjs`: 33 caminhos completos, renderização em DOM simulado, correspondência das setas, condição da sorologia e tabela por peso. Testes não equivalem a validação clínica.
 
-Commit/deploy: aguardando publicação. Não iniciar lote 03 antes do sucesso no Actions e comparação dos arquivos publicados.
+Commit: `5df1ad59ca4637b36cc87fc459a96e0a63b7c3e7`. Deploy [38602345075](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38602345075): completed/success. index.html e review-batch-02.js publicados comparados byte a byte: iguais. SHA-256 index: 8924b37af6fe41ae24a1370b31a5a2f7ad4e49339e88487bd228a109e7173e98; módulo: 8c0967eb03ac2ee8728b457c362f3158efa7680c85949a731dfb49c0b9c9a0fb.
