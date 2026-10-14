@@ -1,0 +1,26 @@
+'use strict';
+(() => {
+ const p=window.PROTOCOLS?.['adulto-emergencias-psiquiatricas'];if(!p)return;
+ const C=(label,to)=>({label,to});
+ const Q=(id,text,choices)=>({id,page:1,text,question:true,choices:choices.map(([a,b])=>C(a,b)),contextNodes:[],incomplete:false});
+ const A=(id,text,to)=>({id,page:1,text,question:false,choices:[C('Continuar',to)],contextNodes:[],incomplete:false});
+ const E=(id,text)=>({id,page:1,text,question:false,choices:[],contextNodes:[],incomplete:false});
+ const N=p.nodes;
+ N['psy-intox']=Q('psy-intox','HÁ INTOXICAÇÃO EXÓGENA?', [['Sim','psy-intox-end'],['Não','psy-agit']]);
+ N['psy-intox-end']=E('psy-intox-end','SUSPEITA DE INTOXICAÇÃO EXÓGENA: seguir avaliação e manejo de intoxicações exógenas, com estabilização clínica e investigação do agente envolvido. Abrir o protocolo específico de intoxicações exógenas.');
+ N['psy-agit']=Q('psy-agit','HÁ AGITAÇÃO PSICOMOTORA?', [['Sim','psy-agit-care'],['Não','psy-psychosis']]);
+ N['psy-agit-care']=A('psy-agit-care','MANEJO CLÍNICO DA AGITAÇÃO PSICOMOTORA: avaliar risco de auto ou heteroagressão e necessidade de contenção mecânica/química. A orientação municipal lista haloperidol 5 mg IM a cada 30 minutos até cessar crise (máximo seis doses), ou clorpromazina 25 mg IM associada a midazolam 15 mg IM com possibilidade de repetir uma vez após uma hora, ou diazepam 10 mg VO; biperideno em sintomas extrapiramidais. INVESTIGAÇÃO: afastar TCE, hipóxia, intoxicação, abstinência e outras causas orgânicas. Em delirium tremens ou abstinência alcoólica, hemograma, CPK, ureia, creatinina, lipase, TGO, TGP, RNI, bilirrubinas e ECG; nos demais casos, sobretudo idosos, sódio, potássio, creatinina, hemograma, parcial de urina e ECG; coletar beta-HCG em mulheres em idade fértil. Cadastrar na CLP, reavaliar após manejo e exames. Prescrição e contenção exigem avaliação clínica e verificação de contraindicações.','psy-place');
+ N['psy-psychosis']=Q('psy-psychosis','HÁ SURTO PSICÓTICO?', [['Sim','psy-psychosis-care'],['Não','psy-suicide']]);
+ N['psy-psychosis-care']=A('psy-psychosis-care','SURTO PSICÓTICO OU MANIA: investigar e afastar causas orgânicas com hemograma, eletrólitos, creatinina, parcial de urina e ECG; beta-HCG em mulheres em idade fértil. Manejo clínico segundo nível de agitação. Para pacientes não agressivos, o documento descreve haloperidol 5 mg VO de 1 a 4 vezes ao dia (máximo 40 mg/dia) OU clorpromazina 100 mg VO de 1 a 4 vezes ao dia (máximo 600 mg/dia). Realizar avaliação de segurança e prescrição individualizada.','psy-place');
+ N['psy-suicide']=Q('psy-suicide','HÁ RISCO OU TENTATIVA DE SUICÍDIO?', [['Sim','psy-suicide-care'],['Não','psy-anxiety']]);
+ N['psy-suicide-care']=A('psy-suicide-care','RISCO OU TENTATIVA DE SUICÍDIO: estabilizar qualquer situação clínica associada e calcular o IRIS (Índice de Risco de Suicídio). Risco alto: IRIS ≥10 ou plano com meios e intenção iminente. Intermediário: IRIS 5 a 9, pensamentos e planos sem intenção imediata. Reduzido: IRIS <5, pensamentos sem planos. Manter medidas de proteção e avaliação clínica; risco iminente não pode ser descartado apenas por escore.','psy-risk');
+ N['psy-risk']=Q('psy-risk','QUAL FAIXA DO ÍNDICE IRIS CALCULADO?', [['Menor que 5','psy-risk-low'],['Entre 5 e 9','psy-risk-mid'],['10 ou maior, ou plano suicida organizado','psy-risk-high']]);
+ N['psy-risk-low']=E('psy-risk-low','RISCO REDUZIDO CONFORME IRIS: referenciar para APS após avaliação de segurança e medidas de proteção adequadas.');
+ N['psy-risk-mid']=E('psy-risk-mid','RISCO INTERMEDIÁRIO CONFORME IRIS: solicitar avaliação do CAPS, mantendo proteção e reavaliação clínica.');
+ N['psy-risk-high']=E('psy-risk-high','RISCO ELEVADO CONFORME IRIS: segunda a sexta, 08h–18h, contatar Central de Retaguarda em Saúde Mental; nos demais horários, contatar NIR da UEP. Adotar medidas imediatas de proteção e avaliação especializada.');
+ N['psy-anxiety']=E('psy-anxiety','CRISE AGUDA DE ANSIEDADE: avaliar juízo preservado, ansiedade intensa/pânico e ausência de outros critérios clínicos da sequência. O documento municipal descreve diazepam 5 mg, dois comprimidos por via oral, conforme avaliação e prescrição médica. Manter em observação até melhora e referenciar à APS após estabilização.');
+ N['psy-place']=Q('psy-place','APÓS O MANEJO E A INVESTIGAÇÃO, QUAL O DESTINO CORRESPONDE AO QUADRO?', [['UEP: estabilização, delirium tremens, agitação grave persistente ou comportamento disruptivo refratário','psy-uep'],['CAPS: descompensação, desintoxicação/abstinência, observação ou ajuste de medicação sem suporte familiar','psy-caps']]);
+ N['psy-uep']=E('psy-uep','ENCAMINHAMENTO UEP: estabilização de urgência/emergência psiquiátrica; delirium tremens após exames; agitação psicomotora grave não controlada inicialmente; comportamento antissocial disruptivo sem resposta ao manejo inicial; adolescentes sob cuidados do CENSE.');
+ N['psy-caps']=E('psy-caps','ENCAMINHAMENTO CAPS: descompensação psiquiátrica; desintoxicação e prevenção de abstinência de álcool e outras drogas; observação de alteração comportamental depois de descartada causa clínica; ajuste ou monitoramento medicamentoso na ausência de suporte familiar.');
+ p.entries=[{to:'psy-intox',page:1,label:'Avaliação de urgência/emergência psiquiátrica'}];
+})();
