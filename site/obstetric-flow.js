@@ -18,13 +18,22 @@
   const a=(id,title,to)=>[id,false,title,[['Próxima etapa',to]],1];
   const end=(id,text,page=1)=>[id,false,text,[],page];
   install('adulto-assistencia-ao-trabalho-de-parto-na-upa','start',[
-    a('start','CONTRAÇÕES UTERINAS DOLOROSAS REGULARES / AMNIORREXE. Aferir sinais vitais, idade gestacional e BCF, colocar em decúbito lateral esquerdo; avaliar toque vaginal conforme fonte e calcular o escore de Malinas.','score'),
+    a('start','CONTRAÇÕES UTERINAS DOLOROSAS REGULARES / AMNIORREXE. Aferir sinais vitais, idade gestacional e BCF, colocar em decúbito lateral esquerdo; Realizar toque vaginal: avaliar integridade das membranas; se rotas, há quanto tempo e aspecto do líquido amniótico. Avaliar sangramento vaginal e características; dilatação, comprimento, consistência, posição e apagamento cervical; altura, situação, posição e apresentação fetal. Calcular o escore de Malinas.','score'),
     q('score','QUAL A FAIXA DO ESCORE DE MALINAS CALCULADO?', [['Menor que 5','low'],['Entre 5 e 7','medium'],['Maior que 7','expulsive']]),
     end('low','ESCORE < 5: orientar procurar maternidade de referência; avaliar risco social e necessidade de acionar CTS para transporte.'),
     end('medium','ESCORE ENTRE 5 E 7: contato com maternidade de referência e acionar SAMU 192; decúbito lateral esquerdo, acesso venoso, verificar BCF a cada 20 minutos e avaliar dinâmica uterina.'),
     q('expulsive','COM ESCORE > 7, HÁ PERÍODO EXPULSIVO?', [['Sim','birth'],['Não','medium']]),
-    end('birth','PREPARO DA EQUIPE PARA PARTO IMINENTE: tranquilizar e preservar privacidade, estimular respiração controlada, evitar toques fora das contrações, verificar BCF a cada 5 minutos e acompanhar parto conforme protocolo. Avaliar respiração do bebê, aquecer, secar e colocar em contato pele a pele; Após nascimento: aguardar 1 a 2 minutos para clampear o cordão; administrar ocitocina 10 UI IM à mãe; realizar tração controlada do cordão até dequitação completa; encaminhar a placenta à maternidade junto à mãe e ao bebê; administrar vitamina K 1 mg IM no recém-nascido. Acionar SAMU 192 após o parto; se gestação de até 34 semanas, solicitar ambulância neonatal. Acionar SAMU 192 e maternidade de referência após o parto. Se gestação ≤ 34 semanas, solicitar ambulância neonatal.')
+    end('birth','PREPARO DA EQUIPE PARA PARTO IMINENTE: tranquilizar e preservar privacidade, estimular respiração controlada, evitar toques fora das contrações, verificar BCF a cada 5 minutos e realizar manobra para desprendimento fetal. Avaliar respiração do bebê, aquecer, secar e colocar em contato pele a pele; Após nascimento: aguardar 1 a 2 minutos para clampear o cordão; administrar ocitocina 10 UI IM à mãe; realizar tração controlada do cordão até dequitação completa; encaminhar a placenta à maternidade junto à mãe e ao bebê; administrar vitamina K 1 mg IM no recém-nascido. Acionar SAMU 192 para transferência após o parto e contatar maternidade de referência. Se gestação ≤ 34 semanas, solicitar ambulância neonatal.')
   ],'ESCORE DE MALINAS — some cinco critérios, cada um com 0/1/2 pontos: partos prévios (1 / 2 / mais de 2); duração do trabalho de parto (menos de 3 h / 3 a 5 h / mais de 6 h); duração das contrações (menos de 1 min / 1 min / mais de 1 min); intervalo entre contrações (mais de 5 min / 3 a 5 min / menos de 3 min, ao menos duas em 5 min); amniorrexe (nega / há menos de 1 h / há mais de 1 h). As faixas de horas entre 5 e 6 são ambíguas na classificação apresentada e exigem julgamento clínico.');
+  {
+    const p=protocols['adulto-assistencia-ao-trabalho-de-parto-na-upa'];
+    if(p){
+      p.nodes['ob-score'].criteria='ESCORE DE MALINAS — cada critério recebe 0 / 1 / 2 pontos, respectivamente.\nPartos prévios: 1 / 2 / >2.\nDuração do trabalho de parto: <3 h / 3–5 h / >6 h.\nDuração das contrações: <1 min / 1 min / >1 min.\nIntervalo: >5 min / 3–5 min / <3 min (ao menos 2 em 5 min).\nAmniorrexe: nega / <1 h / >1 h.\nLacunas da tabela: zero partos prévios, duração >5 e ≤6 horas e amniorrexe de exatamente 1 hora não têm pontuação definida. Não calcular pontuação por inferência; validar classificação com a maternidade/regulação.';
+      p.nodes['ob-expulsive'].criteria='PERÍODO EXPULSIVO: dilatação total do colo (10 cm); esforço expulsivo materno (puxos); sensação de preenchimento retal; bebê visível/palpável.';
+      for(const key of ['ob-low','ob-medium','ob-birth'])p.nodes[key].text+=' Maternidade de referência: a indicada na carteirinha/UBS da gestante.';
+      p.nodes['ob-medium'].text+=' Avaliar contratilidade, intensidade e frequência das contrações.';
+    }
+  }
   install('adulto-sindrome-hipertensiva-na-gestacao','start',[
     a('start','Aferir dados vitais, idade gestacional e BCF; identificar sinais de gravidade de pré-eclâmpsia/eclâmpsia e posicionar a gestante em decúbito lateral esquerdo para avaliação médica.','bp'),
     q('bp','QUAL A CLASSIFICAÇÃO PRESSÓRICA E DE GRAVIDADE?',[

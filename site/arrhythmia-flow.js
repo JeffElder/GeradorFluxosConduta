@@ -111,6 +111,18 @@
     'ar-refractory': ['tv-mono', 'tv-poli'], 'ar-polymorphic': ['tv-poli', 'torsades'], 'ar-torsades-stability': ['torsades']
   };
   for (const [id, keys] of Object.entries(media)) N[id].media = keys;
+  // Reconferência visual 14/10/2026: retirar remissões a páginas na navegação.
+  for(const n of Object.values(N)){
+    n.text=n.text.replace(/\s*\(VER P\.[35]\)/gi,'').replace(/:\s*VER P\.5/gi,'');
+    for(const c of n.choices)c.label=c.label.replace(/:\s*VER P\.5/gi,'');
+  }
+  N['ar-polymorphic'].criteria='TV polimórfica ou torsades de pointes: selecionar o traçado correspondente.';
+  N['ar-refractory'].criteria='Refratariedade ou instabilidade hemodinâmica. Monitorizar FC, PA, ritmo e oximetria; O2 se hipóxia; acesso venoso calibroso; disponibilizar equipamentos de aspiração e intubação. Pré-medicação sempre que possível: morfina 1–2 mg IV ou fentanil 1–2 mcg/kg IV; midazolam 3–5 mg em bolus, repetir até sedação adequada.';
+  N['ar-torsades-stable'].text=N['ar-torsades-stable'].text.replace(', conforme quadro da página 3.','.');
+  N['ar-torsades-unstable'].text='TORSADES DE POINTES COM INSTABILIDADE: DESFIBRILAÇÃO.';
+  // O quadro original termina o trecho de deslanosídeo em "fracionada":
+  // manter a lacuna explícita, sem importar a frequência de outro ramo.
+  N.p2n45.text=N.p2n45.text.replace('DOSE ÚNICA OU FRACIONADA • AMIODARONA:', 'DOSE ÚNICA OU FRACIONADA — fracionamento não especificado neste quadro). • AMIODARONA:');
   // Reference gallery preserves all source panels even outside the guided path.
   for (const page of p.pages) page.media = Object.keys(p.media?.files || {}).filter(k => p.media.files[k].page === page.page);
   p.sourceReview = { date: '2026-10-09', url: source, sha256: p.media?.sha256, pages: 6 };
