@@ -57,23 +57,40 @@
     end('uncertain','A fonte apresenta dois ramos (pielonefrite/cistite). Sem classificação segura, NÃO presumir tratamento de cistite simples. Reavaliar clinicamente e consultar maternidade/regulação conforme sinais de gravidade.')
   ]);
   install('adulto-emergencias-psiquiatricas-em-gestantes','start',[
-    a('start','Investigar gestação possível ou conhecida, DUM e histórico, e afastar causas secundárias. Avaliar e estabilizar urgência/emergência psiquiátrica; realizar medidas de segurança e exames conforme disponibilidade de acompanhamento pré-natal e condições clínicas.','destination'),
-    q('destination','QUAL CONJUNTO DE CRITÉRIOS DE DESTINAÇÃO CORRESPONDE AO QUADRO?',[
-      ['UEP: necessidade de estabilização, delirium tremens, agitação grave refratária ou comportamento disruptivo sem resposta inicial','uep'],
+    q('start','GESTAÇÃO CONHECIDA OU POSSÍVEL A IDENTIFICAÇÃO PELA CLÍNICA + EXAME FÍSICO (FUNDO UTERINO PALPÁVEL) COM QUADRO DE URGÊNCIA/ EMERGÊNCIA PSIQUIÁTRICA?',[
+      ['Sim','management'],['Não','not-confirmed']
+    ]),
+    end('not-confirmed','Gestação não identificada nesta avaliação NÃO exclui gravidez. O PDF orienta questionar sobre possibilidade gestacional, uso de anticoncepção e data da última menstruação (DUM) em toda mulher em idade fértil com urgência/emergência psiquiátrica. Prosseguir avaliação clínica e investigação conforme suspeita; não atribuir automaticamente o diagnóstico de não gestante.'),
+    a('management','MANEJO CLÍNICO — decúbito lateral esquerdo se possível; acesso venoso; verificar BCF a cada 20 minutos se mais de 12 semanas. Avaliar risco de auto/heteroagressão, contenção pelo menor tempo necessário e tratamento da agitação conforme condições e precauções do PDF. Conferir as doses e contraindicações medicamentosas na fonte antes de prescrever.','secondary'),
+    a('secondary','AFASTAR CAUSAS SECUNDÁRIAS COM PROPEDÊUTICA COMPLEMENTAR — verificar existência de pré-natal; selecionar exames previstos pelo PDF para gestantes com ou sem exames prévios. Acrescentar exames indicados em abstinência alcoólica; avaliar necessidade de ecografia obstétrica antes de CAPS/UEP.','bond'),
+    q('bond','QUAL É A SITUAÇÃO DE VINCULAÇÃO DA GESTANTE?',[
+      ['Em situação de rua sem vínculo com maternidade','street'],
+      ['Sem vínculo com maternidade, mas vinculada a unidade de saúde','health'],
+      ['Já vinculada à maternidade','maternity'],
+      ['Sem vínculo conhecido ou situação incerta','unlinked']
+    ]),
+    a('street','ACIONAR CONSULTÓRIO NA RUA da área para iniciar vínculo: Equipe 1 (Matriz/Santa Felicidade/Boa Vista) 98535-0789; Equipe 2 (Portão/Pinheirinho/CIC/Tatuquara) 99951-0844; Equipe 4 (Boqueirão/Cajuru/Bairro Novo) 99968-2109. Caso precise de ecografia obstétrica antes de UEP/CAPS e não tenha maternidade vinculada, contatar Mãe Curitibana (3350-9451).','destination'),
+    a('health','A coordenação de assistência da UPA deve contatar a coordenação de assistência do distrito sanitário de referência para vinculação à maternidade e busca ativa. Se precisar de ecografia obstétrica antes de UEP/CAPS, contatar Mãe Curitibana (3350-9451).','destination'),
+    a('maternity','Confirmar vínculo e coordenar o encaminhamento e os cuidados obstétricos conforme avaliação da equipe.','destination'),
+    a('unlinked','Verificar com a equipe da UPA a unidade de referência e providenciar vinculação à maternidade. Se ecografia obstétrica for necessária antes do encaminhamento, discutir com Mãe Curitibana (3350-9451).','destination'),
+    q('destination','QUAL DESTINO CORRESPONDE AOS CRITÉRIOS CLÍNICOS DO PDF?',[
+      ['UEP: estabilização, delirium tremens, agitação grave refratária ou comportamento disruptivo sem resposta inicial','uep'],
       ['CAPS: descompensação, desintoxicação/abstinência, observação ou ajuste/monitoramento sem suporte familiar','caps'],
-      ['Há avaliação do índice IRIS de risco de suicídio','iris'],
+      ['Há suspeita de risco de suicídio: calcular IRIS','iris'],
       ['Critérios sobrepostos ou não esclarecidos','overlap']
     ]),
-    q('iris','QUAL A FAIXA DO ESCORE IRIS CALCULADO CONFORME A TABELA DA PÁGINA 2?',[
-      ['Menor que 5','iris-low'],['De 5 até menos que 10','iris-mid'],['10 ou mais','iris-high'],['Não foi calculado ou é incerto','overlap']
+    end('uep','VAGA UEP — estabilização de urgência/emergência psiquiátrica, delirium tremens após exames, agitação psicomotora grave não controlada com medidas iniciais ou comportamento disruptivo sem resposta ao manejo inicial.'),
+    end('caps','VAGA CAPS — descompensação psiquiátrica, desintoxicação/prevenção de abstinência, observação após descarte de condição clínica ou ajuste/monitorização sem suporte familiar.'),
+    q('iris','CALCULE O IRIS — ÍNDICE DE RISCO DE SUICÍDIO (TABELA DA PÁGINA 2).',[
+      ['Continuar conforme risco reduzido (IRIS < 5)','iris-low'],
+      ['Continuar conforme risco intermediário (IRIS ≥ 5 e < 10)','iris-mid'],
+      ['Continuar conforme risco elevado (IRIS ≥ 10)','iris-high']
     ]),
-    end('uep','VAGA UEP: estabilização da urgência/emergência psiquiátrica, delirium tremens após investigação, agitação grave não controlada com medidas iniciais ou comportamento disruptivo refratário. Seguir fluxos locais de encaminhamento e avaliação clínica.'),
-    end('caps','VAGA CAPS: descompensação psiquiátrica, desintoxicação/prevenção de abstinência, observação após descarte de causa clínica ou ajuste e monitoramento sem suporte familiar. Verificar segurança e encaminhamento com a rede.'),
-    end('iris-low','IRIS < 5: risco reduzido na tabela da fonte; referenciar à APS, após avaliação clínica completa.'),
-    end('iris-mid','IRIS ≥ 5 e < 10: risco intermediário na tabela da fonte; solicitar avaliação do CAPS.'),
-    end('iris-high','IRIS ≥ 10: risco elevado na tabela da fonte; de segunda a sexta, 8h–18h, entrar em contato com a Central de Retaguarda em Saúde Mental. Nos demais horários, contatar o NIR da UEP. Em risco iminente, manter proteção e avaliação emergencial.'),
-    end('overlap','O PDF não estabelece preferência automática quando critérios de UEP e CAPS se sobrepõem. Discutir com equipe responsável/regulação; não usar este questionário como decisão independente.')
-  ],'O IRIS completo e as condições obstétricas adicionais estão nas duas páginas do PDF.');
+    end('iris-low','IRIS < 5: risco reduzido na escala da fonte. Referenciar para APS conforme avaliação clínica.'),
+    end('iris-mid','IRIS ≥ 5 e < 10: risco intermediário na escala da fonte. Solicitar avaliação do CAPS.'),
+    end('iris-high','IRIS ≥ 10: risco elevado na escala da fonte. Segunda a sexta, das 08:00 às 18:00, contatar Central de Retaguarda em Saúde Mental (CRSM); nos demais horários, NIR da UEP. Garantir avaliação e proteção imediatas quando houver risco atual.'),
+    end('overlap','Se houver critérios simultâneos de UEP e CAPS, discutir definição do destino com a equipe e a regulação; a fonte não define prioridade automática.')
+  ],'A calculadora IRIS da página 2 deve ser usada como apoio à avaliação, nunca como critério isolado de alta.');
   install('adulto-dor-abdominal-em-gestantes','start',[
     a('start','Anamnese da dor e sintomas associados; aferir sinais vitais, idade gestacional e BCF; decúbito lateral esquerdo especialmente após 24 semanas.','gravity'),
     q('gravity','HÁ SINAIS DE GRAVIDADE DESCRITOS NA FONTE?', [['Sim','severe'],['Não','obstetric']]),
