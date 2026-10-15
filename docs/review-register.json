@@ -91,22 +91,22 @@
       "id": "adulto-deficit-focal-agudo",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DEFICIT%20FOCAL%20AGUDO.pdf",
       "sha256": "88f8e7ea44d4b4df2eb51a5e3a61cac5a52cdb2128274c2e1647928f19a2d6c8",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 5
     },
     {
       "id": "adulto-delirium",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DELIRIUM.pdf",
       "sha256": "25a5820d9e04619bd35828669c4de748903d9eb3b467330ecccdedfa255e6c1e",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 5
     },
     {
       "id": "adulto-descompensacao-aguda-da-insuficiencia-cardiaca",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DESCOMPENSA%C3%87%C3%83O%20AGUDA%20DA%20INSUFICI%C3%8ANCIA%20CARD%C3%8DACA.pdf",
       "sha256": "eaf22afd3695ad728671ea225902335d48a01179519f71b0f406951edebf1cf8",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 5
     },
     {
       "id": "adulto-desospitalizacao-acionamento-do-saude-em-casa",
@@ -534,6 +534,13 @@
       "id": 3,
       "commit": "38782997bac00e0e8db5f1b253218f2fdd768478",
       "deploy": 38603083880,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 4,
+      "commit": "fadab01702ba600db62da1261168bd3720ceb1da",
+      "deploy": 38672188980,
       "conclusion": "success",
       "publishedFilesMatch": true
     }

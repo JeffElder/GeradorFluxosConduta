@@ -25,3 +25,5 @@ As rotas originais foram preservadas, incluindo avaliação de diagnósticos dif
 ## Deploy
 
 Aguardando publicação e verificação byte a byte.
+
+Confirmação: commit `fadab01702ba600db62da1261168bd3720ceb1da`, Actions [38672188980](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38672188980) completed/success. index.html e review-batch-04.js comparados byte a byte com a publicação: iguais.
