@@ -133,22 +133,22 @@
       "id": "adulto-dor-abdominal-em-gestantes",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20ABDOMINAL%20EM%20GESTANTES.pdf",
       "sha256": "c0b8d3d343096ce16c59b75247884d6c22142f2f08145b970cab444f8d7a5b3a",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 7
     },
     {
       "id": "adulto-dor-abdominal-no-adulto",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20ABDOMINAL%20NO%20ADULTO.pdf",
       "sha256": "e8114841cdaafa958dedc157cb7b6e1e5929139c64baa40502f9223002f5a8c3",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 7
     },
     {
       "id": "adulto-dor-pelvica-na-mulher",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20PELVICA%20NA%20MULHER.pdf",
       "sha256": "12d4ae2b2adc931c85f3c5dc4edd16836ba53bf95d7fe4344c7e93d32ed5b189",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 7
     },
     {
       "id": "adulto-dor-toracica-ventilatorio-dependente",
@@ -548,6 +548,13 @@
       "id": 5,
       "commit": "6e549c19d3691da4d991d3becac43ad3d53abc91",
       "deploy": 38672705912,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 6,
+      "commit": "d41a80b8a5dccc45248a5c1b624e10742e3f4c8a",
+      "deploy": 38673390858,
       "conclusion": "success",
       "publishedFilesMatch": true
     }

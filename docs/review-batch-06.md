@@ -23,3 +23,5 @@ Anorretal: analgesia traz concentrações sem doses/volumes/intervalos, morfina 
 ## Publicação
 
 Aguardando commit, Actions e comparação dos arquivos servidos antes de iniciar lote 7.
+
+Confirmação: commit `d41a80b8a5dccc45248a5c1b624e10742e3f4c8a`, Actions [38673390858](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38673390858) completed/success. index.html e review-batch-06.js comparados byte a byte com a publicação: iguais.
