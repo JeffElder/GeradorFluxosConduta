@@ -1,4 +1,4 @@
-name: Publicar Fluxo UPA no GitHub Pages
+name: Publicar ANDREA no GitHub Pages
 on:
   push:
     branches: [main]

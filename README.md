@@ -1,4 +1,6 @@
-# Fluxo UPA · Curitiba
+# ANDREA
+
+Assistência à Navegação de Diretrizes e Recomendações em Emergências Assistenciais.
 
 Consulta guiada em português aos protocolos adultos e pediátricos publicados pela SMS Curitiba. A aplicação apresenta perguntas, respostas, etapas intermediárias e condutas em texto nativo, sem abrir PDFs durante a consulta.
 

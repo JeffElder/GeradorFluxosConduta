@@ -45,7 +45,7 @@
       '',
       'Não inclua dados identificáveis de pacientes.',
       '',
-      'Contexto preenchido pelo Fluxo UPA:',
+      'Contexto preenchido pelo ANDREA:',
       'Protocolo: ' + protocol,
       'Etapa: ' + step
     ].join('\n');

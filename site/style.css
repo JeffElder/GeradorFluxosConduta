@@ -44,3 +44,6 @@
 .flow-issue details{border-top:1px solid #dfc8a8;padding-top:12px;margin:14px 0;max-height:340px;overflow:auto}
 .flow-issue summary{cursor:pointer;font-weight:600}
 .flow-issue .secondary-button{margin-top:12px}
+
+/* Identidade ANDREA: preserva a imagem original e sua proporção. */
+.sidebar .brand-button{display:block;width:100%;background:#fff;border-radius:8px;overflow:hidden;line-height:0;flex-shrink:0}.brand-logo{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:contain}@media(max-width:760px){.sidebar .brand-button{width:min(100%,340px);margin:0 auto}}
