@@ -21,3 +21,5 @@ Preservados encaminhamentos legítimos de déficit focal/ECG, regulação e crit
 `node scripts/test-review-batch-05.cjs`: 90 caminhos completos, todas as opções renderizadas, critérios, escalas textuais e setas. Teste inicialmente detectou remissão residual “VER P.3” nas notas; corrigida e repetido com sucesso.
 
 Aguardando publicação e comparação byte a byte. Testes não equivalem a validação clínica.
+
+Confirmação: commit `6e549c19d3691da4d991d3becac43ad3d53abc91`, Actions [38672705912](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38672705912) completed/success. index.html e review-batch-05.js comparados byte a byte com a publicação: iguais.

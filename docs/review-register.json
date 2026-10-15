@@ -112,22 +112,22 @@
       "id": "adulto-desospitalizacao-acionamento-do-saude-em-casa",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DESOSPITALIZA%C3%87%C3%83O-%20ACIONAMENTO%20DO%20SA%C3%9ADE%20EM%20CASA.pdf",
       "sha256": "55106c4fb18d6af1bed37d121941c22afd91d0cf6b35d4837c9345fe38ba6215",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 6
     },
     {
       "id": "adulto-diarreia-aguda",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DIARREIA%20AGUDA.pdf",
       "sha256": "a789f482626a1f1ada90c6e15eb0453be2cc19df3a1fd94ca9e9841c3d0d0a11",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 6
     },
     {
       "id": "adulto-doencas-anorretais",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOEN%C3%87AS%20ANORRETAIS.pdf",
       "sha256": "4e60ad1b729caf8e712e12afe1f9e69512f02eff802ab8907fc1a310ac8873ad",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 6
     },
     {
       "id": "adulto-dor-abdominal-em-gestantes",
@@ -541,6 +541,13 @@
       "id": 4,
       "commit": "fadab01702ba600db62da1261168bd3720ceb1da",
       "deploy": 38672188980,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 5,
+      "commit": "6e549c19d3691da4d991d3becac43ad3d53abc91",
+      "deploy": 38672705912,
       "conclusion": "success",
       "publishedFilesMatch": true
     }
