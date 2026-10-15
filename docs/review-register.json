@@ -196,22 +196,22 @@
       "id": "adulto-evento-vascular-periferico-agudo",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/EVENTO%20VASCULAR%20PERIF%C3%89RICO%20AGUDO.pdf",
       "sha256": "8e8022acf132c99cceae587afa58c1301b1fd18bf0d8dd4a7fabfe862a8fb4c3",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 10
     },
     {
       "id": "adulto-hematuria-macroscopica",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/HEMAT%C3%9ARIA%20MACROSC%C3%93PICA.pdf",
       "sha256": "fa39d02dd014a816654830d6ab611e43d564343d974b0331e0a3fe5cc3f6a860",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 10
     },
     {
       "id": "adulto-hemorragia-digestiva",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/HEMORRAGIA%20DIGESTIVA.pdf",
       "sha256": "c0aa339a0f37f6328395fa25087b46cf98ae987dc5bf04f7e8a0d154caaaca7d",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 10
     },
     {
       "id": "adulto-ictericia-no-adulto",
@@ -569,6 +569,13 @@
       "id": 8,
       "commit": "6a4d3ec6732ec3824aafa4f0f4ecd022bbd3fdc4",
       "deploy": 38737637381,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 9,
+      "commit": "4366ebaee8f4a95abd4dcd9c68c8238424d11f6e",
+      "deploy": 38739059123,
       "conclusion": "success",
       "publishedFilesMatch": true
     }

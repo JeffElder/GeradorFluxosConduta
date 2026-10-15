@@ -47,6 +47,8 @@ jobs:
           node scripts/test-review-batch-08.cjs
           node --check site/review-batch-09.js
           node scripts/test-review-batch-09.cjs
+          node --check site/review-batch-10.js
+          node scripts/test-review-batch-10.cjs
           node --check site/catalog.js
           node --check site/animal-flow.js
           node --check site/animal-photos.js
