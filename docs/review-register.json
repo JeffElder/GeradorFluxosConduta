@@ -154,22 +154,22 @@
       "id": "adulto-dor-toracica-ventilatorio-dependente",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20TORACICA%20VENTILAT%C3%93RIO-DEPENDENTE.pdf",
       "sha256": "6dc74f64f515848b8a2fafe8f63cba2b601cbeb3e3315200d87773ebb12cb6e8",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 8
     },
     {
       "id": "adulto-dor-toracica",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20TORACICA.pdf",
       "sha256": "dab5871154c2f39a17802caefb8d7d9e007c308b512675c8473c3aa4fc63eb57",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 8
     },
     {
       "id": "adulto-emergencias-hiperglicemicas",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/EMERG%C3%8ANCIAS%20HIPERGLIC%C3%8AMICAS.pdf",
       "sha256": "86f57fe3b4c4b8203d3daa2e8f2bb4f05418a331b178bbfcb5655070bdb58c31",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 8
     },
     {
       "id": "adulto-emergencias-psiquiatricas",
@@ -555,6 +555,13 @@
       "id": 6,
       "commit": "d41a80b8a5dccc45248a5c1b624e10742e3f4c8a",
       "deploy": 38673390858,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 7,
+      "commit": "73eaf4d40d8c507dd6253eef17481ae504f455fb",
+      "deploy": 38673727071,
       "conclusion": "success",
       "publishedFilesMatch": true
     }

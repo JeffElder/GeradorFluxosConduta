@@ -21,3 +21,5 @@ Pélvica: ceftriaxona 100 mg/kg/dia sem teto e metronidazol 40 mg/kg/dia de 8/8 
 ## Testes e deploy
 
 PASS: sintaxe de app.js e review-batch-07.js; test-review-batch-07.cjs, 46 trajetórias completas pela interface, fixtures de todas as decisões e três navegações entre protocolos. O teste de navegação inicialmente usou o campo de etapa para procurar o identificador do protocolo; a asserção foi corrigida para conferir a etapa de entrada do destino. Aguardando commit, Actions e conferência dos arquivos publicados antes do lote 8.
+
+Confirmação: commit `73eaf4d40d8c507dd6253eef17481ae504f455fb`, Actions [38673727071](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38673727071) completed/success. Todos os arquivos alterados do site comparados byte a byte com a publicação: iguais.
