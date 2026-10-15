@@ -70,22 +70,22 @@
       "id": "adulto-colica-renal",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/C%C3%93LICA%20RENAL.pdf",
       "sha256": "2722b4750366e844fed6d47d1daa9c7325a7625b80b82d130c677b380f25bdc1",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 4
     },
     {
       "id": "adulto-crises-convulsivas",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/CRISES%20CONVULSIVAS.pdf",
       "sha256": "2827372ddc4b9e30a0ab98ea9d573389795646bdd37a6ae0de1ce5518b9885af",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 4
     },
     {
       "id": "adulto-crise-hipertensiva",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/CRISE%20HIPERTENSIVA.pdf",
       "sha256": "77cdfa658523ac667064e0f955bf924f584bae7524a24b2bbbac7daee470546b",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 4
     },
     {
       "id": "adulto-deficit-focal-agudo",
@@ -527,6 +527,13 @@
       "id": 2,
       "commit": "5df1ad59ca4637b36cc87fc459a96e0a63b7c3e7",
       "deploy": 38602345075,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 3,
+      "commit": "38782997bac00e0e8db5f1b253218f2fdd768478",
+      "deploy": 38603083880,
       "conclusion": "success",
       "publishedFilesMatch": true
     }

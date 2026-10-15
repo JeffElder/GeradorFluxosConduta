@@ -31,4 +31,4 @@ Choque: preservada ordem hipovolemia → congestão → dispneia → anafilaxia 
 
 ## Deploy
 
-Aguardando publicação e comparação byte a byte.
+Commit: `38782997bac00e0e8db5f1b253218f2fdd768478`. Deploy [38603083880](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38603083880): completed/success. index.html e review-batch-03.js publicados idênticos aos locais. SHA-256 index: 85c2e4c02a9616148d9903b7a1ebd4d68b311cd475cb4621362ac5dfe0229d7c; módulo: 9f646cf96bcb6c9c7cf449205c5d95312ce325569be866d59e49d705e573cb11.
