@@ -578,6 +578,22 @@
       "deploy": 38739059123,
       "conclusion": "success",
       "publishedFilesMatch": true
+    },
+    {
+      "id": 10,
+      "commit": "1248e1352410016be293bbd6853b093f49038339",
+      "deploy": 38740274380,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    }
+  ],
+  "focusedReviews": [
+    {
+      "id": "adulto-sindromes-coronarianas",
+      "scope": "Tipos de dor e fatores de risco, prioridade solicitada em 2026-10-15",
+      "status": "ajuste-focal-testado-aguardando-deploy",
+      "fullIndividualReview": false,
+      "report": "docs/review-coronary-pain.md"
     }
   ]
 }

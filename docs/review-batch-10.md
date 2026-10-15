@@ -21,3 +21,5 @@ Hemorragia: tabela chama “ureia mg/dL” as faixas18,2–22,3/22,4–27,9/28�
 Sintaxe e teste dedicado com fixtures de arestas, conteúdo e navegação de todas as trajetórias; resultados registrados abaixo. Aguardar Actions e arquivos servidos antes do lote11.
 
 PASS: `node --check site/review-batch-10.js` e `node scripts/test-review-batch-10.cjs`; 8 trajetórias vasculares +18 de hematúria +20 de hemorragia digestiva =46 trajetórias completas.
+
+Confirmação: commit `1248e1352410016be293bbd6853b093f49038339`, Actions [38740274380](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38740274380) completed/success. index.html da versão e review-batch-10.js comparados byte a byte com o Pages: iguais.
