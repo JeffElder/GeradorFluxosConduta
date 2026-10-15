@@ -175,22 +175,22 @@
       "id": "adulto-emergencias-psiquiatricas",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/EMERGENCIAS%20PSIQUIATRICAS.pdf",
       "sha256": "ddd7876966206fb1c0c454401587be0b1f6e9e81d7b252d087285c6ae60fdad6",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 9
     },
     {
       "id": "adulto-emergencias-psiquiatricas-em-gestantes",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/EMERGENCIAS%20PSIQUIATRICAS%20EM%20GESTANTES.pdf",
       "sha256": "540700982dd121e79dcfdced913ea2cd55490664d6b2d31e29373e10e70effc0",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 9
     },
     {
       "id": "adulto-emergencias-respiratorias",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/EMERGENCIAS%20RESPIRATORIAS.pdf",
       "sha256": "83963d8a2709897465006312ff1a9bcbfddf4a57718218bbff76f32a42514bad",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 9
     },
     {
       "id": "adulto-evento-vascular-periferico-agudo",
@@ -562,6 +562,13 @@
       "id": 7,
       "commit": "73eaf4d40d8c507dd6253eef17481ae504f455fb",
       "deploy": 38673727071,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 8,
+      "commit": "6a4d3ec6732ec3824aafa4f0f4ecd022bbd3fdc4",
+      "deploy": 38737637381,
       "conclusion": "success",
       "publishedFilesMatch": true
     }

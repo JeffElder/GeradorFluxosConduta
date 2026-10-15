@@ -23,3 +23,5 @@ PASS sintaxe e `test-review-batch-08.cjs`: 223 trajetórias simples e arestas de
 ## Deploy
 
 Aguardando commit, execução Actions e comparação dos três arquivos publicados antes do lote 9.
+
+Confirmação: commit `6a4d3ec6732ec3824aafa4f0f4ecd022bbd3fdc4`, Actions [38737637381](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38737637381) completed/success. Todos os arquivos alterados do site comparados byte a byte com a publicação: iguais.
