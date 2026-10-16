@@ -114,7 +114,7 @@ const IRIS_FIELDS=[
  ['Plano suicida organizado, consistente, letal e exequível',20]
 ];
 let irisAnswers=Array(IRIS_FIELDS.length).fill('');
-function isIRISStep(){return (state.protocol==='adulto-emergencias-psiquiatricas-em-gestantes'&&state.node==='ob-iris')||(state.protocol==='adulto-emergencias-psiquiatricas'&&state.node==='psy-risk');}
+function isIRISStep(){return (state.protocol==='adulto-intoxicacoes-exogenas'&&state.node==='p1n30')||(state.protocol==='adulto-emergencias-psiquiatricas-em-gestantes'&&state.node==='ob-iris')||(state.protocol==='adulto-emergencias-psiquiatricas'&&state.node==='psy-risk');}
 function irisScore(){
  if(irisAnswers.some(x=>x===''))return null;
  return irisAnswers[11]==='1'?20:irisAnswers.reduce((v,x,i)=>v+(x==='1'?IRIS_FIELDS[i][1]:0),0);

@@ -19,3 +19,5 @@
 `node scripts/test-review-batch-11.cjs`: 116 trajetórias completas, renderizando e acionando cada alternativa até seu destino. Fixtures independentes das principais bifurcações e critérios conferidos nos PDFs; verificação de ausência de ciclos/nós quebrados. Encerramentos documentais e pontos de validação são distinguidos no texto; ausência de prescrição não é convertida em alta.
 
 Pipeline completo executado localmente antes da publicação. Deploy ainda não confirmado no momento deste commit; a confirmação será registrada somente após Actions e comparação dos arquivos publicados.
+
+Confirmação: commit `b589ea6d55ccbfd8c07a1dde0cbb8670c900946a`, Actions [38898140034](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38898140034) completed/success. `index.html`, `app.js` e `review-batch-11.js` iguais byte a byte no Pages; `version.json` identifica o mesmo commit.

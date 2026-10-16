@@ -238,22 +238,22 @@
       "id": "adulto-intoxicacoes-exogenas",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/INTOXICA%C3%87%C3%95ES%20EXOGENAS.pdf",
       "sha256": "f627b9ab21e42ce3e740a2c10e622ec5b686214f407e0a2f4dda84ce95024a14",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 12
     },
     {
       "id": "adulto-leptospirose",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/LEPTOSPIROSE%20DUE.pdf",
       "sha256": "c7d812146a56978ad369728a45793edbac7bf988fa689c0c5955895953c530f7",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 12
     },
     {
       "id": "adulto-lombalgia",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/LOMBALGIA_DUE.pdf",
       "sha256": "73f1391d8070a1af50a9751c444c513d84a4bcdcc679618eaee053be78b37b49",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 12
     },
     {
       "id": "adulto-nauseas-e-vomitos",
@@ -583,6 +583,13 @@
       "id": 10,
       "commit": "1248e1352410016be293bbd6853b093f49038339",
       "deploy": 38740274380,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 11,
+      "commit": "b589ea6d55ccbfd8c07a1dde0cbb8670c900946a",
+      "deploy": 38898140034,
       "conclusion": "success",
       "publishedFilesMatch": true
     }

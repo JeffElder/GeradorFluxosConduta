@@ -1,0 +1,23 @@
+# Lote 12 — intoxicações exógenas, leptospirose e lombalgia
+
+16/10/2026. Conferência individual visual/textual das seis páginas municipais (4 + 1 + 1); arquivos originais baixados novamente e SHA-256 conferidos com registro. Anexo laboratorial de leptospirose (2014) também aberto e lido visualmente; ficha de investigação consultada. Não se contabilizou a reconstrução prévia de leptospirose como revisão individual sem esta conferência.
+
+| Protocolo | Problemas encontrados e correções |
+|---|---|
+| Intoxicações exógenas | Lavagem/carvão eram encerramentos indevidos; páginas 2–4 não participavam da consulta. Restabelecida continuidade até substância/síndrome, disfunção orgânica e IRIS. Inseridos todos os sete quadros de síndromes e sete de substâncias; contraindicações antes da descontaminação/flumazenil; decisões de repetição, lesão hepática, resposta à naloxona, coingestão, arritmia, gravidade do lítio, hipoglicemia/edema cerebral, convulsão/acesso, contaminação externa e resposta ao cálcio. IRIS completo reutiliza calculadora testada e pergunta horário de referência. |
+| Leptospirose | Suspeita/epidemiologia incompletas e manejo grave resumido. Incorporados quadro clínico, exames completos, notificação/coleta, antibióticos e retorno com sinais explícitos. Hipotensão persistente, critérios respiratórios, injúria renal e hipocalemia agora têm escolhas complementares; não atrasar medidas simultâneas. |
+| Lombalgia | Causas não osteomusculares e condições do tratamento domiciliar eram texto sem escolhas. Reconstruídos aneurisma roto/anestesia em sela/ambos, hipóteses, dor intensa/recorrente e radiculopatia. Preservadas setas raio-X/fratura, SAMU e APS; anamnese agora é entrada. |
+
+## Pendências clínicas/documentais precisas
+
+**Intoxicações:** lavagem usa <2 h na seta e até 2 h no quadro. Volumes pediátricos de lavagem são elevados e sem individualização; solução não especificada: apresentados como transcrição a validar, sem execução automática pelo tempo. Regra geral de carvão até 4 h versus uso tardio na depressão do SNC e ausência de efeito na síndrome adrenérgica requer indicação por agente. Flumazenil sem via/triagem completa/regras para repetição; checagem de associação com tricíclico antecede sua apresentação. Naloxona separa >12/<12 e omite 12 anos; dose pediátrica fixa não foi convertida por suposição. NAC impressa como 10 mg/mL exige conferir apresentação; parâmetros de continuação/interrupção por lesão hepática incompletos. Bicarbonato traz pH >7,5 sem teto; não oferecido alvo irrestrito. Infusão de cálcio 0,2 mg/kg/h e máximo 10 mL/h sem concentração final; insulina/glicose sem preparo e metas. Biperideno pediátrico “0,06/0,1” ambíguo, via ausente. Vitamina K: “dose >1 mg” sem agente claro, repetição sem intervalo/velocidade/teto; coagulopatia 24–72 h versus declaração de segurança com exame normal em 48 h. Etanol com hipoglicemia/edema cerebral não tem alternativa definida; via retal de diazepam sem concentração e B1 em ampola sem composição. IRIS ≥10: página 1 cita NIR; página 4 detalha CRSM em dias úteis 08–18 h/NIR demais horários, distinção apresentada e registrada. Nenhum desses pontos foi corrigido por suposição.
+
+**Leptospirose:** fluxo de distúrbios do sódio e potássio citado está ausente do acervo de 73; obtenção/incorporação pendente, sem regime inventado. sintomáticos sem frequência/volume; antibióticos IV sem duração/teto ou identificação explícita da população da alternativa por peso. Mantidos limiares diferentes de FR para alerta (>30) e consideração de IOT (>28). Anexo de 2014 exige segunda sorologia mesmo após 7 dias, enquanto o diagrama confirma primeira amostra reagente; alcance da nota a validar com laboratório/vigilância. Coleta descrita em tela, sem instrução para consultar PDF.
+
+**Lombalgia:** injetáveis descritos por concentração, não dose/volume; escalonamento sem critério. Tratamento domiciliar sem frequência/duração/relação de associação, incluindo prednisona geral versus esquema de zoster. Segundo esquema impresso de aciclovir (1000 mg de 6/6 h por 5 dias) requer validação específica; não substituído por outro fármaco. Nenhuma alta inferida para hipótese ainda não definida.
+
+## Verificação e publicação
+
+Teste dedicado percorre todas as trajetórias na interface (12.070 intoxicações, 35 leptospirose, 36 lombalgia), verifica arestas/critério da fonte e 4.096 combinações IRIS, incluindo atribuição direta de 20 por plano e ausência de escore com campos incompletos. Regressão de navegação e do lote 11 executada; pipeline completo permanece obrigatório no Actions.
+
+Deploy pendente no momento deste commit. Confirmação será registrada após Actions e comparação dos arquivos publicados.
