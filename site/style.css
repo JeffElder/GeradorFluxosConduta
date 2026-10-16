@@ -51,3 +51,5 @@
 main{padding-top:24px}.protocol-identity{margin-bottom:18px;padding-bottom:12px}.wizard-toolbar{margin-bottom:18px}.question-heading{margin-bottom:16px}.step-card{padding:18px;margin-bottom:16px}.question-criteria{font-size:15px;line-height:1.55}.clinical-answers{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.clinical-answers .answer-option{min-height:52px;padding:14px}.clinical-answers .answer-option:only-child{grid-column:1/-1}@media(max-width:600px){.clinical-answers{grid-template-columns:1fr}main{padding-top:18px}}
 
 .test-banner{padding:10px 16px;margin-bottom:18px;border-radius:8px}.test-banner p{margin:0;font-size:13px;line-height:1.4}.home-search>p{margin:6px 0 12px}.home-divider{margin:18px 0}.population-answers .answer-option{min-height:94px;padding:22px}.start-footnote{margin-top:18px}
+
+.answer-mark,.answer-option:hover .answer-mark{width:20px;height:auto;border:0;border-radius:0;background:transparent;color:var(--teal);font-size:20px;line-height:1.2;margin-top:0}.answer-option{align-items:center}

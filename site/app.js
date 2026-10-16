@@ -56,7 +56,7 @@ function restart(){
 function historyURL(id){try{window.history.replaceState(null,'',location.pathname+location.search+(id?'#'+id:''));}catch{}}
 function popLabel(p){return p==='infantil'?'Infantil':'Adulto';}
 function formatted(text){const bits=String(text).replace(/\s+([•])\s*/g,'\n$1 ').split(/\n/).filter(Boolean);let out='',list=false;for(let bit of bits){const bullet=/^[•]/.test(bit);if(bullet&&!list){out+='<ul>';list=true;}if(!bullet&&list){out+='</ul>';list=false;}out+=bullet?'<li>'+esc(bit.replace(/^[•]\s*/,''))+'</li>':'<p>'+esc(bit)+'</p>';}return out+(list?'</ul>':'');}
-function option(label,sub,action,value,extra=''){return `<button class="answer-option ${extra}" data-action="${action}" data-value="${esc(value)}"><span class="answer-mark" aria-hidden="true"></span><span><strong>${esc(label)}</strong>${sub?'<small>'+esc(sub)+'</small>':''}</span></button>`;}
+function option(label,sub,action,value,extra=''){return `<button class="answer-option ${extra}" data-action="${action}" data-value="${esc(value)}"><span class="answer-mark" aria-hidden="true">→</span><span><strong>${esc(label)}</strong>${sub?'<small>'+esc(sub)+'</small>':''}</span></button>`;}
 const ANIMAL_ID='adulto-acidente-por-animais-peconhentos';
 function animalPhotos(){return state.protocol===ANIMAL_ID?(window.ANIMAL_PHOTOS||null):null;}
 function animalPhoto(keys,className=''){

@@ -32,3 +32,9 @@ Usa o mesmo nome e deixa uma ação explícita de reinício por etapa, no topo d
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 6. Distingue botões de avanço de seletores
+
+Troca círculos parecidos com radio buttons por setas, comunicando que tocar na opção avança imediatamente.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
