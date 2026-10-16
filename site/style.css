@@ -53,3 +53,5 @@ main{padding-top:24px}.protocol-identity{margin-bottom:18px;padding-bottom:12px}
 .test-banner{padding:10px 16px;margin-bottom:18px;border-radius:8px}.test-banner p{margin:0;font-size:13px;line-height:1.4}.home-search>p{margin:6px 0 12px}.home-divider{margin:18px 0}.population-answers .answer-option{min-height:94px;padding:22px}.start-footnote{margin-top:18px}
 
 .answer-mark,.answer-option:hover .answer-mark{width:20px;height:auto;border:0;border-radius:0;background:transparent;color:var(--teal);font-size:20px;line-height:1.2;margin-top:0}.answer-option{align-items:center}
+
+.clinical-layout{display:block}.clinical-main{max-width:900px}.clinical-context{max-width:900px;border-left:0;border-top:1px solid var(--line);padding:16px 0 0;margin-top:22px}.clinical-context .context-disclosure{border-bottom:0;padding:0}.context-disclosure>summary{font-size:14px}.clinical-context .context-disclosure>details{margin-top:10px}.clinical-context summary{overflow-wrap:anywhere}

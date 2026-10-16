@@ -38,3 +38,9 @@ Troca círculos parecidos com radio buttons por setas, comunicando que tocar na 
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 7. Libera a largura da pergunta e aproxima observações
+
+Move o complemento para baixo da avaliação, eliminando a coluna estreita que concorria com a pergunta e truncava notas extensas.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
