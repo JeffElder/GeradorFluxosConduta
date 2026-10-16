@@ -44,3 +44,9 @@ Move o complemento para baixo da avaliação, eliminando a coluna estreita que c
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 8. Recolhe o histórico e permite corrigir respostas
+
+Mostra a contagem sem uma segunda rolagem fixa e oferece retorno à resposta escolhida, descartando decisões posteriores ao editar o caminho.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+

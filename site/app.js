@@ -48,6 +48,13 @@ function visitStage(stage){
  historyURL(state.protocol||'');
  render(true);
 }
+function reviewAnswer(index){
+ const at=history.findLastIndex(s=>s.screen!=='library'&&s.trail.length===index);
+ if(at<0)return;
+ state=copy(history[at]);history=history.slice(0,at);
+ checkpoints={};for(const item of [...history,state])checkpoints[stageFor(item)]=copy(item);
+ navigationStage=stageFor(state);historyURL(state.protocol||'');render(true);
+}
 function restart(){
  state={screen:'population',population:null,category:null,protocol:null,node:null,trail:[],actions:[]};
  history=[];checkpoints={population:copy(state)};navigationStage='population';
@@ -162,7 +169,8 @@ if(!catalog.length||!Object.keys(protocols).length){root.innerHTML=heading('CARR
   x.setAttribute('aria-current',key===stage?'step':'false');
   x.title=available?(key===stage?'Etapa atual':'Voltar à etapa já visitada'):'Etapa ainda não alcançada';
  });
- $('#side-history').innerHTML=state.trail.length?state.trail.map(t=>'<li><small>'+esc(t.question)+'</small><span>'+esc(t.answer)+'</span></li>').join(''):'<li>Escolha o público para começar.</li>';
+ $('#history-count').textContent=state.trail.length?'('+state.trail.length+')':'';
+ $('#side-history').innerHTML=state.trail.length?state.trail.map((t,i)=>'<li><button class="history-answer" data-action="review-answer" data-value="'+i+'"><small>'+esc(t.question)+'</small><span>'+esc(t.answer)+'</span></button></li>').join(''):'<li>Escolha o público para começar.</li>';
  if(state.screen==='population'){root.innerHTML=homeIntro()+heading('ETAPA 1 · PÚBLICO','Qual é o público do atendimento?','Escolha para iniciar as perguntas do protocolo.')+`<div class="answer-grid population-answers">${option('Adulto','Inclui gestação e urgências ginecológicas','population','adulto')}${option('Infantil','Protocolos de atendimento pediátrico','population','infantil')}</div><div class="start-footnote"><span>73 documentos de origem</span><span>Condutas na própria tela</span><span>Sem dados de pacientes</span></div>`;renderSearch(true);}
  else if(state.screen==='category'){const allowed=new Set(catalog.filter(p=>p.population===state.population).map(p=>p.category));root.innerHTML=heading('ETAPA 2 · QUADRO CLÍNICO','Qual quadro precisa ser avaliado?','Selecione a queixa ou situação principal.')+`<div class="answer-grid">${areas.filter(a=>allowed.has(a[0])).map(a=>option(a[1],a[2],'category',a[0])).join('')}</div>`;}
  else if(state.screen==='topic'){const candidates=catalog.filter(p=>p.population===state.population&&p.category===state.category);root.innerHTML=heading('ETAPA 2 · SITUAÇÃO','Qual situação corresponde ao caso?','A escolha define qual fluxo da SMS será consultado.')+`<div class="answer-grid">${candidates.map(c=>option(c.title,protocols[c.id].entries.length?'Iniciar as etapas deste protocolo':'Consultar orientações em texto','protocol',c.id)).join('')}</div>`;}
@@ -187,7 +195,8 @@ function renderSearch(home=false){const input=home?'#home-search':'#search',coun
 
 function answer(i){if(isIRISStep()){const score=irisScore();if(score===null||i!==(score<5?0:score<10?1:2))return;}const p=protocols[state.protocol],n=p.nodes[state.node],c=n?.choices[i];if(!c)return;const actions=!n.question?[...state.actions,state.node]:state.actions;move({node:c.to,screen:'step',actions},{question:n.question?n.text:'Etapa do protocolo',answer:c.label==='Próxima etapa'?n.text.slice(0,100):c.label});}
 document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');if(!b)return;const a=b.dataset.action,v=b.dataset.value;
- if(a==='stage')visitStage(v);
+ if(a==='review-answer')reviewAnswer(Number(v));
+ else if(a==='stage')visitStage(v);
  else if(a==='ecg')openECG(v);
  else if(a==='close-ecg')$('#ecg-dialog').close();
  else if(a==='population')move({population:v,screen:'category'},{question:'Público',answer:popLabel(v)});
