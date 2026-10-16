@@ -68,3 +68,9 @@ Mantém critérios e explicações entre parênteses, mas separa cada fator em u
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 12. Padroniza títulos e reduz peso das notas em maiúsculas
+
+Corrige acentuação na apresentação do catálogo e usa títulos curtos nos expansores; mantém o texto clínico original, siglas e unidades intactos.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+

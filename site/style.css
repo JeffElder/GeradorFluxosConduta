@@ -61,3 +61,5 @@ main{padding-top:24px}.protocol-identity{margin-bottom:18px;padding-bottom:12px}
 .resume-consultation{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px;background:#eaf5f2;border:1px solid #c8e2d9;border-radius:8px;margin-bottom:20px}.resume-consultation p{margin:0;font-size:14px}.resume-consultation button{flex-shrink:0}
 
 .risk-list{padding-left:22px;margin:12px 0 18px;font-size:15px;line-height:1.55}.risk-list li{margin:5px 0}.clinical-text .risk-list li{margin:5px 0}
+
+.clinical-main .question-heading h1{font-size:24px;line-height:1.4;font-weight:650}.clinical-context summary{text-transform:none;letter-spacing:normal}.eyebrow{letter-spacing:1px}@media(max-width:760px){.clinical-main .question-heading h1{font-size:22px}}
