@@ -26,3 +26,9 @@ Mantém o campo inicial e um botão no cabeçalho durante a consulta; remove o a
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 5. Padroniza a ação Nova consulta
+
+Usa o mesmo nome e deixa uma ação explícita de reinício por etapa, no topo durante a navegação e no desfecho ao terminar.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
