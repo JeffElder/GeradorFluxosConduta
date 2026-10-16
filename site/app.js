@@ -149,6 +149,7 @@ function linkedProtocols(text){const current=catalog.find(c=>c.id===state.protoc
 function openProtocol(id){irisAnswers=Array(IRIS_FIELDS.length).fill('');const c=catalog.find(p=>p.id===id),p=protocols[id];if(!c||!p)return;let patch={protocol:id,population:c.population,category:c.category,actions:[],node:null};if(!p.entries.length)patch.screen='reference';else if(p.entries.length===1){patch.screen='step';patch.node=p.entries[0].to;}else patch.screen='select-flow';move(patch,{question:'Situação selecionada',answer:c.title});historyURL(id);}
 function render(focus=false){
  const root=$('#consultation');
+ $('#open-library').hidden=['population','library'].includes(state.screen);
  root.dataset.feedbackProtocol=state.protocol ? ((catalog.find(p=>p.id===state.protocol)?.title||state.protocol)+' ['+state.protocol+']') : 'Nenhum protocolo selecionado';
  root.dataset.feedbackStep=[state.screen,state.node?'Etapa: '+state.node:'',state.category||''].filter(Boolean).join(' · ');
 if(!catalog.length||!Object.keys(protocols).length){root.innerHTML=heading('CARREGAMENTO','Não foi possível carregar os protocolos.','Recarregue a página. Nenhuma conduta será exibida sem o conteúdo completo.');return;}

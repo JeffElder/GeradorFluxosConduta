@@ -20,3 +20,9 @@ Substitui o banner promocional grande por uma faixa compacta e reduz os cartões
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 4. Concentra a busca em um acesso por tela
+
+Mantém o campo inicial e um botão no cabeçalho durante a consulta; remove o acesso duplicado da barra lateral.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
