@@ -14,3 +14,9 @@ Elimina apenas duplicatas textuais completas e recolhe as notas complementares, 
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 3. Encurta a entrada para mostrar as escolhas iniciais
+
+Substitui o banner promocional grande por uma faixa compacta e reduz os cartões de público, aproximando o primeiro clique.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
