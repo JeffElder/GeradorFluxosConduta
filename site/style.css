@@ -59,3 +59,5 @@ main{padding-top:24px}.protocol-identity{margin-bottom:18px;padding-bottom:12px}
 .sidebar-history{margin-top:24px}.sidebar-history>summary{font-size:13px;font-weight:600;cursor:pointer;color:#d6e3e8}.history-help{font-size:11px;color:#b6cbd4;line-height:1.5}.sidebar-history ol{max-height:none;margin-top:12px}.history-answer{display:block;width:100%;padding:6px 0;border:0;background:none;color:inherit;text-align:left}.history-answer:hover span{text-decoration:underline}.history-answer small{line-height:1.45}.sidebar-history li{padding-bottom:7px}@media(max-width:760px){.sidebar-history{display:block;margin-top:14px}.sidebar-history ol{padding-left:22px}}
 
 .resume-consultation{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:14px;background:#eaf5f2;border:1px solid #c8e2d9;border-radius:8px;margin-bottom:20px}.resume-consultation p{margin:0;font-size:14px}.resume-consultation button{flex-shrink:0}
+
+.risk-list{padding-left:22px;margin:12px 0 18px;font-size:15px;line-height:1.55}.risk-list li{margin:5px 0}.clinical-text .risk-list li{margin:5px 0}

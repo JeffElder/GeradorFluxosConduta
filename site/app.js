@@ -150,6 +150,24 @@ function openECG(key){
  $('#ecg-source').textContent='PDF original · página '+f.page;
  dialog.showModal();
 }
+function riskList(text){
+ const items=[],split=/,\s*(?![^()]*\))/;let parts=String(text).split(split);
+ parts=parts.flatMap(s=>s.split(' e história familiar positiva').map((v,i)=>i?'história familiar positiva'+v:v));
+ return '<ul class="risk-list">'+parts.map(s=>'<li>'+esc(s.trim())+'</li>').join('')+'</ul>';
+}
+function questionPresentation(n){
+ let title=n.text,extra='';
+ if(state.protocol==='adulto-sindromes-coronarianas'&&state.node==='cor-risk-count'){
+  const start=title.indexOf(' (');if(start>=0){extra=riskList(title.slice(start+2,-2));title=title.slice(0,start);}
+ }
+ return {title,extra};
+}
+function criteriaHTML(text){
+ if(state.protocol!=='adulto-sindromes-coronarianas')return formatted(text);
+ const match=String(text).match(/Fatores de risco \((.*)\)\./);
+ if(!match)return formatted(text);
+ return formatted(text.slice(0,match.index))+'<p><strong>Fatores de risco</strong></p>'+riskList(match[1])+formatted(text.slice(match.index+match[0].length));
+}
 function heading(kicker,title,desc=''){return `<div class="question-heading"><p class="eyebrow">${esc(kicker)}</p><h1>${esc(title)}</h1>${desc?'<p class="intro">'+esc(desc)+'</p>':''}</div>`;}
 const protocolScopes={'adulto-dor-toracica':'Avalia a dor torácica e encaminha a suspeita coronariana ao fluxo específico.','adulto-sindromes-coronarianas':'Avalia suspeita coronariana, alterações no ECG e estratificação pelo HEART.'};
 function protocolScope(c){return protocolScopes[c.id]||(protocols[c.id].entries.length?'Fluxo guiado · '+c.category:'Orientações em texto · '+c.category);}
@@ -187,7 +205,7 @@ if(!catalog.length||!Object.keys(protocols).length){root.innerHTML=heading('CARR
    const terminal=n.choices.length===0&&!n.incomplete;let body='';const stepWarnings=clinicalWarnings(p,n),stepImages=ecgGallery(p,n.media);
    if(n.incomplete){body=heading('DECISÃO A CONFERIR',n.text,'A ligação desta decisão não foi reconstruída com segurança. Consulte os critérios em texto abaixo; a aplicação não presume uma resposta.')+referenceHTML(p,true);}
    else if(terminal){body=heading('CONDUTA DO CAMINHO','Orientação conforme o fluxo selecionado')+`<div class="result-card clinical-text">${stepText(p,n)}<small>Fonte: página ${n.page}</small></div>`+stepImages+linkedProtocols(n.text);if(state.actions.length)body+=`<details class="prior-actions"><summary>Etapas anteriores deste caminho (${state.actions.length})</summary>${state.actions.map(k=>p.nodes[k]).filter(Boolean).map(a=>'<div class="clinical-text">'+stepText(p,a)+'<small>Fonte: página '+a.page+'</small></div>').join('')}</details>`;body+='<button class="primary-button" data-action="restart">Nova consulta</button>';}
-   else {const title=n.question?n.text:n.choices.length>1?'Qual achado ou componente deseja consultar?':'Etapa prevista no protocolo';body=heading(n.question?'AVALIAÇÃO · RESPONDA À PERGUNTA':'CONDUTA · ETAPA INTERMEDIÁRIA',title);if(n.question&&n.criteria)body+='<div class="step-card clinical-text question-criteria">'+formatted(n.criteria)+'<small>Fonte: página '+n.page+'</small></div>';if(!n.question)body+='<div class="step-card clinical-text">'+stepText(p,n)+'<small>Fonte: página '+n.page+'</small></div>';body+=stepImages;if(isIRISStep())body+=irisCalculator();if(!n.question&&n.choices.length>1)body+='<p class="branch-hint">Os componentes podem ser complementares. A escolha organiza a consulta; não exclui as demais medidas indicadas no documento.</p>';body+=`<div class="answer-grid clinical-answers">${n.choices.map((c,i)=>state.protocol===ANIMAL_ID&&state.node==='af-outros'?photoOption(c.label,'','answer',String(i),i===2?['abelha','vespa','formiga']:animalPhotos()?.byChoice['af-outros']?.slice(i,i+1)):option(c.label,'','answer',String(i))).join('')}</div>`;body+=linkedProtocols(n.text);}
+   else {const presentation=questionPresentation(n);const title=n.question?presentation.title:n.choices.length>1?'Qual achado ou componente deseja consultar?':'Etapa prevista no protocolo';body=heading(n.question?'AVALIAÇÃO · RESPONDA À PERGUNTA':'CONDUTA · ETAPA INTERMEDIÁRIA',title);body+=presentation.extra;if(n.question&&n.criteria)body+='<div class="step-card clinical-text question-criteria">'+criteriaHTML(n.criteria)+'<small>Fonte: página '+n.page+'</small></div>';if(!n.question)body+='<div class="step-card clinical-text">'+stepText(p,n)+'<small>Fonte: página '+n.page+'</small></div>';body+=stepImages;if(isIRISStep())body+=irisCalculator();if(!n.question&&n.choices.length>1)body+='<p class="branch-hint">Os componentes podem ser complementares. A escolha organiza a consulta; não exclui as demais medidas indicadas no documento.</p>';body+=`<div class="answer-grid clinical-answers">${n.choices.map((c,i)=>state.protocol===ANIMAL_ID&&state.node==='af-outros'?photoOption(c.label,'','answer',String(i),i===2?['abelha','vespa','formiga']:animalPhotos()?.byChoice['af-outros']?.slice(i,i+1)):option(c.label,'','answer',String(i))).join('')}</div>`;body+=linkedProtocols(n.text);}
    html+=`<div class="clinical-layout"><div class="clinical-main">${stepWarnings}${animalPagePhoto(n)}${body}</div>${notesHTML(p,n)}</div>`;if(!n.incomplete)html+=referenceHTML(p);
   }root.innerHTML=html;
  }

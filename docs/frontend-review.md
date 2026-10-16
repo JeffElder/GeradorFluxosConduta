@@ -62,3 +62,9 @@ Substitui subtítulos repetitivos por área e tipo de documento; diferencia dor 
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 11. Organiza fatores de risco em itens legíveis
+
+Mantém critérios e explicações entre parênteses, mas separa cada fator em uma linha e encurta o título da pergunta sem mudar pontuações ou caminhos.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
