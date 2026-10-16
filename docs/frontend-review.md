@@ -56,3 +56,9 @@ Preserva a etapa, o histórico e a calculadora ao consultar o catálogo; informa
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 10. Esclarece o escopo dos protocolos próximos
+
+Substitui subtítulos repetitivos por área e tipo de documento; diferencia dor torácica e síndrome coronariana conforme seus fluxos municipais.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
