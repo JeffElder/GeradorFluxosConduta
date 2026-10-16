@@ -74,3 +74,9 @@ Corrige acentuação na apresentação do catálogo e usa títulos curtos nos ex
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 13. Reúne informações do projeto e preserva o status clínico
+
+Consolida teste, fontes e limitações em uma área explicativa, mantendo um aviso visível de não validação e retirando repetições institucionais.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
