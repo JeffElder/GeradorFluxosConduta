@@ -31,4 +31,6 @@ assert.match(visible,/<h1>Quantos fatores de risco estão presentes\?<\/h1>/);
 const list=visible.match(/<ul class="risk-list">(.*?)<\/ul>/s)[1];
 assert.equal((list.match(/<li>/g)||[]).length,7);
 for(const text of ['HAS','DM','dislipidemia','IMC &gt;30','sedentarismo','menos de 3 meses','mãe ou irmã','pai ou irmão'])assert(list.includes(text),text);
+const reference=Object.values(a.protocols).find(p=>!p.entries.length);
+if(reference){a.click('restart');a.click('protocol',reference.id);assert.equal(a.get('#restart-top').hidden,false,'Reference-only documents keep New consultation');}
 console.log('PASS: search/resume/back, history editing, new protocol isolation, restart, seven complete risk factors.');
