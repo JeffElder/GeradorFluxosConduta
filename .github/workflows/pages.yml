@@ -56,6 +56,14 @@ jobs:
           node --check site/animal-photos.js
           node scripts/test-animal-flow.cjs
           node scripts/test-animal-photos.cjs
+      - name: Identificar versão publicada
+        run: |
+          python3 - <<'PY'
+          import json, os
+          from datetime import datetime, timezone
+          from pathlib import Path
+          Path('site/version.json').write_text(json.dumps({'commit': os.environ['GITHUB_SHA'], 'publishedAt': datetime.now(timezone.utc).isoformat()}))
+          PY
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -240,5 +240,6 @@ document.addEventListener('click',e=>{const b=e.target.closest('[data-action]');
 document.addEventListener('change',e=>{if(e.target.matches('[data-iris]')){irisAnswers[Number(e.target.dataset.iris)]=e.target.value;updateIRISChoices();}});
 document.addEventListener('input',e=>{if(e.target.id==='search')renderSearch();else if(e.target.id==='home-search'){state.homeQuery=e.target.value;renderSearch(true);}});
 $('#close-sources').addEventListener('click',()=>$('#sources-dialog').close());
+if(typeof fetch==='function')fetch('./version.json',{cache:'no-store'}).then(r=>r.ok?r.json():null).then(v=>{if(v?.commit&&v?.publishedAt){const d=new Date(v.publishedAt);$('#app-version').textContent='Aplicação '+v.commit.slice(0,7)+' · publicada em '+d.toLocaleString('pt-BR',{timeZone:'America/Sao_Paulo'});}}).catch(()=>{});
 const initial=location.hash.slice(1);render();if(initial&&protocols[initial])openProtocol(initial);
 })();

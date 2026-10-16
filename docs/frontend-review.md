@@ -80,3 +80,9 @@ Consolida teste, fontes e limitações em uma área explicativa, mantendo um avi
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 14. Exibe a versão real da aplicação publicada
+
+Gera commit e data no deploy e os mostra separadamente da data das fontes, evitando um rodapé desatualizado a cada nova publicação.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
