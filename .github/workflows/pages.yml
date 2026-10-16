@@ -24,6 +24,7 @@ jobs:
           node --check site/arrhythmia-ecg.js
           node scripts/test-arrhythmia.cjs
           node --check site/app.js
+          node scripts/test-frontend-navigation.cjs
           node --check site/psychiatric-flow.js
           node --check site/hiv-tb-flow.js
           node --check site/clinical-flow-review.js

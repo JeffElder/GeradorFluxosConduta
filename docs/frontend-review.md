@@ -86,3 +86,6 @@ Gera commit e data no deploy e os mostra separadamente da data das fontes, evita
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## Verificação integrada
+
+Teste de navegação: busca/retomada, voltar, edição do histórico, isolamento de novo protocolo, reinício e preservação dos sete fatores de risco. Teste coronariano: 385 caminhos e oito combinações de dor aprovados. A logo, seu enquadramento e os dados dos protocolos foram preservados.
