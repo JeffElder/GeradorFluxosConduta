@@ -217,22 +217,22 @@
       "id": "adulto-ictericia-no-adulto",
       "source": "https://saude.curitiba.pr.gov.br/images/ICTER%C3%8DCIA%20NO%20ADULTO.pdf",
       "sha256": "674e3095e2424f3e27c1ec6d02f7d5574da14a76e468c149711b9a5ad509d156",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 11
     },
     {
       "id": "adulto-infeccao-do-trato-urinario-em-gestantes",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/INFEC%C3%87%C3%83O%20DO%20TRATO%20URIN%C3%81RIO%20EM%20GESTANTES.pdf",
       "sha256": "8e936c9e1209172ed89ff7d18b83722d083d82c527aea6943373634bc73e06f7",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 11
     },
     {
       "id": "adulto-infeccao-do-trato-urinario",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/INFEC%C3%87%C3%83O%20DO%20TRATO%20URIN%C3%81RIO.pdf",
       "sha256": "1ad1bcdd4e6cff63fd73ea7b79f6156d6f2131268c42a71122e75deabb7ac6a6",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 11
     },
     {
       "id": "adulto-intoxicacoes-exogenas",

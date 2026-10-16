@@ -50,6 +50,8 @@ jobs:
           node scripts/test-review-batch-09.cjs
           node --check site/review-batch-10.js
           node scripts/test-review-batch-10.cjs
+          node --check site/review-batch-11.js
+          node scripts/test-review-batch-11.cjs
           node --check site/coronary-pain-review.js
           node scripts/test-coronary-pain-review.cjs
           node --check site/catalog.js
