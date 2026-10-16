@@ -612,16 +612,24 @@
     {
       "id": "adulto-pneumonia-no-adulto",
       "scope": "Calculadora PSI com exames, solicitação focal de 16/10/2026",
-      "status": "ajuste-focal-testado-aguardando-deploy",
+      "status": "ajuste-focal-publicado",
       "fullIndividualReview": false,
-      "report": "docs/review-psi-bleeding-focus.md"
+      "report": "docs/review-psi-bleeding-focus.md",
+      "commit": "f00eeabd1e6fa13f36184b559e43833036cdb9d7",
+      "deploy": 38936863930,
+      "conclusion": "success",
+      "publishedFilesMatch": true
     },
     {
       "id": "adulto-sangramento-genital-feminino",
       "scope": "Quadro visível de manejo inicial, solicitação focal de 16/10/2026",
-      "status": "ajuste-focal-testado-aguardando-deploy",
+      "status": "ajuste-focal-publicado",
       "fullIndividualReview": false,
-      "report": "docs/review-psi-bleeding-focus.md"
+      "report": "docs/review-psi-bleeding-focus.md",
+      "commit": "f00eeabd1e6fa13f36184b559e43833036cdb9d7",
+      "deploy": 38936863930,
+      "conclusion": "success",
+      "publishedFilesMatch": true
     }
   ]
 }

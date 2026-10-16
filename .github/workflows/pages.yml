@@ -27,6 +27,7 @@ jobs:
           node scripts/test-frontend-navigation.cjs
           node --check site/psi-bleeding-focus.js
           node scripts/test-psi-bleeding-focus.cjs
+          node scripts/test-heart-calculator.cjs
           node --check site/psychiatric-flow.js
           node --check site/hiv-tb-flow.js
           node --check site/clinical-flow-review.js
