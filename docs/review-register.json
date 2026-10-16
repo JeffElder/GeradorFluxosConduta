@@ -592,6 +592,13 @@
       "deploy": 38898140034,
       "conclusion": "success",
       "publishedFilesMatch": true
+    },
+    {
+      "id": 12,
+      "commit": "d07ae63b7e57efa9570f9f14d6a7d6ab2c5f8fda",
+      "deploy": 38935865380,
+      "conclusion": "success",
+      "publishedFilesMatch": true
     }
   ],
   "focusedReviews": [
@@ -601,6 +608,20 @@
       "status": "ajuste-focal-testado-aguardando-deploy",
       "fullIndividualReview": false,
       "report": "docs/review-coronary-pain.md"
+    },
+    {
+      "id": "adulto-pneumonia-no-adulto",
+      "scope": "Calculadora PSI com exames, solicitação focal de 16/10/2026",
+      "status": "ajuste-focal-testado-aguardando-deploy",
+      "fullIndividualReview": false,
+      "report": "docs/review-psi-bleeding-focus.md"
+    },
+    {
+      "id": "adulto-sangramento-genital-feminino",
+      "scope": "Quadro visível de manejo inicial, solicitação focal de 16/10/2026",
+      "status": "ajuste-focal-testado-aguardando-deploy",
+      "fullIndividualReview": false,
+      "report": "docs/review-psi-bleeding-focus.md"
     }
   ]
 }

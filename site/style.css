@@ -63,3 +63,17 @@ main{padding-top:24px}.protocol-identity{margin-bottom:18px;padding-bottom:12px}
 .risk-list{padding-left:22px;margin:12px 0 18px;font-size:15px;line-height:1.55}.risk-list li{margin:5px 0}.clinical-text .risk-list li{margin:5px 0}
 
 .clinical-main .question-heading h1{font-size:24px;line-height:1.4;font-weight:650}.clinical-context summary{text-transform:none;letter-spacing:normal}.eyebrow{letter-spacing:1px}@media(max-width:760px){.clinical-main .question-heading h1{font-size:22px}}
+
+/* Focused clinical tools: PSI and always-open initial management. */
+.psi-calculator fieldset{border:1px solid #d5e1e5;border-radius:12px;padding:16px;margin:0 0 16px;min-width:0}
+.psi-calculator legend{padding:0 6px;font-weight:700;color:#173e4c}
+.psi-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.psi-fields label{display:flex;flex-direction:column;gap:6px;font-size:.92rem;color:#294551}
+.psi-fields label[hidden]{display:none}
+.psi-fields input,.psi-fields select{width:100%;min-width:0;box-sizing:border-box;min-height:44px;padding:9px 10px;border:1px solid #a8bcc5;border-radius:7px;background:#fff;color:#173440;font:inherit}
+.psi-fields input:focus-visible,.psi-fields select:focus-visible{outline:3px solid #2a8b8b;outline-offset:2px}
+.psi-result{border-left:4px solid #237e77;background:#edf7f4;padding:14px 16px;border-radius:8px}
+.psi-result strong{font-size:1.2rem}.psi-result p,.psi-help{font-size:.9rem;line-height:1.5}.psi-help{color:#4b626c}.psi-result summary{cursor:pointer}
+.initial-management{margin:16px 0;padding:15px 18px;background:#f1f7f8;border:1px solid #c4dce0;border-left:4px solid #288184;border-radius:10px;color:#193e4a}
+.initial-management h3{font-size:1rem;margin:0 0 10px}.initial-management dl{margin:0;display:grid;gap:8px}.initial-management dl>div{display:grid;grid-template-columns:165px 1fr;gap:10px}.initial-management dt{font-weight:700;font-size:.86rem}.initial-management dd{margin:0;font-size:.86rem;line-height:1.45}.initial-management small,.management-dose-note{font-size:.78rem;line-height:1.4}.management-dose-note{margin:10px 0 6px}
+@media(max-width:600px){.psi-fields{grid-template-columns:1fr}.initial-management dl>div{grid-template-columns:1fr;gap:2px}.initial-management{padding:12px}}

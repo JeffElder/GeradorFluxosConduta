@@ -21,3 +21,5 @@
 Teste dedicado percorre todas as trajetórias na interface (12.070 intoxicações, 35 leptospirose, 36 lombalgia), verifica arestas/critério da fonte e 4.096 combinações IRIS, incluindo atribuição direta de 20 por plano e ausência de escore com campos incompletos. Regressão de navegação e do lote 11 executada; pipeline completo permanece obrigatório no Actions.
 
 Deploy pendente no momento deste commit. Confirmação será registrada após Actions e comparação dos arquivos publicados.
+
+Deploy confirmado: commit `d07ae63b7e57efa9570f9f14d6a7d6ab2c5f8fda`, Actions [38935865380](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/38935865380) completed/success. index.html, app.js e review-batch-12.js iguais byte a byte aos do commit no Pages; version.json confirma o SHA.
