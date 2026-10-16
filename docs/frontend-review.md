@@ -50,3 +50,9 @@ Mostra a contagem sem uma segunda rolagem fixa e oferece retorno à resposta esc
 
 Verificação por etapa: sintaxe JavaScript e integridade do diff.
 
+## 9. Pausa e retoma a consulta ao abrir a busca
+
+Preserva a etapa, o histórico e a calculadora ao consultar o catálogo; informa quando escolher outro protocolo começa um caminho novo.
+
+Verificação por etapa: sintaxe JavaScript e integridade do diff.
+
