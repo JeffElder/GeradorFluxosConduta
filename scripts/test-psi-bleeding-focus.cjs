@@ -9,6 +9,11 @@ for(const [key,value,points]of [['rr','31',20],['sbp','89',20],['temperature','3
 assert.equal(calc({...base,temperature:'40'}).score,50);
 assert.equal(calc({...base,sex:'female',residence:'1'}).score,50);
 assert.equal(calc({...base,ph:'7,34'}).score,80);
+assert.equal(calc({...base,ph:'7,35'}).score,50);
+assert.equal(calc({...base,ph:'7.35'}).score,50);
+for(const ph of ['7,','7,3,4','7.3.4','7,3.4','0x7','7e0','15','-1'])assert.equal(calc({...base,ph}).complete,false,ph);
+const phHTML=c.window.PSI_CALCULATOR.render({...base,ph:'7,34'},String);
+assert.match(phHTML,/<input data-psi="ph" type="text" inputmode="decimal"[^>]*value="7,34"/);
 assert.equal(calc({...base,oxygen:'pao2',pao2:'60',sat:''}).score,50);
 assert.equal(calc({...base,oxygen:'both',pao2:'59',sat:'89'}).score,60,'Oxygen scored once');
 assert.equal(calc({...base,oxygen:'sat',pao2:'50',sat:'95'}).score,50,'Only selected measurement used');
@@ -36,7 +41,7 @@ for(const route of [[1,0,0],[1,1,0,0],[1,1,1,1]]){
  assert.match(ui.get('#consultation').output.innerHTML,/50 pontos · PSI II/);assert(ui.get('#consultation').buttons[0].disabled);assert(!ui.get('#consultation').buttons[1].disabled);
  ui.click('answer',0);assert.match(ui.node(),/Etapa: p1n19 /);ui.click('library');ui.click('resume');assert.match(ui.get('#consultation').output.innerHTML,/50 pontos · PSI II/);
  ui.click('answer',1);assert.match(ui.node(),/Etapa: p1n31 /);assert.match(ui.get('#side-history').innerHTML,/50 pontos/);
- ui.click('back');ui.fill('ph','7.2');assert.match(ui.get('#consultation').output.innerHTML,/80 pontos · PSI III/);assert(!ui.get('#consultation').buttons[0].disabled);assert(ui.get('#consultation').buttons[1].disabled);
+ ui.click('back');ui.fill('ph','7,2');assert.match(ui.get('#consultation').output.innerHTML,/80 pontos · PSI III/);assert(!ui.get('#consultation').buttons[0].disabled);assert(ui.get('#consultation').buttons[1].disabled);
  ui.click('answer',0);assert.match(ui.node(),/Etapa: p1n20 /);
 }
 enterPSI([1,0,0]);assert.match(ui.get('#consultation').output.innerHTML,/Cálculo pendente/);
