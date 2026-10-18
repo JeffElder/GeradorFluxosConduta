@@ -38,4 +38,4 @@ Fontes e SHA256:
 - https://saude.curitiba.pr.gov.br/images/DUE/TRAUMATISMO%20CR%C3%82NIO-ENCF%C3%81LICO.pdf — `6794bd3e113dc0f54319a64b6f81cde91fd78623c50f8fb44ad7f0d1ce20bf35`.
 - https://saude.curitiba.pr.gov.br/images/DUE/TRAUMA%20ORTOPEDICO.pdf — `59022e1386fe1934eac51d496bdfb512d87ed6f7f4e3d0c42a239cdb7a9c4613`.
 
-Publicação: aguardando commit e confirmação efetiva do deploy; próximo lote bloqueado até sucesso e verificação dos arquivos publicados.
+Publicação confirmada: commit `fda4b1dc2b5e37f9303ca6b5d5d8ce4aff49ba19`, Actions `39093472269`, Publicar concluído com sucesso em18/10/2026 03:26:51Z. index.html, review-batch-17.js, app.js e nove imagens (12arquivos) idênticos byte a byte; version.json correto. Lote18 liberado somente após essa confirmação.

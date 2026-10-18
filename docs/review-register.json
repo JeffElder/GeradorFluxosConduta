@@ -364,22 +364,22 @@
       "id": "adulto-tromboembolismo-pulmonar",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/TROMBOEMBOLISMO%20PULMONAR.pdf",
       "sha256": "34f74894bd8b325bb29a153bbfce6172f351f143b8ed733115889a71d84be346",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 18
     },
     {
       "id": "adulto-urgencias-dialiticas",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/URG%C3%8ANCIAS%20DIAL%C3%8DTICAS.pdf",
       "sha256": "7b8b9b8bdeaf595b503da76e6fe7668042a1dcb014729bdc1109df7a82b27059",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 18
     },
     {
       "id": "adulto-urgencias-odontologicas",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/URGENCIAS%20ODONTOLOGICAS.pdf",
       "sha256": "c2e0a48f989099e547bb0a0b9f0861fb093680b7de0e506a10d28010c0c2516c",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 18
     },
     {
       "id": "infantil-aspiracao-de-corpo-estranho",
@@ -630,6 +630,13 @@
     },
     {
       "id": 17,
+      "commit": "fda4b1dc2b5e37f9303ca6b5d5d8ce4aff49ba19",
+      "deploy": 39093472269,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 18,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",

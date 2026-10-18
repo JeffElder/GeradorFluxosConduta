@@ -56,3 +56,5 @@ Publicação confirmada: commit dca3ca82e518d80cf7bafa260bef334a90e2df9e; Action
 Lote 16: EGSYS acrescentado à tela de síncope, seis componentes e divergência ECG normal/anormal apresentada como intervalo, sem substituir silenciosamente a fonte. Ver `review-batch-16.md`.
 
 Lote17: coluna municipal Glasgow≤5anos acrescentada no TCE,120combinações; Glasgow adulto mantido na coluna>5. Não somar componente não testável. Ver `review-batch-17.md`.
+
+Lote18: checklist PERC na tela de baixo risco,384combinações/intervalo IOT-hospitalização; Wells na reavaliação após manejo grave,128combinações. Ver `review-batch-18.md`.
