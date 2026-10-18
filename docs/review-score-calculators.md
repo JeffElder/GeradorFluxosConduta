@@ -50,4 +50,4 @@ Complementares identificadas na interface:
 
 `test-score-calculators.cjs`: fixtures explícitos dos pesos; 52.892 combinações completas; limiares das faixas; dados inválidos/ausentes; NT; subtotal e recálculo BPS; NIHSS máximo 42; fórmula/unidades de Maddrey; intervalo do estridor; 19 telas alcançáveis usando eventos reais da aplicação, controle de alternativas, histórico, voltar, pausar/retomar, nova consulta e saída de escala não aplicável. Regressões HEART e PSI executadas separadamente. Não é alegada enumeração de todas as combinações do NIHSS nem revisão integral dos fluxos.
 
-Deploy desta segunda versão ainda pendente. Lote 13 só será iniciado após sua confirmação.
+Publicação confirmada: commit dca3ca82e518d80cf7bafa260bef334a90e2df9e; Actions 39090176477 concluído com sucesso, incluindo Publicar; seis arquivos conferidos byte a byte e version.json correto. Falha anterior de adaptador DOM no teste 11 corrigida sem relaxar critérios. Lote 13 autorizado a iniciar após essa confirmação.

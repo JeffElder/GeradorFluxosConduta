@@ -259,22 +259,22 @@
       "id": "adulto-nauseas-e-vomitos",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/NAUSEAS%20E%20VOMITOS.pdf",
       "sha256": "9f3613ae14138c605d34e246494a1106d966179bc9d8b2679ee5a98bbc788815",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 13
     },
     {
       "id": "adulto-obesidade-morbida",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/OBESIDADE%20MORBIDA.pdf",
       "sha256": "47bed03fa66103f8f83dcab05ed6efe50ce5115ead8816ed1cb421c17e1c031f",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 13
     },
     {
       "id": "adulto-parada-cardio-respiratoria-pcr",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/PARADA%20CARDIO-RESPIRAT%C3%93RIA%20PCR.pdf",
       "sha256": "e3cbc9f42ec32d951fb4275d4f4e2cf327ffe6fe31fdd6495b62d2f06cfead0c",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 13
     },
     {
       "id": "adulto-pneumonia-no-adulto",
@@ -599,6 +599,12 @@
       "deploy": 38935865380,
       "conclusion": "success",
       "publishedFilesMatch": true
+    },
+    {
+      "id": 13,
+      "commit": null,
+      "deploy": null,
+      "conclusion": "aguardando-publicacao"
     }
   ],
   "focusedReviews": [
@@ -638,6 +644,16 @@
       "report": "docs/review-heart-calculator.md",
       "commit": "c94ecd78bc198e50102c5f853c3bdac75541afd3",
       "deploy": 38982696750,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": "calculadoras-dos-protocolos",
+      "status": "calculadoras-publicadas-com-pendencias-clinicas",
+      "fullIndividualReview": false,
+      "report": "docs/review-score-calculators.md",
+      "commit": "dca3ca82e518d80cf7bafa260bef334a90e2df9e",
+      "deploy": 39090176477,
       "conclusion": "success",
       "publishedFilesMatch": true
     }
