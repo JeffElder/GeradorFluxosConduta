@@ -343,22 +343,22 @@
       "id": "adulto-tontura",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/TONTURA.pdf",
       "sha256": "0fa885c5def87cbd6ecb01e21847d2203798bfdaf78f8ca72bec6c47ec0badf1",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 17
     },
     {
       "id": "adulto-traumatismo-cranio-encefalico",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/TRAUMATISMO%20CR%C3%82NIO-ENCF%C3%81LICO.pdf",
       "sha256": "6794bd3e113dc0f54319a64b6f81cde91fd78623c50f8fb44ad7f0d1ce20bf35",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 17
     },
     {
       "id": "adulto-traumatismo-ortopedico",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/TRAUMA%20ORTOPEDICO.pdf",
       "sha256": "59022e1386fe1934eac51d496bdfb512d87ed6f7f4e3d0c42a239cdb7a9c4613",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 17
     },
     {
       "id": "adulto-tromboembolismo-pulmonar",
@@ -623,6 +623,13 @@
     },
     {
       "id": 16,
+      "commit": "98e700cce14c70135e85cbede09399977ebf330a",
+      "deploy": 39092838584,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 17,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",

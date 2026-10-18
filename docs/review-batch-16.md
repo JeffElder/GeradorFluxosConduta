@@ -25,4 +25,4 @@ Fontes:
 - Coronária: https://saude.curitiba.pr.gov.br/images/DUE/SINDROMES%20CORONARIANAS.pdf — `045079ea93755ad5784a04f4bf119a20b6087c20169f061d99f885b99004b6d1`.
 - Divergência EGSYS conferida na pesquisa original: https://pubmed.ncbi.nlm.nih.gov/18519550/ e https://heart.bmj.com/content/94/12/1620.full .
 
-Publicação: aguardando commit e confirmação efetiva do deploy; próximo lote bloqueado até sucesso e verificação dos arquivos publicados.
+Publicação confirmada: commit `98e700cce14c70135e85cbede09399977ebf330a`, Actions `39092838584`, Publicar concluído com sucesso em 18/10/2026 03:15:27Z. index.html, review-batch-16.js, score-calculators.js e heart-calculator.js idênticos byte a byte; version.json correto. Lote 17 liberado somente após essa confirmação.

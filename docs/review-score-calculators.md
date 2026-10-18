@@ -54,3 +54,5 @@ Complementares identificadas na interface:
 Publicação confirmada: commit dca3ca82e518d80cf7bafa260bef334a90e2df9e; Actions 39090176477 concluído com sucesso, incluindo Publicar; seis arquivos conferidos byte a byte e version.json correto. Falha anterior de adaptador DOM no teste 11 corrigida sem relaxar critérios. Lote 13 autorizado a iniciar após essa confirmação.
 
 Lote 16: EGSYS acrescentado à tela de síncope, seis componentes e divergência ECG normal/anormal apresentada como intervalo, sem substituir silenciosamente a fonte. Ver `review-batch-16.md`.
+
+Lote17: coluna municipal Glasgow≤5anos acrescentada no TCE,120combinações; Glasgow adulto mantido na coluna>5. Não somar componente não testável. Ver `review-batch-17.md`.
