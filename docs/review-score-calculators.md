@@ -7,6 +7,7 @@ O inventário percorreu os 73 protocolos compostos (após todos os módulos de c
 | Calculadora | Tela/protocolo | Resultado e controle |
 |---|---|---|
 | HEART | Síndromes coronarianas: pergunta inicial e reavaliação | Já publicado separadamente; cinco componentes e curva de troponina; apresentação melhorada nesta versão |
+| CRB-65 | Pneumonia no adulto, decisões ≥3 e ≥1 com adicional | Integrado no lote 14; 1 ponto por componente, limites municipais e divergências NICE registrados |
 | PSI | Pneumonia no adulto | Existente: dados clínicos e exames; correção de vírgula no pH publicada separadamente |
 | IRIS | Emergências psiquiátricas, gestantes e intoxicações | Calculadora existente preservada, incluindo plano organizado =20 |
 | Malinas | Trabalho de parto / ob-score | Cinco componentes; faixas <5, 5–7, >7; lacunas da tabela não recebem pontos inventados |

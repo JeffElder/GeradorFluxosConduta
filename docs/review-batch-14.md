@@ -25,4 +25,4 @@ Fontes e SHA-256 preservados no registro central:
 - PEP: `32c3165c3e27eda0bbcfe6e4cb02203c409778779f4c1122f5f8a644bcf393d0`.
 - Rebaixamento: `cd1831ed428bb1b6ca4e08e261ef41f63880d80cdf76a22c96e0aa895db2fa42`.
 
-Publicação deste lote pendente. Lote 15 somente após confirmação do Actions/Publicar e arquivos novos no Pages. Confirmação do lote 13 registrada no relatório anterior e no registro central.
+Publicação confirmada: commit `32cf56c1d0f002f056487d38ab1d88fb5e8b958b`, Actions `39091327428`, Publicar concluído com sucesso em 18/10/2026 02:50:14Z. index.html, app.js, score-calculators.js e review-batch-14.js conferidos byte a byte; version.json correto. Lote 15 liberado somente após a confirmação.

@@ -301,22 +301,22 @@
       "id": "adulto-raio-x-horarios-de-atendimento-do-servico-de-raio-x-nas-upas",
       "source": "https://saude.curitiba.pr.gov.br/images/Hor%C3%A1rio%20de%20Funcionamento%20Raio-X%20nas%20UPAS%20-%2025.05.2023.pdf",
       "sha256": "41b00d3d57546ffc3fcf3cbe0c9b18683454830f863c3bbb53a8aa9a9ef65503",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 15
     },
     {
       "id": "adulto-sangramento-genital-feminino",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/SANGRAMENTO%20GENITAL%20FEMININO.pdf",
       "sha256": "6566acab4616d1f0ffbf063e2fca3d49398fe90ed8852bcec09c3c4d65e8eb9b",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 15
     },
     {
       "id": "adulto-sepse-em-adultos",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/SEPSE%20EM%20ADULTOS.pdf",
       "sha256": "fc7fbac061f9202bf1a379fa0516c375c674a88dd6c86504274a127338ef982f",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 15
     },
     {
       "id": "adulto-sincope",
@@ -609,6 +609,13 @@
     },
     {
       "id": 14,
+      "commit": "32cf56c1d0f002f056487d38ab1d88fb5e8b958b",
+      "deploy": 39091327428,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 15,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao"
