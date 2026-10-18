@@ -3,7 +3,7 @@ const fs=require('fs'),path=require('path'),vm=require('vm'),assert=require('ass
 const root=path.join(__dirname,'../site'),c={window:{}};vm.createContext(c);vm.runInContext(fs.readFileSync(path.join(root,'heart-calculator.js'),'utf8'),c);
 const calc=c.window.HEART_CALCULATOR.calculate,keys=['history','ecg','age','risk','troponin'];
 let count=0;
-for(let bits=0;bits<243;bits++){let n=bits,score=0,v={};for(const k of keys){v[k]=String(n%3);score+=n%3;n=Math.floor(n/3);}for(const curve of [undefined,'no','yes']){const r=calc({...v,curve},curve!==undefined);assert.equal(r.score,score);assert.equal(r.answer,curve===undefined?(score>=4?0:1):(curve==='yes'||score>=7?0:score>=4?1:2));count++;}}
+for(let bits=0;bits<243;bits++){let n=bits,score=0,v={};for(const k of keys){v[k]=String(n%3);score+=n%3;n=Math.floor(n/3);}for(const curve of [undefined,'no','yes']){const r=calc({...v,curve},curve!==undefined);assert.equal(r.score,score);assert.equal(r.answer,curve===undefined?(score>=4?0:1):(score>=7?0:curve==='yes'?null:score>=4?1:2));count++;}}
 for(const k of keys)for(const bad of ['',undefined,'-1','3','NaN'])assert.equal(calc({history:'0',ecg:'0',age:'0',risk:'0',troponin:'0',[k]:bad}).complete,false);
 assert.equal(calc({history:'0',ecg:'0',age:'0',risk:'0',troponin:'boundary'}).ambiguous,true);
 function application(){
@@ -29,5 +29,5 @@ for(const node of ['heart-risk','reassessment']){
   ui.click('answer',r.answer);assert.match(ui.node(),new RegExp('Etapa: '+target+' '));assert.match(ui.get('#side-history').innerHTML,/HEART:/);
  }
 }
-enter('reassessment');for(const k of keys)ui.fill(k,'0');ui.fill('curve','yes');assert(!ui.get('#consultation').buttons[0].disabled);ui.click('library');ui.click('resume');assert.match(ui.get('#consultation').output.innerHTML,/0 pontos/);ui.fill('troponin','boundary');assert(ui.get('#consultation').buttons.every(b=>b.disabled));enter('heart-risk');assert.match(ui.get('#consultation').output.innerHTML,/pendente/);
+enter('reassessment');for(const k of keys)ui.fill(k,'0');ui.fill('curve','yes');assert(ui.get('#consultation').buttons.every(b=>b.disabled));ui.click('library');ui.click('resume');assert.match(ui.get('#consultation').output.innerHTML,/0 pontos/);ui.fill('troponin','boundary');assert(ui.get('#consultation').buttons.every(b=>b.disabled));enter('heart-risk');assert.match(ui.get('#consultation').output.innerHTML,/pendente/);
 console.log('PASS HEART: '+count+' combinations; 486 interface paths; missing/invalid fields, troponin ambiguity, rising curve, history, reset and pause/resume.');

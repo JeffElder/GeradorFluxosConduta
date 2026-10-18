@@ -25,4 +25,4 @@ Fontes e SHA-256 no registro central:
 - Sangramento: `6566acab4616d1f0ffbf063e2fca3d49398fe90ed8852bcec09c3c4d65e8eb9b`.
 - Sepse: `fc7fbac061f9202bf1a379fa0516c375c674a88dd6c86504274a127338ef982f`.
 
-Publicação deste lote pendente. Lote 16 somente após Actions/Publicar com sucesso e conferência de arquivos novos no Pages. Deploy do lote 14 confirmado no registro e relatório anteriores.
+Publicação confirmada: commit `bdcd19552131180ab83cd073fc9e8e7f7f38ffff`, Actions `39092135199`, Publicar concluído com sucesso em 18/10/2026 03:04:21Z. index.html e review-batch-15.js idênticos byte a byte; version.json correto. Lote 16 liberado após essa confirmação.

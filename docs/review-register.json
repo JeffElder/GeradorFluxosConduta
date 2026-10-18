@@ -322,22 +322,22 @@
       "id": "adulto-sincope",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/S%C3%8DNCOPE.pdf",
       "sha256": "a2f0c7828172df8217d6a0bdf8114fc811d0053cdee25f638b987f1a82064c95",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 16
     },
     {
       "id": "adulto-sindrome-hipertensiva-na-gestacao",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/SINDROME%20HIPERTENSIVA%20NA%20GESTA%C3%87%C3%83O.pdf",
       "sha256": "725e93844f19d5849b0300313f72bdbe4090ecfd2ca2f1542ced7aaad72fa8e7",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 16
     },
     {
       "id": "adulto-sindromes-coronarianas",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/SINDROMES%20CORONARIANAS.pdf",
       "sha256": "045079ea93755ad5784a04f4bf119a20b6087c20169f061d99f885b99004b6d1",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 16
     },
     {
       "id": "adulto-tontura",
@@ -616,9 +616,17 @@
     },
     {
       "id": 15,
+      "commit": "bdcd19552131180ab83cd073fc9e8e7f7f38ffff",
+      "deploy": 39092135199,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 16,
       "commit": null,
       "deploy": null,
-      "conclusion": "aguardando-publicacao"
+      "conclusion": "aguardando-publicacao",
+      "publishedFilesMatch": false
     }
   ],
   "focusedReviews": [
