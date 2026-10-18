@@ -28,6 +28,8 @@ jobs:
           node --check site/psi-bleeding-focus.js
           node scripts/test-psi-bleeding-focus.cjs
           node scripts/test-heart-calculator.cjs
+          node --check site/score-calculators.js
+          node scripts/test-score-calculators.cjs
           node --check site/psychiatric-flow.js
           node --check site/hiv-tb-flow.js
           node --check site/clinical-flow-review.js

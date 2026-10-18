@@ -630,6 +630,16 @@
       "deploy": 38936863930,
       "conclusion": "success",
       "publishedFilesMatch": true
+    },
+    {
+      "id": "adulto-sindromes-coronarianas",
+      "status": "calculadora-heart-publicada",
+      "fullIndividualReview": false,
+      "report": "docs/review-heart-calculator.md",
+      "commit": "c94ecd78bc198e50102c5f853c3bdac75541afd3",
+      "deploy": 38982696750,
+      "conclusion": "success",
+      "publishedFilesMatch": true
     }
   ]
 }

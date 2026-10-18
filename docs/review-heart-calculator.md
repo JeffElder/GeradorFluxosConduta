@@ -9,3 +9,5 @@ Pendência clínica específica: a tabela imprime troponina 1–3× =1 e ≥3× 
 Testes: 729 combinações aritméticas/curva; 486 caminhos pela interface real com eventos; campos ausentes/inválidos; limite sobreposto; curva ascendente; histórico; pausar/retomar; reiniciar. Regressão PSI e quadro de sangramento; 385 caminhos do teste coronariano anterior. Este ajuste não representa revisão individual completa do protocolo.
 
 A solicitação atual retoma o trabalho: publicar HEART primeiro, demais calculadoras em segunda versão e só então lote 13. Confirmação do deploy será registrada após conclusão do Actions e comparação dos arquivos publicados.
+
+Publicação confirmada: commit `c94ecd78bc198e50102c5f853c3bdac75541afd3`, Actions `38982696750`, etapa Publicar concluída com sucesso em 2026-10-16T23:43:58Z. `version.json` identifica o commit; index.html, app.js e heart-calculator.js publicados são idênticos byte a byte. Navegador real: formulário completo, cenário sintético de 4 pontos habilita Sim e mantém Não desabilitado. Todos os 44 comandos de verificação do workflow passaram localmente e no Actions.
