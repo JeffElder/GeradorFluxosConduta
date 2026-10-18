@@ -61,6 +61,8 @@ jobs:
           node scripts/test-review-batch-12.cjs
           node --check site/review-batch-13.js
           node scripts/test-review-batch-13.cjs
+          node --check site/review-batch-14.js
+          node scripts/test-review-batch-14.cjs
           node --check site/coronary-pain-review.js
           node scripts/test-coronary-pain-review.cjs
           node --check site/catalog.js

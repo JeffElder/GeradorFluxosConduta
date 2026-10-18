@@ -31,10 +31,10 @@ function application(){
  const get=k=>{if(!els.has(k))els.set(k,element());return els.get(k)};
  const ctx={window:{history:{replaceState(){}},scrollTo(){}},document:{querySelector:get,querySelectorAll(){return []},addEventListener(e,f){events[e]=f}},location:{hash:'',pathname:'/',search:''}};vm.createContext(ctx);
  for(const m of fs.readFileSync(path.join(root,'index.html'),'utf8').matchAll(/<script defer src="\.\/([^"?]+)(?:\?[^" ]*)?"/g)){if(['feedback.js','animal-photos.js'].includes(m[1]))continue;vm.runInContext(fs.readFileSync(path.join(root,m[1]),'utf8'),ctx);}
- return {get,click(action,value){events.click({target:{closest(){return {dataset:{action,value:String(value??'')}}}}})},fill(key,value){events.input({target:{dataset:{psi:key},value,matches:s=>s==='[data-psi]'}})},node(){return get('#consultation').dataset.feedbackStep},html(){return get('#consultation').innerHTML}};
+ return {get,fillCRB(key,value){events.change({target:{dataset:{score:'crb',field:key},value,matches:s=>s==='[data-score]'}})},click(action,value){events.click({target:{closest(){return {dataset:{action,value:String(value??'')}}}}})},fill(key,value){events.input({target:{dataset:{psi:key},value,matches:s=>s==='[data-psi]'}})},node(){return get('#consultation').dataset.feedbackStep},html(){return get('#consultation').innerHTML}};
 }
 const ui=application();
-function enterPSI(route){ui.click('restart');ui.click('protocol','adulto-pneumonia-no-adulto');for(const index of route)ui.click('answer',index);assert.match(ui.node(),/Etapa: p1n19 /);assert.equal(ui.get('#consultation').buttons.filter(b=>b.disabled).length,2);}
+function enterPSI(route){ui.click('restart');ui.click('protocol','adulto-pneumonia-no-adulto');for(const index of route){if(/Etapa: p1n10 /.test(ui.node()))for(const k of ['confusion','resp','pressure','age'])ui.fillCRB(k,index===0?'1':'0');if(/Etapa: p1n12 /.test(ui.node())){ui.fillCRB('confusion',index===0?'1':'0');ui.fillCRB('additional',index===0?'1':'0');}ui.click('answer',index);}assert.match(ui.node(),/Etapa: p1n19 /);assert.equal(ui.get('#consultation').buttons.filter(b=>b.disabled).length,2);}
 for(const route of [[1,0,0],[1,1,0,0],[1,1,1,1]]){
  enterPSI(route);ui.click('answer',0);assert.match(ui.node(),/Etapa: p1n19 /);
  for(const [key,value]of Object.entries(base))ui.fill(key,value);

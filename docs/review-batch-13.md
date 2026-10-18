@@ -27,6 +27,6 @@ URLs e SHA-256 no registro central e manifest /tmp/batch13-sources.json da sess�
 - Obesidade: `47bed03fa66103f8f83dcab05ed6efe50ce5115ead8816ed1cb421c17e1c031f`.
 - PCR: `e3cbc9f42ec32d951fb4275d4f4e2cf327ffe6fe31fdd6495b62d2f06cfead0c`.
 
-Deploy deste lote pendente. O lote 14 só começa após sucesso do Actions, etapa Publicar e comparação dos arquivos publicados.
+Publicação confirmada: commit `a474aca5d57c94d0e2801484c17254c6e3c10511`, Actions `39090689481`, Publicar concluído com sucesso em 18/10/2026 02:39:08Z. index.html, app.js e review-batch-13.js idênticos byte a byte; version.json identifica o commit. Lote 14 liberado após essa confirmação.
 
 Publicação anterior das calculadoras confirmada: commit `dca3ca82e518d80cf7bafa260bef334a90e2df9e`, Actions `39090176477`, sucesso em 18/10/2026 02:30:44Z. Seis arquivos idênticos ao checkout e version.json correto. Tentativas `39089895948`/`39089980199` falharam por adaptador DOM incompleto do teste 11; corrigido sem relaxar verificações, com 116 caminhos do lote 11 e 12.141 do lote 12 passando novamente. Nenhum novo lote começou antes dessa confirmação.

@@ -280,22 +280,22 @@
       "id": "adulto-pneumonia-no-adulto",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/PNEUMONIA%20NO%20ADULTO.pdf",
       "sha256": "0e6c5b48789c9fbe1dc8e18609f29b36b607be704f1e3737c9f7ce8059943571",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 14
     },
     {
       "id": "adulto-profilaxia-pos-exposicao-sexual-ao-hiv-consentida",
       "source": "https://mid.curitiba.pr.gov.br/2026/00462899.pdf",
       "sha256": "32c3165c3e27eda0bbcfe6e4cb02203c409778779f4c1122f5f8a644bcf393d0",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 14
     },
     {
       "id": "adulto-rebaixamento-do-nivel-de-consciencia",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/REBAIXAMENTO%20DO%20N%C3%8DVEL%20DE%20CONSCI%C3%8ANCIA.pdf",
       "sha256": "cd1831ed428bb1b6ca4e08e261ef41f63880d80cdf76a22c96e0aa895db2fa42",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 14
     },
     {
       "id": "adulto-raio-x-horarios-de-atendimento-do-servico-de-raio-x-nas-upas",
@@ -602,6 +602,13 @@
     },
     {
       "id": 13,
+      "commit": "a474aca5d57c94d0e2801484c17254c6e3c10511",
+      "deploy": 39090689481,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 14,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao"
