@@ -698,19 +698,24 @@
         "infantil-febre-em-pediatria"
       ],
       "uniqueNewProtocols": 1,
-      "commit": null,
-      "deploy": null,
-      "conclusion": "aguardando-publicacao",
-      "publishedFilesMatch": false
+      "commit": "99f72a27375be7d391950e55945fafb82be2c1fa",
+      "deploy": 39191024810,
+      "conclusion": "success",
+      "publishedFilesMatch": true
     }
   ],
   "focusedReviews": [
     {
       "id": "adulto-sindromes-coronarianas",
       "scope": "Tipos de dor e fatores de risco, prioridade solicitada em 2026-10-15",
-      "status": "ajuste-focal-testado-aguardando-deploy",
+      "status": "incorporado-na-conferencia-integral",
       "fullIndividualReview": false,
-      "report": "docs/review-coronary-pain.md"
+      "report": "docs/review-coronary-pain.md",
+      "supersededByBatch": 16,
+      "commit": "98e700cce14c70135e85cbede09399977ebf330a",
+      "deploy": 39092838584,
+      "conclusion": "success",
+      "publishedFilesMatch": true
     },
     {
       "id": "adulto-pneumonia-no-adulto",
@@ -754,5 +759,9 @@
       "conclusion": "success",
       "publishedFilesMatch": true
     }
-  ]
+  ],
+  "completedDocumentaryReview": "2026-10-19",
+  "uniqueProtocolsReviewed": 73,
+  "individualConferences": 75,
+  "clinicalValidationComplete": false
 }

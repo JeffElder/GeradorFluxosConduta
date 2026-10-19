@@ -29,4 +29,4 @@ Fontes/SHA256:
 - https://saude.curitiba.pr.gov.br/images/DUE/FARMACODERMIAS.pdf —c6353c6c9613ef7539ec9add930b1942e894b17d3a93afadc0f8ce7113db1d35.
 - https://saude.curitiba.pr.gov.br/images/DUE/FEBRE%20EM%20PEDIATRIA.pdf —356339c7159dcb1f75bf9dcb725fbbbcc7f322c7e2ae552cef6ecd2543942a49.
 
-Publicação:aguardando commit/Actions/verificação dos arquivos;conferência73/73 ainda não é confirmação de deploy deste lote.
+Publicação confirmada:commit 99f72a27375be7d391950e55945fafb82be2c1fa; [Actions39191024810](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/39191024810),Publicar com sucesso em2026-10-19T02:42:53Z. index.html e review-batch-25.js idênticos byte a byte na versão pública;version.json confirma commit. Os73protocolos têm conferência individual e alterações publicadas;pendências clínicas/documentais continuam abertas.
