@@ -47,4 +47,4 @@ Fontes/SHA256:
 - https://saude.curitiba.pr.gov.br/images/DUE/DIARREIA%20AGUDA%20EM%20PEDIATRIA.pdf — `98efc4c793321c0242dfc8ef0890a353f2aa949eea15eb889b4a6c4de855d31a`.
 - https://saude.curitiba.pr.gov.br/images/DUE/DOEN%C3%87AS%20EXANTEM%C3%81TICAS.pdf — `f5b378c2c5b2db0950ed3c88711aa487aee417a5cf5ba4cef7b66750f4293589`.
 
-Publicação: aguardando commit e confirmação efetiva do deploy; próximo lote bloqueado até sucesso e verificação dos arquivos publicados.
+Publicação confirmada: commit `bae1f4d816bd8973b7d33da45a00246828e52b7a`, Actions `39187492414`, Publicar concluído com sucesso em19/10/2026 01:57:43Z. index.html, review-batch-20.js, app.js e22imagens(25arquivos) idênticos byte a byte; version.json correto. Lote21 liberado somente após essa confirmação.

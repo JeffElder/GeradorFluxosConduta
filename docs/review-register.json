@@ -427,22 +427,22 @@
       "id": "infantil-dor-abdominal-em-pediatria-due",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20ABDOMINAL%20%20PEDI_DUE.pdf",
       "sha256": "c5be22d5681d5c5ea37cb7087996960a4294d35a843ded595badc1a8940d76ea",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 21
     },
     {
       "id": "infantil-dor-de-garganta",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20DE%20GARGANTA.pdf",
       "sha256": "dd551d661b39d39129bbda16a751eb744a00afcf6c174633d7f4d69becd0cfc6",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 21
     },
     {
       "id": "infantil-dor-de-ouvido",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOR%20DE%20OUVIDO.pdf",
       "sha256": "c762c215fc7057cd0f28d187a2182ec625264afa7f2ee72d4a784624dff084d7",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 21
     },
     {
       "id": "infantil-emergencias-respiratorias-em-pediatria",
@@ -651,6 +651,13 @@
     },
     {
       "id": 20,
+      "commit": "bae1f4d816bd8973b7d33da45a00246828e52b7a",
+      "deploy": 39187492414,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 21,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",
