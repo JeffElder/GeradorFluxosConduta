@@ -40,4 +40,4 @@ Fontes:
 - https://saude.curitiba.pr.gov.br/images/DUE/FEBRE%20EM%20PEDIATRIA.pdf — SHA256356339c7159dcb1f75bf9dcb725fbbbcc7f322c7e2ae552cef6ecd2543942a49.
 - https://saude.curitiba.pr.gov.br/images/DUE/INFEC%C3%87%C3%83O%20DO%20TRATO%20URIN%C3%81RIO%20EM%20PEDIATRIA.pdf — SHA2560ab589fff02191b8ea19eab310b1ff9025ff04df8977a83570f4722bbbc8194e.
 
-Publicação:aguardando commit/Actions/verificação dos arquivos;próximo lote bloqueado até confirmação.
+Publicação confirmada:commit 5c7bfd317695c34c09c859e3875539487ffe115e; [Actions39189741614](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/39189741614),Publicar com sucesso em2026-10-19T02:26:30Z. Dez arquivos(index,módulo,8JPG) conferidos byte a byte na versão pública;version.json confirma o commit. Próximo lote iniciado somente após essa confirmação.

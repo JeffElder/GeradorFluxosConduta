@@ -490,22 +490,22 @@
       "id": "infantil-pneumonia-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/PNEUMONIA%20EM%20PEDIATRIA.pdf",
       "sha256": "830a16cf551f591bfac1f978e497b16f742c11e0b45265b90e616aed7e31ea8e",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 24
     },
     {
       "id": "infantil-sepse-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/SEPSE%20EM%20PEDIATRIA.pdf",
       "sha256": "a0f3569c3020695432f9205a66dc4f60fa1dcffb69bcd3673b3acfddf6a383aa",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 24
     },
     {
       "id": "infantil-sibilancia-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/SIBIL%C3%82NCIA%20EM%20PEDIATRIA.pdf",
       "sha256": "11e52e249680edf238479526e14cc2526a3ffc843c1f10dcc40a405e3ddf5ae4",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 24
     },
     {
       "id": "infantil-sindrome-inflamatoria-multissistemica-pediatrica",
@@ -672,6 +672,13 @@
     },
     {
       "id": 23,
+      "commit": "5c7bfd317695c34c09c859e3875539487ffe115e",
+      "deploy": 39189741614,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 24,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",
