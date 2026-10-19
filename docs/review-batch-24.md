@@ -46,4 +46,4 @@ Fontes/SHA256:
 - https://saude.curitiba.pr.gov.br/images/DUE/SEPSE%20EM%20PEDIATRIA.pdf —a0f3569c3020695432f9205a66dc4f60fa1dcffb69bcd3673b3acfddf6a383aa.
 - https://saude.curitiba.pr.gov.br/images/DUE/SIBIL%C3%82NCIA%20EM%20PEDIATRIA.pdf —11e52e249680edf238479526e14cc2526a3ffc843c1f10dcc40a405e3ddf5ae4.
 
-Publicação:aguardando commit/Actions/verificação dos arquivos;próximo lote bloqueado até confirmação.
+Publicação confirmada:commit a350229bdc3b6b7196e67fd3190bca8c8f4df739; [Actions39190546736](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/39190546736),Publicar com sucesso em2026-10-19T02:35:28Z. Seis arquivos(index,módulo,calculadoras,3JPG) idênticos byte a byte na versão pública;version.json confirma commit. Próximo lote iniciado somente após essa confirmação.

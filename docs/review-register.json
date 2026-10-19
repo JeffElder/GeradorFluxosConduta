@@ -470,14 +470,20 @@
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/FARMACODERMIAS.pdf",
       "sha256": "c6353c6c9613ef7539ec9add930b1942e894b17d3a93afadc0f8ce7113db1d35",
       "status": "conferencia-documental-com-pendencias",
-      "batch": 23
+      "batch": 23,
+      "recheckedBatches": [
+        25
+      ]
     },
     {
       "id": "infantil-febre-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/FEBRE%20EM%20PEDIATRIA.pdf",
       "sha256": "356339c7159dcb1f75bf9dcb725fbbbcc7f322c7e2ae552cef6ecd2543942a49",
       "status": "conferencia-documental-com-pendencias",
-      "batch": 23
+      "batch": 23,
+      "recheckedBatches": [
+        25
+      ]
     },
     {
       "id": "infantil-infeccao-do-trato-urinario-em-pediatria",
@@ -511,8 +517,8 @@
       "id": "infantil-sindrome-inflamatoria-multissistemica-pediatrica",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/SINDROME%20INFLAMAT%C3%93RIA%20MULTISSIST%C3%8AMICA%20PEDI%C3%81TRICA.pdf",
       "sha256": "7fcd9eafd6fb04e3e72e5680158ac758fb225357ce8b8cb9c69454654f57103e",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 25
     }
   ],
   "batches": [
@@ -679,6 +685,19 @@
     },
     {
       "id": 24,
+      "commit": "a350229bdc3b6b7196e67fd3190bca8c8f4df739",
+      "deploy": 39190546736,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 25,
+      "protocols": [
+        "infantil-sindrome-inflamatoria-multissistemica-pediatrica",
+        "infantil-farmacodermias",
+        "infantil-febre-em-pediatria"
+      ],
+      "uniqueNewProtocols": 1,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",

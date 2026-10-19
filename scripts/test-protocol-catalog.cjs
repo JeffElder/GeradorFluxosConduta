@@ -1,0 +1,5 @@
+const fs=require('fs'),vm=require('vm'),root=__dirname+'/../site/',c={window:{}};vm.createContext(c);
+for(const m of fs.readFileSync(root+'index.html','utf8').matchAll(/<script defer src="\.\/([^"?]+)(?:\?[^" ]*)?"/g)){if(['app.js','feedback.js','animal-photos.js'].includes(m[1]))continue;vm.runInContext(fs.readFileSync(root+m[1],'utf8'),c)}
+const errors=[];let count=0,nodes=0,links=0;
+for(const[id,p]of Object.entries(c.window.PROTOCOLS)){count++;const seen=new Set(),q=p.entries.map(e=>e.to);if(!q.length)errors.push(id+' no entry');while(q.length){const k=q.pop();if(seen.has(k))continue;seen.add(k);const n=p.nodes[k];if(!n){errors.push(id+'/'+k+' missing');continue;}nodes++;if(n.incomplete)errors.push(id+'/'+k+' incomplete');for(const a of n.choices)q.push(a.to);for(const l of n.linkedEntries||[]){links++;if(!c.window.PROTOCOLS[l.protocol]?.entries.some(e=>e.to===l.entry))errors.push(id+'/'+k+' linked '+l.protocol+'/'+l.entry);}}}
+console.log(JSON.stringify({protocols:count,reachableNodes:nodes,linkedEntries:links,errors},null,2));if(errors.length)process.exit(1);
