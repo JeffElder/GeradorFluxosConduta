@@ -26,9 +26,10 @@ v=Object.fromEntries(D.nihss.fields.map(f=>[f.key,String(f.options.findIndex(o=>
 for(const [values,score]of [[{patient:'18',control:'12',bilirubin:'5'},32.6],[{patient:'12',control:'12',bilirubin:'32'},32],[{patient:'11',control:'12',bilirubin:'1,5'},-3.1]])assert(Math.abs(t.calculate('maddrey',values).score-score)<1e-10);
 for(const field of ['patient','control','bilirubin'])for(const bad of ['',undefined,'NaN','-1','999'])assert(!t.calculate('maddrey',{patient:'18',control:'12',bilirubin:'5',[field]:bad}).complete);
 v={stridor:'0',retraction:'0',air:'0',color:'0',mental:'0'};r=t.calculate('stridor',v,'p1n15');assert.equal(r.min,0);assert.equal(r.max,2);assert.equal(r.answer,0);v.stridor='3';v.retraction='1';r=t.calculate('stridor',v,'p1n15');assert.equal(r.answer,null);assert.equal(r.min,4);assert.equal(r.max,6);
-assert.deepEqual(Array.from(ctx.window.PROTOCOLS['infantil-estridor'].nodes.p1n15.choices,c=>c.to),['p1n22','p1n24','p1n28']);
-assert.match(ctx.window.PROTOCOLS['infantil-estridor'].nodes.p1n28.text,/0,5ML\/KG/);
-assert.match(ctx.window.PROTOCOLS['infantil-estridor'].nodes.p1n28.text,/CEFTRIAXONA/);
+assert.deepEqual(Array.from(ctx.window.PROTOCOLS['infantil-estridor'].nodes.p1n15.choices,c=>c.to),['p1n22','p1n24','p1n28','str-score-pending']);
+assert.equal(ctx.window.PROTOCOLS['infantil-estridor'].nodes.p1n28.choices[0].to,'p1n7');
+assert.match(ctx.window.PROTOCOLS['infantil-estridor'].nodes.p1n7.text,/0,5 mL\/kg/);
+assert.match(ctx.window.PROTOCOLS['infantil-estridor'].nodes['str-severe-medications'].text,/ceftriaxona100 mg\/kg IV/);
 console.log('PASS source-weight fixtures, '+combinations+' complete combinations, score boundaries, invalid/NT fields, documentary ranges, BPS subtotal/reassessment, NIHSS 42 and Maddrey units.');
 function application(){
  const els=new Map(),events={};function element(){let html='';const el={dataset:{},value:'',focus(){},addEventListener(){},outputs:new Map(),buttons:[],querySelector(s){if(!el.outputs.has(s))el.outputs.set(s,{innerHTML:''});return el.outputs.get(s)},querySelectorAll(s){return s==='[data-action="answer"]'?el.buttons:[]}};Object.defineProperty(el,'innerHTML',{get(){return html},set(v){html=v;el.buttons=[...v.matchAll(/<button[^>]*data-action="answer"[^>]*data-value="([^"]+)"/g)].map(m=>({dataset:{value:m[1]},disabled:false}));}});return el;}

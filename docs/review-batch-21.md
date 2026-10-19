@@ -44,4 +44,4 @@ Fontes/SHA256:
 - https://saude.curitiba.pr.gov.br/images/DUE/DOR%20DE%20GARGANTA.pdf — dd551d661b39d39129bbda16a751eb744a00afcf6c174633d7f4d69becd0cfc6.
 - https://saude.curitiba.pr.gov.br/images/DUE/DOR%20DE%20OUVIDO.pdf — c762c215fc7057cd0f28d187a2182ec625264afa7f2ee72d4a784624dff084d7.
 
-Publicação: aguardando commit e confirmação efetiva do deploy; próximo lote bloqueado até sucesso e verificação dos arquivos publicados.
+Publicação confirmada: commit41fa7e7041fcd2eb1c20a8474d304b87ff915e26,Actions39188347251,Publicar concluído com sucesso em19/10/2026 02:07:48Z. index.html e review-batch-21.js idênticos byte a byte;version.json correto. Lote22 liberado somente após essa confirmação.

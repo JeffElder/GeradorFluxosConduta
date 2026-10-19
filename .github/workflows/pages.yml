@@ -77,6 +77,8 @@ jobs:
           node scripts/test-review-batch-20.cjs
           node --check site/review-batch-21.js
           node scripts/test-review-batch-21.cjs
+          node --check site/review-batch-22.js
+          node scripts/test-review-batch-22.cjs
           node --check site/coronary-pain-review.js
           node scripts/test-coronary-pain-review.cjs
           node --check site/catalog.js

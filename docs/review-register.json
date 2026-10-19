@@ -448,22 +448,22 @@
       "id": "infantil-emergencias-respiratorias-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/EMERGENCIAS%20RESPIRATORIAS%20EM%20PEDIATRIA.pdf",
       "sha256": "58da777d8b231afc63ad73ed8c79e2332a09389e4d0d52efbad79efc6d68eaa1",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 22
     },
     {
       "id": "infantil-escroto-agudo",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/ESCROTO%20AGUDO.pdf",
       "sha256": "e946bf635308eca09e936503bdf8f869ab188652f53ab7e8d539eb3d1b93d813",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 22
     },
     {
       "id": "infantil-estridor",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/ESTRIDOR.pdf",
       "sha256": "aae79ed5717e857d00212e51e277617cd66b08b4b3c66c0afc7ab7cd8652d5ef",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 22
     },
     {
       "id": "infantil-farmacodermias",
@@ -658,6 +658,13 @@
     },
     {
       "id": 21,
+      "commit": "41fa7e7041fcd2eb1c20a8474d304b87ff915e26",
+      "deploy": 39188347251,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 22,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",
