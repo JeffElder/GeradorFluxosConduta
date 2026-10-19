@@ -43,4 +43,4 @@ Fontes/SHA256:
 - https://saude.curitiba.pr.gov.br/images/DUE/ESCROTO%20AGUDO.pdf —e946bf635308eca09e936503bdf8f869ab188652f53ab7e8d539eb3d1b93d813.
 - https://saude.curitiba.pr.gov.br/images/DUE/ESTRIDOR.pdf —aae79ed5717e857d00212e51e277617cd66b08b4b3c66c0afc7ab7cd8652d5ef.
 
-Publicação: aguardando commit e confirmação efetiva do deploy; próximo lote bloqueado até sucesso e verificação dos arquivos publicados.
+Publicação confirmada: commit 7e857a60626f56e38647829dacec669cb83b7f84; [Actions39189146672](https://github.com/JeffElder/GeradorFluxosConduta/actions/runs/39189146672), etapa Publicar concluída com sucesso em2026-10-19T02:18:40Z. index.html e review-batch-22.js publicados idênticos byte a byte ao código local; version.json confirma o commit. Só depois desta verificação foi iniciado o lote23.

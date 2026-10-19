@@ -469,22 +469,22 @@
       "id": "infantil-farmacodermias",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/FARMACODERMIAS.pdf",
       "sha256": "c6353c6c9613ef7539ec9add930b1942e894b17d3a93afadc0f8ce7113db1d35",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 23
     },
     {
       "id": "infantil-febre-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/FEBRE%20EM%20PEDIATRIA.pdf",
       "sha256": "356339c7159dcb1f75bf9dcb725fbbbcc7f322c7e2ae552cef6ecd2543942a49",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 23
     },
     {
       "id": "infantil-infeccao-do-trato-urinario-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/INFEC%C3%87%C3%83O%20DO%20TRATO%20URIN%C3%81RIO%20EM%20PEDIATRIA.pdf",
       "sha256": "0ab589fff02191b8ea19eab310b1ff9025ff04df8977a83570f4722bbbc8194e",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 23
     },
     {
       "id": "infantil-pneumonia-em-pediatria",
@@ -665,6 +665,13 @@
     },
     {
       "id": 22,
+      "commit": "7e857a60626f56e38647829dacec669cb83b7f84",
+      "deploy": 39189146672,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 23,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",
