@@ -385,22 +385,22 @@
       "id": "infantil-aspiracao-de-corpo-estranho",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/ASPIRA%C3%87%C3%83O%20DE%20CORPO%20ESTRANHO.pdf",
       "sha256": "cffe373a674927a6b98a7641d488981da92b5aad68a18d672d030d729b037553",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 19
     },
     {
       "id": "infantil-choque-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/CHOQUE%20EM%20PEDIATRIA.pdf",
       "sha256": "9fd4876072620619416d0cd6787606100b6cac0480bae7d542eb8a2c93075c4b",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 19
     },
     {
       "id": "infantil-crises-convulsivas-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/CRISES%20CONVULSIVAS%20EM%20PEDIATRIA.pdf",
       "sha256": "f5ff90a9a8833224052821d99ee54bf0d7b03ad902e16b1e438e133ea3a9a9ba",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 19
     },
     {
       "id": "infantil-dermatoses-na-upa",
@@ -637,6 +637,13 @@
     },
     {
       "id": 18,
+      "commit": "018021ac5351eba8aaf1740e5095c2ed6e3fc6b6",
+      "deploy": 39094067802,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 19,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",

@@ -39,4 +39,4 @@ Fontes e SHA256:
 - https://saude.curitiba.pr.gov.br/images/DUE/URGENCIAS%20ODONTOLOGICAS.pdf — `c2e0a48f989099e547bb0a0b9f0861fb093680b7de0e506a10d28010c0c2516c`.
 - Comparação PERC: https://sinaiem.org/wp-content/uploads/2016/11/Kline-Prospective-multicenter-evaluation-of-PERC.pdf .
 
-Publicação: aguardando commit e confirmação efetiva do deploy; próximo lote bloqueado até sucesso e verificação dos arquivos publicados.
+Publicação confirmada: commit `018021ac5351eba8aaf1740e5095c2ed6e3fc6b6`, Actions `39094067802`, Publicar concluído com sucesso em18/10/2026 03:36:44Z. Verificação dos arquivos retomada em19/10/2026 após reconexão: index.html, review-batch-18.js, app.js e score-calculators.js idênticos byte a byte; version.json correto. Lote19 liberado somente após essa confirmação.
