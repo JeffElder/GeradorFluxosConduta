@@ -406,22 +406,22 @@
       "id": "infantil-dermatoses-na-upa",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DERMATOSES.pdf",
       "sha256": "f2d8ebe599556cb5af2f052d24e8a42e882a82da75a3df04c1ef9c712289001c",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 20
     },
     {
       "id": "infantil-diarreia-aguda-em-pediatria",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DIARREIA%20AGUDA%20EM%20PEDIATRIA.pdf",
       "sha256": "98efc4c793321c0242dfc8ef0890a353f2aa949eea15eb889b4a6c4de855d31a",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 20
     },
     {
       "id": "infantil-doencas-exantematicas",
       "source": "https://saude.curitiba.pr.gov.br/images/DUE/DOEN%C3%87AS%20EXANTEM%C3%81TICAS.pdf",
       "sha256": "f5b378c2c5b2db0950ed3c88711aa487aee417a5cf5ba4cef7b66750f4293589",
-      "status": "pendente-conferencia-individual",
-      "batch": null
+      "status": "conferencia-documental-com-pendencias",
+      "batch": 20
     },
     {
       "id": "infantil-dor-abdominal-em-pediatria-due",
@@ -644,6 +644,13 @@
     },
     {
       "id": 19,
+      "commit": "cf23aeb3226c15874b1b995ee141fcf394062155",
+      "deploy": 39186564687,
+      "conclusion": "success",
+      "publishedFilesMatch": true
+    },
+    {
+      "id": 20,
       "commit": null,
       "deploy": null,
       "conclusion": "aguardando-publicacao",

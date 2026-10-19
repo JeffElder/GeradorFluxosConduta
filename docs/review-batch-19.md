@@ -40,4 +40,4 @@ Fontes/SHA256:
 - https://saude.curitiba.pr.gov.br/images/DUE/CHOQUE%20EM%20PEDIATRIA.pdf — `9fd4876072620619416d0cd6787606100b6cac0480bae7d542eb8a2c93075c4b`.
 - https://saude.curitiba.pr.gov.br/images/DUE/CRISES%20CONVULSIVAS%20EM%20PEDIATRIA.pdf — `f5ff90a9a8833224052821d99ee54bf0d7b03ad902e16b1e438e133ea3a9a9ba`.
 
-Publicação: aguardando commit e confirmação efetiva do deploy; próximo lote bloqueado até sucesso e verificação dos arquivos publicados.
+Publicação confirmada: commit `cf23aeb3226c15874b1b995ee141fcf394062155`, Actions `39186564687`, Publicar concluído com sucesso em19/10/2026 01:45:20Z. index.html, review-batch-19.js e app.js idênticos byte a byte; version.json correto. Lote20 liberado somente após essa confirmação.
