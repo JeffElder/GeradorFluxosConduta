@@ -119,7 +119,7 @@ let psiAnswers={};
 let heartAnswers={};
 let scoreAnswers={};
 function stepScores(){return state.screen==='step'&&window.SCORE_CALCULATORS?window.SCORE_CALCULATORS.matches(state.protocol,protocols[state.protocol]?.nodes[state.node]||{}):[];}
-function updateScores(){const t=window.SCORE_CALCULATORS;if(!t)return;const root=$('#consultation');for(const key of stepScores()){const r=t.calculate(key,scoreAnswers[key]||{},state.node),out=root.querySelector('[data-score-result="'+key+'"]');if(out)out.innerHTML=t.resultHTML(key,r,esc);if(t.gated(key,state.node))root.querySelectorAll('[data-action="answer"]').forEach(el=>el.disabled=!t.allowed(key,state.node,scoreAnswers[key]||{},Number(el.dataset.value)));}}
+function updateScores(){const t=window.SCORE_CALCULATORS;if(!t)return;const root=$('#consultation');for(const key of stepScores()){const r=t.calculate(key,scoreAnswers[key]||{},state.node),out=root.querySelector('[data-score-result="'+key+'"]');if(out)out.innerHTML=t.resultHTML(key,r,esc);if(t.gated(key,state.node))root.querySelectorAll('[data-action="answer"]').forEach(el=>el.disabled=!t.allowed(key,state.node,scoreAnswers[key]||{},Number(el.dataset.value)));}syncRequiredAnswersNotice();}
 
 function isHEARTStep(){return state.protocol==='adulto-sindromes-coronarianas'&&['heart-risk','reassessment'].includes(state.node);}
 function updateHEART(){if(!isHEARTStep()||!window.HEART_CALCULATOR)return;const t=window.HEART_CALCULATOR,r=t.calculate(heartAnswers,state.node==='reassessment'),root=$('#consultation');const out=root.querySelector('#heart-result');if(out)out.innerHTML=t.resultHTML(r);root.querySelectorAll('[data-action="answer"]').forEach(el=>el.disabled=!r.complete||Number(el.dataset.value)!==r.answer);}
@@ -168,7 +168,7 @@ function updateIRISChoices(){
  const score=irisScore();const root=document.querySelector('#consultation');if(!root||!isIRISStep())return;
  const output=root.querySelector('#iris-result');if(output)output.textContent=score===null?'Pontuação: — · Preencha todos os itens':'Pontuação: '+score+' · '+(score<5?'Risco reduzido':score<10?'Risco intermediário':'Risco elevado');
  const buttons=root.querySelectorAll('[data-action="answer"]');
- buttons.forEach((b,i)=>{b.disabled=score===null||(i!==(score<5?0:score<10?1:2));b.title=b.disabled?'Complete a pontuação para selecionar a classificação correspondente':'Prosseguir com a classificação calculada';});
+ buttons.forEach((b,i)=>{b.disabled=score===null||(i!==(score<5?0:score<10?1:2));b.title=b.disabled?'Complete a pontuação para selecionar a classificação correspondente':'Prosseguir com a classificação calculada';});syncRequiredAnswersNotice();
 }
 function clinicalWarnings(p,n){
  const warnings=[...(n.warnings||[]),...(p.persistentWarnings||[]).filter(w=>state.actions.includes(w.from)&&n.id!==w.from).map(w=>w.warning)];
@@ -251,7 +251,7 @@ if(!catalog.length||!Object.keys(protocols).length){root.innerHTML=heading('CARR
    html+=`<div class="clinical-layout"><div class="clinical-main">${body}${stepWarnings}${animalPagePhoto(n)}${notesHTML(p,n)}</div></div>`;if(!n.incomplete)html+=referenceHTML(p);
   }root.innerHTML=html;
  }
- updateScores();if(isHEARTStep())updateHEART();if(isIRISStep())updateIRISChoices();if(isPSIStep())updatePSI();
+ updateScores();if(isHEARTStep())updateHEART();if(isIRISStep())updateIRISChoices();if(isPSIStep())updatePSI();syncRequiredAnswersNotice();
  if(focus){root.focus({preventScroll:true});window.scrollTo({top:0,behavior:'instant'});}
 }
 let libraryPop='todos',pausedConsultation=null;
