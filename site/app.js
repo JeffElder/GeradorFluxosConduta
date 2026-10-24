@@ -129,7 +129,7 @@ function updateHEART(){if(!isHEARTStep()||!window.HEART_CALCULATOR)return;const 
 // A regra de habilitação continua sendo a da respectiva calculadora.
 function syncRequiredAnswersNotice(){
  const root=document.querySelector('#consultation');
- if(!root)return;
+ if(!root||typeof root.querySelectorAll!=='function')return;
  let pending=false;
  if(isPSIStep()&&window.PSI_CALCULATOR){
   pending=!window.PSI_CALCULATOR.calculate(psiAnswers).complete;
