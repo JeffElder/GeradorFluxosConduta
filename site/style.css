@@ -79,3 +79,15 @@ main{padding-top:24px}.protocol-identity{margin-bottom:18px;padding-bottom:12px}
 @media(max-width:600px){.psi-fields{grid-template-columns:1fr}.initial-management dl>div{grid-template-columns:1fr;gap:2px}.initial-management{padding:12px}}
 
 .score-calculator{margin:22px 0;padding:18px;border:1px solid #c5d9df;background:#fff;border-radius:12px}.score-calculator .psi-result{margin-top:16px}.psi-calculator select{max-width:100%}.psi-calculator h3{margin-top:0}
+
+/* Aviso contextual para alternativas dependentes de campos obrigatórios. */
+.required-answers-notice {
+ margin: 12px 0 8px;
+ padding: 10px 14px;
+ border-left: 3px solid #b47713;
+ border-radius: 4px;
+ background: #fff8e8;
+ color: #654508;
+ font-size: 0.94rem;
+ line-height: 1.45;
+}
