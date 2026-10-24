@@ -122,7 +122,7 @@ function stepScores(){return state.screen==='step'&&window.SCORE_CALCULATORS?win
 function updateScores(){const t=window.SCORE_CALCULATORS;if(!t)return;const root=$('#consultation');for(const key of stepScores()){const r=t.calculate(key,scoreAnswers[key]||{},state.node),out=root.querySelector('[data-score-result="'+key+'"]');if(out)out.innerHTML=t.resultHTML(key,r,esc);if(t.gated(key,state.node))root.querySelectorAll('[data-action="answer"]').forEach(el=>el.disabled=!t.allowed(key,state.node,scoreAnswers[key]||{},Number(el.dataset.value)));}syncRequiredAnswersNotice();}
 
 function isHEARTStep(){return state.protocol==='adulto-sindromes-coronarianas'&&['heart-risk','reassessment'].includes(state.node);}
-function updateHEART(){if(!isHEARTStep()||!window.HEART_CALCULATOR)return;const t=window.HEART_CALCULATOR,r=t.calculate(heartAnswers,state.node==='reassessment'),root=$('#consultation');const out=root.querySelector('#heart-result');if(out)out.innerHTML=t.resultHTML(r);root.querySelectorAll('[data-action="answer"]').forEach(el=>el.disabled=!r.complete||Number(el.dataset.value)!==r.answer);}
+function updateHEART(){if(!isHEARTStep()||!window.HEART_CALCULATOR)return;const t=window.HEART_CALCULATOR,r=t.calculate(heartAnswers,state.node==='reassessment'),root=$('#consultation');const out=root.querySelector('#heart-result');if(out)out.innerHTML=t.resultHTML(r);root.querySelectorAll('[data-action="answer"]').forEach(el=>el.disabled=!r.complete||Number(el.dataset.value)!==r.answer);syncRequiredAnswersNotice();}
 
 
 // Exibe a orientação imediatamente acima das alternativas bloqueadas.
@@ -130,18 +130,29 @@ function updateHEART(){if(!isHEARTStep()||!window.HEART_CALCULATOR)return;const 
 function syncRequiredAnswersNotice(){
  const root=document.querySelector('#consultation');
  if(!root)return;
+ let pending=false;
+ if(isPSIStep()&&window.PSI_CALCULATOR){
+  pending=!window.PSI_CALCULATOR.calculate(psiAnswers).complete;
+ }else if(isHEARTStep()&&window.HEART_CALCULATOR){
+  pending=!window.HEART_CALCULATOR.calculate(heartAnswers,state.node==='reassessment').complete;
+ }else if(isIRISStep()){
+  pending=irisScore()===null;
+ }else if(window.SCORE_CALCULATORS){
+  const tool=window.SCORE_CALCULATORS;
+  pending=stepScores().some(key=>tool.gated(key,state.node)&&!tool.calculate(key,scoreAnswers[key]||{},state.node).complete);
+ }
  root.querySelectorAll('.required-answers-notice').forEach(el=>el.remove());
+ if(!pending)return;
  root.querySelectorAll('.answer-grid.clinical-answers').forEach(grid=>{
   const answers=[...grid.querySelectorAll('[data-action="answer"]')];
   if(!answers.length||!answers.some(button=>button.disabled))return;
   const message=document.createElement('p');
   message.className='required-answers-notice';
   message.setAttribute('role','status');
-  message.textContent='Responda primeiro às perguntas obrigatórias acima para liberar as opções abaixo.';
+  message.textContent='Responda primeiro às perguntas obrigatórias para liberar as opções.';
   grid.parentNode.insertBefore(message,grid);
  });
 }
-
 function isPSIStep(){return state.protocol==='adulto-pneumonia-no-adulto'&&state.node==='p1n19';}
 function updatePSI(){
  if(!isPSIStep()||!window.PSI_CALCULATOR)return;
