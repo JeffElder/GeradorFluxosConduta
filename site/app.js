@@ -124,6 +124,24 @@ function updateScores(){const t=window.SCORE_CALCULATORS;if(!t)return;const root
 function isHEARTStep(){return state.protocol==='adulto-sindromes-coronarianas'&&['heart-risk','reassessment'].includes(state.node);}
 function updateHEART(){if(!isHEARTStep()||!window.HEART_CALCULATOR)return;const t=window.HEART_CALCULATOR,r=t.calculate(heartAnswers,state.node==='reassessment'),root=$('#consultation');const out=root.querySelector('#heart-result');if(out)out.innerHTML=t.resultHTML(r);root.querySelectorAll('[data-action="answer"]').forEach(el=>el.disabled=!r.complete||Number(el.dataset.value)!==r.answer);}
 
+
+// Exibe a orientação imediatamente acima das alternativas bloqueadas.
+// A regra de habilitação continua sendo a da respectiva calculadora.
+function syncRequiredAnswersNotice(){
+ const root=document.querySelector('#consultation');
+ if(!root)return;
+ root.querySelectorAll('.required-answers-notice').forEach(el=>el.remove());
+ root.querySelectorAll('.answer-grid.clinical-answers').forEach(grid=>{
+  const answers=[...grid.querySelectorAll('[data-action="answer"]')];
+  if(!answers.length||!answers.some(button=>button.disabled))return;
+  const message=document.createElement('p');
+  message.className='required-answers-notice';
+  message.setAttribute('role','status');
+  message.textContent='Responda primeiro às perguntas obrigatórias acima para liberar as opções abaixo.';
+  grid.parentNode.insertBefore(message,grid);
+ });
+}
+
 function isPSIStep(){return state.protocol==='adulto-pneumonia-no-adulto'&&state.node==='p1n19';}
 function updatePSI(){
  if(!isPSIStep()||!window.PSI_CALCULATOR)return;
@@ -131,6 +149,7 @@ function updatePSI(){
  const output=root.querySelector('#psi-result');if(output)output.innerHTML=tool.resultHTML(r,esc);
  root.querySelectorAll('[data-psi-field]').forEach(el=>{el.hidden=!tool.required(el.dataset.psiField,psiAnswers);});
  root.querySelectorAll('[data-action="answer"]').forEach(el=>{el.disabled=!r.complete||Number(el.dataset.value)!==r.answer;});
+ syncRequiredAnswersNotice();
 }
 function isIRISStep(){return (state.protocol==='adulto-intoxicacoes-exogenas'&&state.node==='p1n30')||(state.protocol==='adulto-emergencias-psiquiatricas-em-gestantes'&&state.node==='ob-iris')||(state.protocol==='adulto-emergencias-psiquiatricas'&&state.node==='psy-risk');}
 function irisScore(){
